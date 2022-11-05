@@ -8,6 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Passenger",
+"language": "GDScript",
+"path": "res://Player/Passengers/passenger.gd"
+}, {
+"base": "Area2D",
+"class": "TooCloseSensibility",
+"language": "GDScript",
+"path": "res://Player/SanityEffects/too_close.gd"
+}, {
+"base": "Node2D",
+"class": "TooFastSensibility",
+"language": "GDScript",
+"path": "res://Player/SanityEffects/too_fast.gd"
+}, {
+"base": "Node2D",
+"class": "TooSlowSensibility",
+"language": "GDScript",
+"path": "res://Player/SanityEffects/too_slow.gd"
+} ]
+_global_script_class_icons={
+"Passenger": "",
+"TooCloseSensibility": "",
+"TooFastSensibility": "",
+"TooSlowSensibility": ""
+}
+
 [application]
 
 config/name="Drive me insane"
