@@ -32,8 +32,6 @@ func _ready():
     """Connect the car to the bounds of the track, receive a signal when (any) car
     collides with the bounds. Generate raycasts to measure the distance to the bounds.
     """
-    # Top Down Physics
-    set_gravity_scale(0.0)
     # Added steering_damp since it may not be obvious at first glance that
     # you can simply change angular_damp to get the same effect
     set_angular_damp(steering_damp)
