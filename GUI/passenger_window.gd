@@ -1,6 +1,5 @@
 extends MarginContainer
 
-var imgpath: String
 var insanity: int
 var timer: Timer
 # var text_timeout
@@ -11,8 +10,6 @@ onready var img = $NinePatchRect/TextureRect2
 
 func _ready():
     timer = Timer.new()
-    img.texture = load(imgpath)
-    update_insanity(insanity, "Let's get started!")
 
 func update_insanity(new_value, reason):
     bar.value = new_value
@@ -22,3 +19,7 @@ func update_insanity(new_value, reason):
 
 func clear_text():
     label.bbcode_text = ""
+
+
+func update_picture(imgpath):
+    img.texture = load(imgpath)
