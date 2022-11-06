@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
-[ext_resource path="res://Player/player_car.png" type="Texture" id=2]
+[ext_resource path="res://Player/car_one_white.png" type="Texture" id=2]
 [ext_resource path="res://Player/car.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -49,8 +49,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=14]
-radius = 14.2548
-height = 44.6001
+radius = 26.9998
+height = 188.0
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 1 )
@@ -60,8 +60,9 @@ rotation = 1.5708
 collision_mask = 2147483648
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="Car"]
-scale = Vector2( 0.16, 0.16 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 9, 0 )
+rotation = 3.14159
 texture = ExtResource( 2 )
 offset = Vector2( 8, 0 )
 
@@ -70,13 +71,14 @@ visible = false
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 13 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
-scale = Vector2( 0.48, 0.48 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 1, 0.48 )
 shape = SubResource( 14 )
 
-[node name="Camera2D" type="Camera2D" parent="Car"]
+[node name="Camera2D" type="Camera2D" parent="."]
+rotating = true
 current = true
-zoom = Vector2( 0.5, 0.5 )
 
 [node name="Label" type="Label" parent="Car"]
 margin_right = 40.0
