@@ -1,7 +1,8 @@
 class_name TooCloseSensibility
 extends Area2D
 
-signal inc_insanity(amt)
+signal inc_insanity(amt, reason)
+onready var player = get_node("/root/Background/CarPos/Player")
 
 var too_fast: int
 var insanity_effect: int
@@ -29,5 +30,5 @@ func _ready():
 func _on_body_entered(body:Node):
     if body.name == "Car":
         return # this needs to be solved with collision layers!!
-    if Player.get_current_kph() > too_fast:
-        emit_signal("inc_insanity", insanity_effect)
+    if player.get_current_kph() > too_fast:
+        emit_signal("inc_insanity", insanity_effect, "Too close!!")

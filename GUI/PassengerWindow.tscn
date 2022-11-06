@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GUI/energy_bar_fill.png" type="Texture" id=1]
 [ext_resource path="res://GUI/energy_bar_bg.png" type="Texture" id=2]
-[ext_resource path="res://GUI/character_one_happy.png" type="Texture" id=3]
+[ext_resource path="res://Player/Passengers/bob1.png" type="Texture" id=3]
+[ext_resource path="res://GUI/passenger_window.gd" type="Script" id=4]
 
-[node name="Bar" type="MarginContainer"]
+[node name="PassengerWindow" type="MarginContainer"]
 anchor_right = 0.233
 anchor_bottom = 0.297
+script = ExtResource( 4 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 margin_right = 238.0
@@ -32,3 +34,8 @@ margin_bottom = 118.022
 rect_min_size = Vector2( 2.5, 2.5 )
 texture = ExtResource( 3 )
 stretch_mode = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+margin_right = 238.0
+margin_bottom = 178.0
+bbcode_enabled = true

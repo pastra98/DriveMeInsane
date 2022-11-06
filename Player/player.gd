@@ -4,8 +4,9 @@ signal passenger_added(name, imgpath, insanity)
 
 
 func _ready():
-    add_passenger("Bob")
     connect("passenger_added", GuiManager, "add_passenger_window")
+    add_passenger("Bob")
+    pass
 
 
 func _physics_process(delta): # testing

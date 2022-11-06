@@ -1,21 +1,22 @@
 class_name Passenger
 extends Node2D
 
+signal new_insanity(amt, reason)
+
 var sensibilities: Array = []
 
 var insanity: int
 var passenger_name: String
-var image
-var start_insanity: int
+var imgpath
 
 func _init(pass_name: String):
     name = pass_name
     load_passenger_config(pass_name)
 
 
-func insanity_change(change_by):
-    insanity += change_by
-    print(insanity)
+func insanity_change(change_by, reason):
+    insanity = min(insanity + change_by, 100)
+    emit_signal("new_insanity", insanity, reason)
 
 
 func load_passenger_config(pass_name: String):
@@ -32,8 +33,7 @@ func load_passenger_config(pass_name: String):
 func set_passenger_basics(conf: ConfigFile):
     insanity = conf.get_value("Basics", "start_insanity")
     passenger_name = conf.get_value("Basics", "name")
-    image = conf.get_value("Basics", "image")
-    start_insanity = conf.get_value("Basics", "start_insanity")
+    imgpath = conf.get_value("Basics", "imgpath")
 
 
 func set_passenger_sensibilities(conf: ConfigFile):

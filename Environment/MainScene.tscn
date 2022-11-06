@@ -4,7 +4,7 @@
 [ext_resource path="res://Environment/grasslight-big.png" type="Texture" id=2]
 [ext_resource path="res://Environment/Obstacle.tscn" type="PackedScene" id=3]
 
-[node name="Sprite" type="Sprite"]
+[node name="Background" type="Sprite"]
 texture = ExtResource( 2 )
 
 [node name="CarPos" type="Position2D" parent="."]
@@ -16,8 +16,8 @@ texture = ExtResource( 2 )
 [node name="KinematicBody2D" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( 128, 51 )
 
-[node name="KinematicBody2D" parent="Obstacles/KinematicBody2D" instance=ExtResource( 3 )]
-position = Vector2( 27, -129 )
+[node name="KinematicBody2D2" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 155, -78 )
 
-[node name="KinematicBody2D2" parent="Obstacles/KinematicBody2D" instance=ExtResource( 3 )]
-position = Vector2( 114, -19 )
+[node name="KinematicBody2D3" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 242, 32 )
