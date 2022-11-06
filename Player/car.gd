@@ -22,9 +22,6 @@ var _angular_velocity = 0
 # vehicle forward speed
 var speed: int
 
-# organize differently later
-var passengers: Node2D
-
 # gets emitted when the car crashes
 signal player_crashed(name)
 
@@ -35,8 +32,7 @@ func _ready():
     # Added steering_damp since it may not be obvious at first glance that
     # you can simply change angular_damp to get the same effect
     set_angular_damp(steering_damp)
-    # TODO: this will need to be organized differently
-    passengers = $Passengers
+    $PassengerManager
 
 
 func _physics_process(delta):
@@ -76,8 +72,6 @@ func _physics_process(delta):
     elif Input.is_action_pressed("ui_left"):
         set_angular_velocity(-torque * sign(speed))
     # Apply the force
-    $Label.text = str(_velocity)
-
     set_linear_velocity(_velocity)
     
     
@@ -90,6 +84,7 @@ func get_up_velocity() -> Vector2:
 func get_right_velocity() -> Vector2:
     # Returns the vehicle's sidewards velocity
     return -transform.x * _velocity.dot(-transform.x)
+
 
 func crash(body) -> void:
     """Check if the body that collided with the bounds is self. If so, show an explosion
@@ -106,3 +101,4 @@ func crash(body) -> void:
 
 func _on_Explosion_animation_finished() -> void:
     $Explosion.stop(); $Explosion.hide()
+
