@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Drive me insane"
-run/main_scene="res://Environment/TileMap.tscn"
+run/main_scene="res://Environment/Level.tscn"
 config/icon="res://icon.png"
 
 [autoload]

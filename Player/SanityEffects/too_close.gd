@@ -2,7 +2,7 @@ class_name TooCloseSensibility
 extends Area2D
 
 signal inc_insanity(amt, reason)
-onready var player = get_node("/root/Background/CarPos/Player")
+onready var player = $"/root/Level/Player"
 
 var too_fast: int
 var insanity_effect: int

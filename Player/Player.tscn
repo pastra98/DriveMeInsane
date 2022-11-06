@@ -60,30 +60,30 @@ rotation = 1.5708
 collision_mask = 2147483648
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 9, 0 )
-rotation = 3.14159
-texture = ExtResource( 2 )
-offset = Vector2( 8, 0 )
-
 [node name="Explosion" type="AnimatedSprite" parent="Car"]
 visible = false
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 13 )
-
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2( 1, 0.48 )
-shape = SubResource( 14 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-rotating = true
-current = true
 
 [node name="Label" type="Label" parent="Car"]
 margin_right = 40.0
 margin_bottom = 14.0
 
 [node name="PassengerManager" type="Node2D" parent="Car"]
+
+[node name="Sprite" type="Sprite" parent="Car"]
+position = Vector2( 9, 0 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+offset = Vector2( 8, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
+rotation = 3.14159
+scale = Vector2( 1, 0.48 )
+shape = SubResource( 14 )
+
+[node name="Camera2D" type="Camera2D" parent="Car"]
+rotating = true
+current = true
 
 [connection signal="animation_finished" from="Car/Explosion" to="Car" method="_on_Explosion_animation_finished"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Environment/city_sprite (4).png" type="Texture" id=1]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Environment/city_sprite (4).png" type="Texture" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -68,7 +68,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="TileSet" id=1]
 0/name = "city_sprite (4).png 0"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 352, 32, 64, 64 )
@@ -82,7 +82,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 0/shapes = [  ]
 0/z_index = 0
 1/name = "city_sprite (4).png 1"
-1/texture = ExtResource( 1 )
+1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 352, 128, 64, 64 )
@@ -96,7 +96,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 1/shapes = [  ]
 1/z_index = 0
 2/name = "city_sprite (4).png 2"
-2/texture = ExtResource( 1 )
+2/texture = ExtResource( 2 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 352, 224, 64, 64 )
@@ -110,7 +110,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 2/shapes = [  ]
 2/z_index = 0
 3/name = "city_sprite (4).png 3"
-3/texture = ExtResource( 1 )
+3/texture = ExtResource( 2 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 352, 320, 64, 64 )
@@ -124,7 +124,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 3/shapes = [  ]
 3/z_index = 0
 4/name = "city_sprite (4).png 4"
-4/texture = ExtResource( 1 )
+4/texture = ExtResource( 2 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 352, 416, 64, 64 )
@@ -138,7 +138,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 4/shapes = [  ]
 4/z_index = 0
 5/name = "city_sprite (4).png 5"
-5/texture = ExtResource( 1 )
+5/texture = ExtResource( 2 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 352, 512, 64, 64 )
@@ -152,7 +152,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 5/shapes = [  ]
 5/z_index = 0
 6/name = "city_sprite (4).png 6"
-6/texture = ExtResource( 1 )
+6/texture = ExtResource( 2 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 352, 608, 64, 64 )
@@ -166,7 +166,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 6/shapes = [  ]
 6/z_index = 0
 7/name = "city_sprite (4).png 7"
-7/texture = ExtResource( 1 )
+7/texture = ExtResource( 2 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 352, 704, 64, 64 )
@@ -187,7 +187,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 7/z_index = 0
 8/name = "city_sprite (4).png 8"
-8/texture = ExtResource( 1 )
+8/texture = ExtResource( 2 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 352, 800, 64, 64 )
@@ -208,7 +208,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 8/z_index = 0
 9/name = "city_sprite (4).png 9"
-9/texture = ExtResource( 1 )
+9/texture = ExtResource( 2 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 352, 896, 64, 64 )
@@ -229,7 +229,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 9/z_index = 0
 10/name = "city_sprite (4).png 10"
-10/texture = ExtResource( 1 )
+10/texture = ExtResource( 2 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 352, 992, 64, 64 )
@@ -250,7 +250,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 10/z_index = 0
 11/name = "city_sprite (4).png 11"
-11/texture = ExtResource( 1 )
+11/texture = ExtResource( 2 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 352, 1088, 64, 64 )
@@ -271,7 +271,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 11/z_index = 0
 12/name = "city_sprite (4).png 12"
-12/texture = ExtResource( 1 )
+12/texture = ExtResource( 2 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 432, 32, 256, 192 )
@@ -292,7 +292,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 12/z_index = 0
 13/name = "city_sprite (4).png 13"
-13/texture = ExtResource( 1 )
+13/texture = ExtResource( 2 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 432, 224, 320, 192 )
@@ -313,7 +313,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 13/z_index = 0
 14/name = "city_sprite (4).png 14"
-14/texture = ExtResource( 1 )
+14/texture = ExtResource( 2 )
 14/tex_offset = Vector2( 0, 0 )
 14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 432, 416, 64, 256 )
@@ -327,7 +327,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 14/shapes = [  ]
 14/z_index = 0
 15/name = "city_sprite (4).png 15"
-15/texture = ExtResource( 1 )
+15/texture = ExtResource( 2 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 496, 416, 64, 256 )
@@ -341,7 +341,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 15/shapes = [  ]
 15/z_index = 0
 16/name = "city_sprite (4).png 16"
-16/texture = ExtResource( 1 )
+16/texture = ExtResource( 2 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 272, 464, 32, 32 )
@@ -362,7 +362,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 16/z_index = 0
 17/name = "city_sprite (4).png 17"
-17/texture = ExtResource( 1 )
+17/texture = ExtResource( 2 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 272, 512, 32, 32 )
@@ -383,7 +383,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 17/z_index = 0
 18/name = "city_sprite (4).png 18"
-18/texture = ExtResource( 1 )
+18/texture = ExtResource( 2 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 352, 1184, 64, 64 )
@@ -397,7 +397,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 18/shapes = [  ]
 18/z_index = 0
 19/name = "city_sprite (4).png 19"
-19/texture = ExtResource( 1 )
+19/texture = ExtResource( 2 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 176, 464, 32, 32 )
@@ -418,7 +418,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 19/z_index = 0
 20/name = "city_sprite (4).png 20"
-20/texture = ExtResource( 1 )
+20/texture = ExtResource( 2 )
 20/tex_offset = Vector2( 0, 0 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 224, 464, 32, 32 )
@@ -439,7 +439,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 20/z_index = 0
 21/name = "city_sprite (4).png 21"
-21/texture = ExtResource( 1 )
+21/texture = ExtResource( 2 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 224, 512, 32, 32 )
@@ -460,7 +460,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 21/z_index = 0
 22/name = "city_sprite (4).png 22"
-22/texture = ExtResource( 1 )
+22/texture = ExtResource( 2 )
 22/tex_offset = Vector2( 0, 0 )
 22/modulate = Color( 1, 1, 1, 1 )
 22/region = Rect2( 176, 512, 32, 32 )
@@ -481,7 +481,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 22/z_index = 0
 23/name = "city_sprite (4).png 23"
-23/texture = ExtResource( 1 )
+23/texture = ExtResource( 2 )
 23/tex_offset = Vector2( 0, 0 )
 23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 224, 560, 32, 32 )
@@ -502,7 +502,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 23/z_index = 0
 24/name = "city_sprite (4).png 24"
-24/texture = ExtResource( 1 )
+24/texture = ExtResource( 2 )
 24/tex_offset = Vector2( 0, 0 )
 24/modulate = Color( 1, 1, 1, 1 )
 24/region = Rect2( 272, 560, 32, 32 )
@@ -523,7 +523,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 24/z_index = 0
 25/name = "city_sprite (4).png 25"
-25/texture = ExtResource( 1 )
+25/texture = ExtResource( 2 )
 25/tex_offset = Vector2( 0, 0 )
 25/modulate = Color( 1, 1, 1, 1 )
 25/region = Rect2( 32, 464, 32, 64 )
@@ -544,7 +544,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 25/z_index = 0
 26/name = "city_sprite (4).png 26"
-26/texture = ExtResource( 1 )
+26/texture = ExtResource( 2 )
 26/tex_offset = Vector2( 0, 0 )
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 80, 464, 32, 64 )
@@ -565,7 +565,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 26/z_index = 0
 27/name = "city_sprite (4).png 27"
-27/texture = ExtResource( 1 )
+27/texture = ExtResource( 2 )
 27/tex_offset = Vector2( 0, 0 )
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 128, 464, 32, 64 )
@@ -586,7 +586,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 27/z_index = 0
 28/name = "city_sprite (4).png 28"
-28/texture = ExtResource( 1 )
+28/texture = ExtResource( 2 )
 28/tex_offset = Vector2( 0, 0 )
 28/modulate = Color( 1, 1, 1, 1 )
 28/region = Rect2( 32, 544, 32, 64 )
@@ -607,7 +607,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 28/z_index = 0
 29/name = "city_sprite (4).png 29"
-29/texture = ExtResource( 1 )
+29/texture = ExtResource( 2 )
 29/tex_offset = Vector2( 0, 0 )
 29/modulate = Color( 1, 1, 1, 1 )
 29/region = Rect2( 80, 544, 32, 64 )
@@ -628,7 +628,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 29/z_index = 0
 30/name = "city_sprite (4).png 30"
-30/texture = ExtResource( 1 )
+30/texture = ExtResource( 2 )
 30/tex_offset = Vector2( 0, 0 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 128, 544, 32, 64 )
@@ -649,7 +649,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 30/z_index = 0
 
-[node name="Node" type="Node"]
+[node name="Level" type="Node"]
 
 [node name="layer1" type="TileMap" parent="."]
 position = Vector2( -1088, 640 )
@@ -668,5 +668,5 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -266, 49 )
