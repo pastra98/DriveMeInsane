@@ -46,6 +46,12 @@ config/icon="res://icon.png"
 
 GuiManager="*res://GUI/GuiManager.tscn"
 
+[global]
+
+editor=false
+extern=false
+external=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

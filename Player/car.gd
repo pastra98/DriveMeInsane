@@ -32,6 +32,8 @@ func _ready():
     # Added steering_damp since it may not be obvious at first glance that
     # you can simply change angular_damp to get the same effect
     set_angular_damp(steering_damp)
+    set_contact_monitor(true)
+    set_max_contacts_reported(3)
     $PassengerManager
 
 
@@ -73,8 +75,7 @@ func _physics_process(delta):
         set_angular_velocity(-torque * sign(speed))
     # Apply the force
     set_linear_velocity(_velocity)
-    
-    
+
 
 func get_up_velocity() -> Vector2:
     # Returns the vehicle's forward velocity
@@ -102,3 +103,7 @@ func crash(body) -> void:
 func _on_Explosion_animation_finished() -> void:
     $Explosion.stop(); $Explosion.hide()
 
+#func handle_collision():
+
+func _on_Car_body_entered(body:Node):
+	$SoundExplosion.play() 
