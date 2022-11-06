@@ -66,8 +66,9 @@ scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 13 )
 
 [node name="Label" type="Label" parent="Car"]
+margin_top = -103.0
 margin_right = 40.0
-margin_bottom = 14.0
+margin_bottom = -72.0
 
 [node name="PassengerManager" type="Node2D" parent="Car"]
 
@@ -83,7 +84,7 @@ scale = Vector2( 1, 0.48 )
 shape = SubResource( 14 )
 
 [node name="Camera2D" type="Camera2D" parent="Car"]
-rotating = true
+rotation = -1.5708
 current = true
 
 [connection signal="animation_finished" from="Car/Explosion" to="Car" method="_on_Explosion_animation_finished"]

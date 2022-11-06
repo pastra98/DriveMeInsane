@@ -2,12 +2,14 @@ class_name Passenger
 extends Node2D
 
 signal new_insanity(amt, reason)
+signal new_picture(imgpath)
 
 var sensibilities: Array = []
 
 var insanity: int
 var passenger_name: String
-var imgpath
+var imgpath: String
+var insanity_levels = [40, 80]
 
 func _init(pass_name: String):
     name = pass_name
@@ -17,6 +19,12 @@ func _init(pass_name: String):
 func insanity_change(change_by, reason):
     insanity = min(insanity + change_by, 100)
     emit_signal("new_insanity", insanity, reason)
+    if insanity > insanity_levels[1]:
+        emit_signal("new_picture", imgpath % 3)
+    elif insanity > insanity_levels[0]:
+        emit_signal("new_picture", imgpath % 2)
+    else:
+        emit_signal("new_picture", imgpath % 1)
 
 
 func load_passenger_config(pass_name: String):
