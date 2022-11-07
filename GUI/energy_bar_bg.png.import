@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/energy_bar_bg.png-ec65569036f065d1f163c35b80ad3a2e.stex"
+path="res://.import/energy_bar_bg.png-182c31134286a85ae285dcf7f959e4c4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/energy_bar_bg.png"
-dest_files=[ "res://.import/energy_bar_bg.png-ec65569036f065d1f163c35b80ad3a2e.stex" ]
+source_file="res://Gui/energy_bar_bg.png"
+dest_files=[ "res://.import/energy_bar_bg.png-182c31134286a85ae285dcf7f959e4c4.stex" ]
 
 [params]
 
