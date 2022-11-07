@@ -1,6 +1,7 @@
 extends Node2D
 
 signal passenger_added(name, imgpath, insanity)
+const LV_TO_KPH: float = 0.1 # see google drive doc for how this value was derived
 
 
 func _ready():
@@ -14,7 +15,7 @@ func _physics_process(delta): # testing
 
 
 func get_current_kph() -> float:
-    return $Car.linear_velocity.length() / 20
+    return $Car.linear_velocity.length() * LV_TO_KPH
 
 
 func add_passenger(passenger_name: String):

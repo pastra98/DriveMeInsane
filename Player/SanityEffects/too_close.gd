@@ -8,7 +8,7 @@ var too_fast: int
 var insanity_effect: int
 var coll_size_mult: float
 
-var coll_shape: CollisionShape2D
+var collider: CollisionShape2D
 
 
 func _init(speed_tol: int, insanity_eff: int, coll_s_mult: float):
@@ -19,13 +19,14 @@ func _init(speed_tol: int, insanity_eff: int, coll_s_mult: float):
     name = "TooClose"
 
 func _ready():
-    var capsule = CapsuleShape2D.new()
-    capsule.radius = 10 * coll_size_mult
-    capsule.height = 20 * coll_size_mult
-    coll_shape = CollisionShape2D.new()
-    coll_shape.shape = capsule
-    coll_shape.name = "CollisionShape2D"
-    add_child(coll_shape)
+    # if the collider needs to be visualized, this can be enabled in the debug menu
+    var capsule_shape = CapsuleShape2D.new()
+    capsule_shape.height = 20 * coll_size_mult
+    capsule_shape.radius = 10 * coll_size_mult
+    collider = CollisionShape2D.new()
+    collider.shape = capsule_shape
+    collider.name = "TooCloseCollider"
+    add_child(collider)
 
 func _on_body_entered(body:Node):
     if body.name == "Car":

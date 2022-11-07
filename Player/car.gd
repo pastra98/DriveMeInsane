@@ -1,79 +1,66 @@
 extends RigidBody2D
 
 # Driving Properties
-var acceleration = 15
-var max_forward_velocity = 1000
-var drag_coefficient = 0.99 # Recommended: 0.99 - Affects how fast you slow down
-var steering_torque = 15 # Affects turning speed
-var steering_damp = 8 # 7 - Affects how fast the torque slows down
+const ACCELERATION = 5
+const MAX_FORWARD_VELOCITY = 900
+const DRAG_COEFFICIENT = 0.995 # Recommended: 0.99 - Affects how fast you slow down
+const STEERING_TORQUE = 10 # Affects turning speed
+const STEERING_DAMP = 8 # 7 - Affects how fast the torque slows down
 
 # Drifting & Tire Friction
 var can_drift = true
-var wheel_grip_sticky = 0.85 # Default drift coef (will stick to road, most of the time)
-var wheel_grip_slippery = 0.99 # Affects how much you "slide"
-var drift_extremum = 250 # Right velocity higher than this will cause you to slide
-var drift_asymptote = 20 # During a slide you need to reduce right velocity to this to gain control
-var _drift_factor = wheel_grip_sticky # Determines how much (or little) your vehicle drifts
+var _drift_factor = WHEEL_GRIP_STICKY # Determines how much (or little) your vehicle drifts
+const WHEEL_GRIP_STICKY = 0.85 # Default drift coef (will stick to road, most of the time)
+const WHEEL_GRIP_SLIPPERY = 0.99 # Affects how much you "slide"
+const DRIFT_EXTREMUM = 250 # Right velocity higher than this will cause you to slide
+const DRIFT_ASYMPTOTE = 20 # During a slide you need to reduce right velocity to this to gain control
 
 # Vehicle velocity and angular velocity. Override rigidbody velocity in physics process
 var _velocity = Vector2()
 var _angular_velocity = 0
 
-# vehicle forward speed
-var speed: int
-
-# gets emitted when the car crashes
-signal player_crashed(name)
 
 func _ready():
-    """Connect the car to the bounds of the track, receive a signal when (any) car
-    collides with the bounds. Generate raycasts to measure the distance to the bounds.
     """
-    # Added steering_damp since it may not be obvious at first glance that
-    # you can simply change angular_damp to get the same effect
-    set_angular_damp(steering_damp)
-    $PassengerManager
+    """
+    angular_damp = STEERING_DAMP
 
 
-func _physics_process(delta):
-    """This script overrides the behavior of a rigidbody (Not my idea, but it works).
+func _integrate_forces(state):
     """
-    # make sure that sensory information gets updated every 0.2 seconds
-    # Update the forward speed
-    speed = -get_up_velocity().dot(transform.y)
+    """
     # use our own drag
-    _velocity *= drag_coefficient
+    _velocity *= DRAG_COEFFICIENT
     if can_drift:
         # If we are sticking to the road and our right velocity is high enough
-        if _drift_factor == wheel_grip_sticky and get_right_velocity().length() > drift_extremum:
-            _drift_factor = wheel_grip_slippery
+        if _drift_factor == WHEEL_GRIP_STICKY and get_right_velocity().length() > DRIFT_EXTREMUM:
+            _drift_factor = WHEEL_GRIP_SLIPPERY
         # If we are sliding on the road
-        elif get_right_velocity().length() < drift_asymptote:
-            _drift_factor = wheel_grip_sticky
+        elif get_right_velocity().length() < DRIFT_ASYMPTOTE:
+            _drift_factor = WHEEL_GRIP_STICKY
     # Add drift to velocity
     _velocity = get_up_velocity() + (get_right_velocity() * _drift_factor)
     # Accelerate
     if Input.is_action_pressed("ui_up"):
-        _velocity += -transform.y * acceleration
+        _velocity += -transform.y * ACCELERATION
     # Break / Reverse
     elif Input.is_action_pressed("ui_down"):
-        _velocity -= -transform.y * acceleration
+        _velocity -= -transform.y * ACCELERATION
     # Prevent exceeding max velocity
-    var max_speed = (Vector2(0, -1) * max_forward_velocity).rotated(get_rotation())
+    var max_speed = (Vector2(0, -1) * MAX_FORWARD_VELOCITY).rotated(get_rotation())
     var x = clamp(_velocity.x, -abs(max_speed.x), abs(max_speed.x))
     var y = clamp(_velocity.y, -abs(max_speed.y), abs(max_speed.y))
     _velocity = Vector2(x, y)
     # Torque depends that the vehicle is moving
-    var torque = lerp(0, steering_torque, _velocity.length() / max_forward_velocity)
+    var torque = lerp(0, STEERING_TORQUE, _velocity.length() / MAX_FORWARD_VELOCITY)
     # Steer Right
     if Input.is_action_pressed("ui_right"):
-        set_angular_velocity(torque * sign(speed))
+        state.angular_velocity = torque
     # Steer Left
     elif Input.is_action_pressed("ui_left"):
-        set_angular_velocity(-torque * sign(speed))
+        state.angular_velocity = -torque
     # Apply the force
-    set_linear_velocity(_velocity)
-    
+    state.linear_velocity = _velocity
     
 
 func get_up_velocity() -> Vector2:
@@ -87,18 +74,12 @@ func get_right_velocity() -> Vector2:
 
 
 func crash(body) -> void:
-    """Check if the body that collided with the bounds is self. If so, show an explosion
-    and emit the death signal, causing the fitness to be evaluated by the ga node.
-    JUSTIFICATION: Using a signal from the track and then checking every car if it was the
-    one that crashed is apparently a lot more efficient than providing every car with
-    it's own collider.
     """
-    if body == self:
-        $Explosion.show(); $Explosion.play()
-        $Sprite.hide()
-        emit_signal("player_crashed", "The Player")
+    """
+    $Explosion.show() # old code from prev project
+    $Explosion.play()
+    $Sprite.hide()
 
 
 func _on_Explosion_animation_finished() -> void:
     $Explosion.stop(); $Explosion.hide()
-
