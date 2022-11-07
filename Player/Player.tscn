@@ -69,6 +69,7 @@ frames = SubResource( 13 )
 margin_top = -103.0
 margin_right = 40.0
 margin_bottom = -72.0
+rect_scale = Vector2( 3, 3 )
 
 [node name="PassengerManager" type="Node2D" parent="Car"]
 

@@ -10,11 +10,11 @@ func _ready():
 
 
 func _physics_process(delta): # testing
-    $Car/Label.text = str(get_current_kph())
+    $Car/Label.text = str(int(get_current_kph()))
 
 
 func get_current_kph() -> float:
-    return $Car.linear_velocity.length() / 5
+    return $Car.linear_velocity.length() / 20
 
 
 func add_passenger(passenger_name: String):
