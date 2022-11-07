@@ -1,10 +1,10 @@
 extends RigidBody2D
 
 # Driving Properties
-var acceleration = 15
-var max_forward_velocity = 1000
-var drag_coefficient = 0.99 # Recommended: 0.99 - Affects how fast you slow down
-var steering_torque = 15 # Affects turning speed
+var acceleration = 5
+var max_forward_velocity = 900
+var drag_coefficient = 0.995 # Recommended: 0.99 - Affects how fast you slow down
+var steering_torque = 10 # Affects turning speed
 var steering_damp = 8 # 7 - Affects how fast the torque slows down
 
 # Drifting & Tire Friction
@@ -26,19 +26,16 @@ var speed: int
 signal player_crashed(name)
 
 func _ready():
-    """Connect the car to the bounds of the track, receive a signal when (any) car
-    collides with the bounds. Generate raycasts to measure the distance to the bounds.
+    """
     """
     # Added steering_damp since it may not be obvious at first glance that
     # you can simply change angular_damp to get the same effect
     set_angular_damp(steering_damp)
-    $PassengerManager
 
 
-func _physics_process(delta):
-    """This script overrides the behavior of a rigidbody (Not my idea, but it works).
+func _integrate_forces(state):
     """
-    # make sure that sensory information gets updated every 0.2 seconds
+    """
     # Update the forward speed
     speed = -get_up_velocity().dot(transform.y)
     # use our own drag
@@ -73,6 +70,7 @@ func _physics_process(delta):
         set_angular_velocity(-torque * sign(speed))
     # Apply the force
     set_linear_velocity(_velocity)
+    update() # update canvas item
     
     
 
@@ -102,3 +100,11 @@ func crash(body) -> void:
 func _on_Explosion_animation_finished() -> void:
     $Explosion.stop(); $Explosion.hide()
 
+
+func _draw():
+    draw_line(Vector2(0,0), transform.basis_xform_inv(_velocity), Color.blue, 10)
+    draw_line(Vector2(0,0), _velocity, Color.pink, 10)
+    # draw_line(Vector2(0,0), get_up_velocity(), Color.green, 10)
+    # draw_line(Vector2(0,0), get_right_velocity()*10, Color.blue, 10)
+    draw_line(Vector2(0,0), -transform.x*100, Color.red, 10)
+    draw_line(Vector2(0,0), -transform.y*100, Color.green, 10)
