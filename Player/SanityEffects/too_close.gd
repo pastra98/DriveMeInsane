@@ -19,6 +19,7 @@ func _init(speed_tol: int, insanity_eff: int, coll_s_mult: float):
     name = "TooClose"
 
 func _ready():
+    # if the collider needs to be visualized, this can be enabled in the debug menu
     var capsule_shape = CapsuleShape2D.new()
     capsule_shape.height = 20 * coll_size_mult
     capsule_shape.radius = 10 * coll_size_mult
