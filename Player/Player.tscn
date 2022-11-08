@@ -53,8 +53,8 @@ radius = 27.0
 height = 175.0
 
 [sub_resource type="CapsuleShape2D" id=15]
-radius = 29.2
-height = 190.4
+radius = 26.2
+height = 183.6
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 1 )
@@ -92,7 +92,7 @@ shape = SubResource( 14 )
 [node name="CollisionDetector" type="Area2D" parent="Car"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Car/CollisionDetector"]
-position = Vector2( 0.8, -2.8 )
+position = Vector2( 1, -5 )
 scale = Vector2( 1, 0.5 )
 shape = SubResource( 15 )
 
