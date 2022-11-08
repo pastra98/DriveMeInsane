@@ -1,6 +1,6 @@
 extends Node2D
 
-signal passenger_added(name, imgpath, insanity)
+signal passenger_added(passenger_ref)
 signal new_player_health(health_lvl)
 signal player_dead
 
@@ -14,25 +14,20 @@ var health = 100
 func _ready():
     connect("passenger_added", GuiManager, "add_passenger_window")
     add_passenger("Bob")
-    pass
 
 
 func _physics_process(delta): # testing
-    $Car/Label.text = str(int(get_current_kph()))
+    $Car/Label.text = str(get_current_kph())
 
 
-func get_current_kph() -> float:
-    return $Car.linear_velocity.length() * LV_TO_KPH
+func get_current_kph() -> int:
+    return int($Car.linear_velocity.length() * LV_TO_KPH)
 
 
 func add_passenger(passenger_name: String):
     var new_passenger = Passenger.new(passenger_name)
     $Car/PassengerManager.add_child(new_passenger)
-    emit_signal(
-        "passenger_added",
-        "res://Player/Passengers/%s.png" % passenger_name,
-        new_passenger
-        )
+    emit_signal("passenger_added", new_passenger)
 
 
 func _on_CollisionDetector_body_entered(body:Node):
