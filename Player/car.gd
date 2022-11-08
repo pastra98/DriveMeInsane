@@ -3,7 +3,7 @@ extends RigidBody2D
 # Driving Properties
 const ACCELERATION = 5
 const MAX_FORWARD_VELOCITY = 900
-const DRAG_COEFFICIENT = 0.995 # Recommended: 0.99 - Affects how fast you slow down
+const DRAG_COEFFICIENT = 0.999 # Recommended: 0.99 - Affects how fast you slow down
 const STEERING_TORQUE = 10 # Affects turning speed
 const STEERING_DAMP = 8 # 7 - Affects how fast the torque slows down
 
