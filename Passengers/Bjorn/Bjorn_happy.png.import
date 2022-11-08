@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/health_bar_fill.png-6c8edd4357f80f1dffcd692f445e212f.stex"
+path="res://.import/Bjorn_happy.png-64cfa15b44794447e8a436fe2135cbf0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gui/PlayerStatus/health_bar_fill.png"
-dest_files=[ "res://.import/health_bar_fill.png-6c8edd4357f80f1dffcd692f445e212f.stex" ]
+source_file="res://Passengers/Bjorn/Bjorn_happy.png"
+dest_files=[ "res://.import/Bjorn_happy.png-64cfa15b44794447e8a436fe2135cbf0.stex" ]
 
 [params]
 

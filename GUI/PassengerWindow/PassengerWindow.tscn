@@ -20,9 +20,8 @@ margin_left = 9.0
 margin_top = 132.0
 margin_right = 257.0
 margin_bottom = 172.0
-value = 50.0
 texture_under = ExtResource( 2 )
-texture_over = ExtResource( 1 )
+texture_progress = ExtResource( 1 )
 stretch_margin_bottom = 23
 
 [node name="PassengerPic" type="TextureRect" parent="NinePatchRect"]

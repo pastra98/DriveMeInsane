@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/health_bar_fill.png-6c8edd4357f80f1dffcd692f445e212f.stex"
+path="res://.import/martha_unhappy.png-91bd4632c781b59e354d398ba0b13b01.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gui/PlayerStatus/health_bar_fill.png"
-dest_files=[ "res://.import/health_bar_fill.png-6c8edd4357f80f1dffcd692f445e212f.stex" ]
+source_file="res://Passengers/martha/martha_unhappy.png"
+dest_files=[ "res://.import/martha_unhappy.png-91bd4632c781b59e354d398ba0b13b01.stex" ]
 
 [params]
 

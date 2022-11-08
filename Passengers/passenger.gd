@@ -20,11 +20,11 @@ func insanity_change(change_by, reason):
     insanity = min(insanity + change_by, 100)
     emit_signal("new_insanity", insanity, reason)
     if insanity > insanity_levels[1]:
-        emit_signal("new_picture", imgpath % 3)
+        emit_signal("new_picture", imgpath % "angry")
     elif insanity > insanity_levels[0]:
-        emit_signal("new_picture", imgpath % 2)
+        emit_signal("new_picture", imgpath % "unhappy")
     else:
-        emit_signal("new_picture", imgpath % 1)
+        emit_signal("new_picture", imgpath % "happy")
 
 
 func load_passenger_config(pass_name: String):
