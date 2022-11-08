@@ -1,7 +1,14 @@
 extends Node2D
 
 signal passenger_added(name, imgpath, insanity)
-const LV_TO_KPH: float = 0.1 # see google drive doc for how this value was derived
+signal new_player_health(health_lvl)
+signal player_dead
+
+const LV_TO_KPH = 0.1 # see google drive doc for how this value was derived
+# initially wanted to make this an exponential func, but couldn't find good parameters. check gdrive for ggb file
+const DAMAGE_LEVELS = {5:0, 15:10, 20:15, 25:20, 30:30, 35:40, 40:50, 45:60, 50:75, 55:85, 60:100}
+
+var health = 100
 
 
 func _ready():
@@ -27,4 +34,25 @@ func add_passenger(passenger_name: String):
         new_passenger
         )
 
-# andere idee: ich schicke hier eine reference zu passenger mit. diese wird im gui manager nur verwendet um eine connection vom passenger zum guiPassengerWindow zu machen. Die connection wird also durchs gui gemacht. danach wird die reference nie wieder verwendet.
+
+func _on_CollisionDetector_body_entered(body:Node):
+    # this is kind of stupid, I'd rather have a continuous exponential func
+    if body.is_in_group("static_env"):
+        var curr_speed = get_current_kph()
+        var lvl_start = 0
+        for speed in DAMAGE_LEVELS.keys():
+            if curr_speed <= speed and curr_speed > lvl_start:
+                print("speed: %s, damage: %s" % [curr_speed, DAMAGE_LEVELS[speed]])
+                take_damage(DAMAGE_LEVELS[speed])
+                return
+            else:
+                lvl_start = speed
+
+
+func take_damage(damage):
+    health = max(0, health - damage)
+    emit_signal("new_player_health", health)
+    # play sounds and animations depending on damage level here
+    if health == 0:
+        emit_signal("player_dead")
+    
