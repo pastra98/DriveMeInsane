@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bob2.png-ce91ebe6fff51cda15fa541f506e0d58.stex"
+path="res://.import/bob2.png-39a59eb16bd88640875b6655ee05ec9a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Passengers/bob/bob2.png"
-dest_files=[ "res://.import/bob2.png-ce91ebe6fff51cda15fa541f506e0d58.stex" ]
+source_file="res://Passengers/Bob/bob2.png"
+dest_files=[ "res://.import/bob2.png-39a59eb16bd88640875b6655ee05ec9a.stex" ]
 
 [params]
 
