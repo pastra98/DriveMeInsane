@@ -1,13 +1,11 @@
-class_name PassengerWindow
 extends MarginContainer
 
-var insanity: int
 var timer: Timer
 # var text_timeout
 
-onready var bar = $NinePatchRect/Gauge
-onready var label = $NinePatchRect/RichTextLabel
-onready var img = $NinePatchRect/TextureRect2
+onready var bar = $NinePatchRect/InsanityBar
+onready var label = $NinePatchRect/CurrentEffect
+onready var img = $NinePatchRect/PassengerPic
 
 func _ready():
     timer = Timer.new()

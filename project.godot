@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Passenger",
 "language": "GDScript",
-"path": "res://Player/Passengers/passenger.gd"
+"path": "res://Passengers/passenger.gd"
 }, {
 "base": "Area2D",
 "class": "TooCloseSensibility",
