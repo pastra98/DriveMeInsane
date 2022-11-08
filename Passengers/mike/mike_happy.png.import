@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mike_happy.png-e789dc98cadd9fbb4cf185b521bf95d1.stex"
+path="res://.import/mike_happy.png-f5644b045d4145b335e73eedf95ace18.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Passengers/mike/mike_happy.png"
-dest_files=[ "res://.import/mike_happy.png-e789dc98cadd9fbb4cf185b521bf95d1.stex" ]
+source_file="res://passengers/mike/mike_happy.png"
+dest_files=[ "res://.import/mike_happy.png-f5644b045d4145b335e73eedf95ace18.stex" ]
 
 [params]
 

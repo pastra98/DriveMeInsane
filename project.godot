@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Passenger",
 "language": "GDScript",
-"path": "res://Passengers/passenger.gd"
+"path": "res://passengers/passenger.gd"
 }, {
-"base": "Area2D",
+"base": "Reference",
 "class": "TooCloseSensibility",
 "language": "GDScript",
-"path": "res://Player/SanityEffects/too_close.gd"
+"path": "res://player/SanityEffects/too_close.gd"
 }, {
-"base": "Node2D",
+"base": "Reference",
 "class": "TooFastSensibility",
 "language": "GDScript",
-"path": "res://Player/SanityEffects/too_fast.gd"
+"path": "res://player/SanityEffects/too_fast.gd"
 }, {
-"base": "Node2D",
+"base": "Reference",
 "class": "TooSlowSensibility",
 "language": "GDScript",
-"path": "res://Player/SanityEffects/too_slow.gd"
+"path": "res://player/SanityEffects/too_slow.gd"
 } ]
 _global_script_class_icons={
 "Passenger": "",
@@ -39,12 +39,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Drive me insane"
-run/main_scene="res://Environment/map2.tscn"
+run/main_scene="res://environment/Map2.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-GuiManager="*res://Gui/GuiManager.tscn"
+GuiManager="*res://gui/GuiManager.tscn"
 
 [gui]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hiroshi_unhappy.png-79ea19ed7063921e6d7896aacd5cea6a.stex"
+path="res://.import/hiroshi_unhappy.png-09423fd9e6971fd8873cd2cdd7920148.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Passengers/hiroshi/hiroshi_unhappy.png"
-dest_files=[ "res://.import/hiroshi_unhappy.png-79ea19ed7063921e6d7896aacd5cea6a.stex" ]
+source_file="res://passengers/hiroshi/hiroshi_unhappy.png"
+dest_files=[ "res://.import/hiroshi_unhappy.png-09423fd9e6971fd8873cd2cdd7920148.stex" ]
 
 [params]
 

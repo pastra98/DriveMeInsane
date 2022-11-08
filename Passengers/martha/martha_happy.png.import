@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/martha_happy.png-0018118d0e69849bae6cad4d12ce0cc4.stex"
+path="res://.import/martha_happy.png-386c77a37770aeb7993f09a885bc49ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Passengers/martha/martha_happy.png"
-dest_files=[ "res://.import/martha_happy.png-0018118d0e69849bae6cad4d12ce0cc4.stex" ]
+source_file="res://passengers/martha/martha_happy.png"
+dest_files=[ "res://.import/martha_happy.png-386c77a37770aeb7993f09a885bc49ce.stex" ]
 
 [params]
 

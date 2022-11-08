@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/martha_unhappy.png-91bd4632c781b59e354d398ba0b13b01.stex"
+path="res://.import/martha_unhappy.png-a1a657b1063fbbe368104b1f4e6e1011.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Passengers/martha/martha_unhappy.png"
-dest_files=[ "res://.import/martha_unhappy.png-91bd4632c781b59e354d398ba0b13b01.stex" ]
+source_file="res://passengers/martha/martha_unhappy.png"
+dest_files=[ "res://.import/martha_unhappy.png-a1a657b1063fbbe368104b1f4e6e1011.stex" ]
 
 [params]
 

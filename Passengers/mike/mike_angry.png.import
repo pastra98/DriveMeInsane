@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mike_angry.png-93cfbbf13032000d5541796c624862f8.stex"
+path="res://.import/mike_angry.png-5905bff04f112f2ef730b50e6e09208f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Passengers/mike/mike_angry.png"
-dest_files=[ "res://.import/mike_angry.png-93cfbbf13032000d5541796c624862f8.stex" ]
+source_file="res://passengers/mike/mike_angry.png"
+dest_files=[ "res://.import/mike_angry.png-5905bff04f112f2ef730b50e6e09208f.stex" ]
 
 [params]
 

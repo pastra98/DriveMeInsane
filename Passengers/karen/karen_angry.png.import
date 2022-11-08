@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/karen_angry.png-49bc6518b21c5cc631aee499366bfe2e.stex"
+path="res://.import/karen_angry.png-c774d4492b712f91d8f98aa3293ec1d9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Passengers/karen/karen_angry.png"
-dest_files=[ "res://.import/karen_angry.png-49bc6518b21c5cc631aee499366bfe2e.stex" ]
+source_file="res://passengers/karen/karen_angry.png"
+dest_files=[ "res://.import/karen_angry.png-c774d4492b712f91d8f98aa3293ec1d9.stex" ]
 
 [params]
 

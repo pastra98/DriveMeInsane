@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/juan_happy.png-1c0c8d995d8d2ccf95656e7b5eb6a031.stex"
+path="res://.import/juan_happy.png-e66e1ce300efc2590eb810bf7ae017d6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Passengers/Juan/juan_happy.png"
-dest_files=[ "res://.import/juan_happy.png-1c0c8d995d8d2ccf95656e7b5eb6a031.stex" ]
+source_file="res://passengers/juan/juan_happy.png"
+dest_files=[ "res://.import/juan_happy.png-e66e1ce300efc2590eb810bf7ae017d6.stex" ]
 
 [params]
 

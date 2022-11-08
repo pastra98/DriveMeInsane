@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bjorn_happy.png-64cfa15b44794447e8a436fe2135cbf0.stex"
+path="res://.import/bjorn_happy.png-ab79226a758a54932fac6c96a61232e9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Passengers/Bjorn/Bjorn_happy.png"
-dest_files=[ "res://.import/Bjorn_happy.png-64cfa15b44794447e8a436fe2135cbf0.stex" ]
+source_file="res://passengers/bjorn/bjorn_happy.png"
+dest_files=[ "res://.import/bjorn_happy.png-ab79226a758a54932fac6c96a61232e9.stex" ]
 
 [params]
 

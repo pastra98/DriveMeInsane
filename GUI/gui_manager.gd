@@ -8,7 +8,7 @@ func _ready():
 
 
 func add_passenger_window(passenger_ref):
-    var passenger_window = load("res://Gui/PassengerWindow/PassengerWindow.tscn").instance()
+    var passenger_window = load("res://gui/passenger_window/PassengerWindow.tscn").instance()
     passenger_ref.connect("new_insanity", passenger_window, "update_insanity")
     passenger_ref.connect("new_picture", passenger_window, "update_picture")
     $PassengerMargin/PassengerContainer.add_child(passenger_window)
