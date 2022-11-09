@@ -5,21 +5,19 @@
 [ext_resource path="res://gui/player_status/player_status.gd" type="Script" id=3]
 
 [node name="PlayerStatus" type="MarginContainer"]
-anchor_right = 0.233
-anchor_bottom = 0.297
 script = ExtResource( 3 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 252.0
-margin_bottom = 178.0
+margin_bottom = 40.0
 
 [node name="Score" type="RichTextLabel" parent="HBoxContainer"]
-margin_bottom = 178.0
+margin_bottom = 40.0
 
 [node name="Health" type="TextureProgress" parent="HBoxContainer"]
 margin_left = 4.0
 margin_right = 252.0
-margin_bottom = 178.0
+margin_bottom = 40.0
 value = 100.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 1 )
