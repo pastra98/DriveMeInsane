@@ -44,6 +44,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Main="*res://main/main.gd"
 GuiManager="*res://gui/GuiManager.tscn"
 
 [gui]
