@@ -2,7 +2,7 @@ class_name TooFastSensibility
 extends Node2D
 
 signal inc_insanity(amt, reason)
-onready var player = $"/root/Level/Player"
+onready var player = $"/root/Main".player
 
 var too_fast: int
 var insanity_effect: int

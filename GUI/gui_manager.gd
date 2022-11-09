@@ -22,5 +22,10 @@ func add_player_status():
     player.connect("new_player_health", player_status, "update_health")
 
 
-func show_level_picker():
-    var lvl_picker = load("res://gui/level_picker/level_picker.gd").instance()
+func add_level_picker():
+    var lvl_picker = load("res://gui/level_picker/LevelPicker.tscn").instance()
+    lvl_picker.connect("new_level_picked", get_node("/root/Main"), "load_level")
+    add_child(lvl_picker)
+
+func remove_level_picker():
+    $LevelPicker.queue_free()

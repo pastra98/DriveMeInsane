@@ -19,12 +19,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/SanityEffects/too_close.gd"
 }, {
-"base": "Reference",
+"base": "Node2D",
 "class": "TooFastSensibility",
 "language": "GDScript",
 "path": "res://player/SanityEffects/too_fast.gd"
 }, {
-"base": "Reference",
+"base": "Node2D",
 "class": "TooSlowSensibility",
 "language": "GDScript",
 "path": "res://player/SanityEffects/too_slow.gd"
@@ -39,12 +39,11 @@ _global_script_class_icons={
 [application]
 
 config/name="Drive me insane"
-run/main_scene="res://environment/Map2.tscn"
+run/main_scene="res://main/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Main="*res://main/main.gd"
 GuiManager="*res://gui/GuiManager.tscn"
 
 [gui]
