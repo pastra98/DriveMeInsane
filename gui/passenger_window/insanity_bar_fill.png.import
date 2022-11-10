@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/insanity_bar_fill.png-dd94acf7ba8cea934f3fd7b1f3eab6fc.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://gui/passenger_window/insanity_bar_fill.png"
+dest_files=[ "res://.import/insanity_bar_fill.png-dd94acf7ba8cea934f3fd7b1f3eab6fc.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
