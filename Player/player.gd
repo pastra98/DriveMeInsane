@@ -1,6 +1,5 @@
 extends Node2D
 
-signal passenger_added(passenger_ref)
 signal new_player_health(health_lvl)
 signal player_dead
 
@@ -12,7 +11,6 @@ var health = 100
 
 
 func _ready():
-    connect("passenger_added", GuiManager, "add_passenger_window")
     add_passenger("Bob")
 
 
@@ -27,13 +25,13 @@ func get_current_kph() -> int:
 func add_passenger(passenger_name: String):
     var new_passenger = Passenger.new(passenger_name)
     $Car/PassengerManager.add_child(new_passenger)
-    emit_signal("passenger_added", new_passenger)
+    GuiManager.add_passenger_window(new_passenger)
 
 
 func _on_CollisionDetector_body_entered(body:Node):
-    # this is kind of stupid, I'd rather have a continuous exponential func
     if body.is_in_group("static_env"):
         var curr_speed = get_current_kph()
+        # this is kind of stupid, I'd rather have a continuous exponential func
         var lvl_start = 0
         for speed in DAMAGE_LEVELS.keys():
             if curr_speed <= speed and curr_speed > lvl_start:
