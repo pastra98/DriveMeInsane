@@ -32,14 +32,10 @@ func _on_CollisionDetector_body_entered(body:Node):
     if body.is_in_group("static_env"):
         var curr_speed = get_current_kph()
         # this is kind of stupid, I'd rather have a continuous exponential func
-        var lvl_start = 0
         for speed in DAMAGE_LEVELS.keys():
-            if curr_speed <= speed and curr_speed > lvl_start:
-                print("speed: %s, damage: %s" % [curr_speed, DAMAGE_LEVELS[speed]])
+            if curr_speed <= speed:
                 take_damage(DAMAGE_LEVELS[speed])
                 return
-            else:
-                lvl_start = speed
 
 
 func take_damage(damage):
