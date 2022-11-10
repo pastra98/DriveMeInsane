@@ -20,7 +20,10 @@ func load_level(level_nr):
         2:
             print("2")
     add_child(curr_lvl)
+    place_player_in_level(curr_lvl)
+
+
+func place_player_in_level(level):
     player = load("res://player/Player.tscn").instance()
     curr_lvl.get_node("PlayerPos").add_child(player)
-    GuiManager.remove_level_picker()
-    # TODO: add prepare gui also once a level is chosen (show player health etc)
+    GuiManager.add_player_status(player)

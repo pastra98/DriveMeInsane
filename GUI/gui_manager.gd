@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-var player
 var player_status
 
 func _ready():	
@@ -16,16 +15,13 @@ func add_passenger_window(passenger_ref):
     passenger_window.update_picture(passenger_ref.imgpath % "happy")
 
 
-func add_player_status():
+func add_player_status(player):
     player_status = load("res://gui/player_status/PlayerStatus.tscn").instance()
-    add_child(player_status)
     player.connect("new_player_health", player_status, "update_health")
+    add_child(player_status)
 
 
 func add_level_picker():
     var lvl_picker = load("res://gui/level_picker/LevelPicker.tscn").instance()
     lvl_picker.connect("new_level_picked", get_node("/root/Main"), "load_level")
     add_child(lvl_picker)
-
-func remove_level_picker():
-    $LevelPicker.queue_free()

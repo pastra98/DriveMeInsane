@@ -54,7 +54,7 @@ height = 166.8
 
 [sub_resource type="CapsuleShape2D" id=15]
 radius = 24.0
-height = 182.0
+height = 192.0
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 1 )

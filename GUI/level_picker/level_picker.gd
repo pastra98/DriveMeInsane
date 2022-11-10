@@ -15,3 +15,4 @@ func _ready():
 
 func _on_lvl1_button_down():
     emit_signal("new_level_picked", 1)
+    queue_free()
