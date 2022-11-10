@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gui/level_picker/level_picker.gd" type="Script" id=1]
 [ext_resource path="res://gui/fonts/dogica.tres" type="DynamicFont" id=2]
+
+[sub_resource type="InputEventKey" id=1]
+pressed = true
+scancode = 16777221
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
 
 [node name="LevelPicker" type="MarginContainer"]
 anchor_left = 0.5
@@ -37,4 +44,5 @@ margin_right = 220.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 220, 50 )
 custom_fonts/font = ExtResource( 2 )
+shortcut = SubResource( 2 )
 text = "Start Level 1"
