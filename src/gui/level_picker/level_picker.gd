@@ -9,7 +9,7 @@ TODO:
 signal new_level_picked(lvl_nr)
 
 func _ready():
-    $Panel/VBoxContainer/Lvl1.connect("button_down", self, "_on_lvl1_button_down")
+    $"Panel/VBoxContainer/Lvl1".connect("button_down", self, "_on_lvl1_button_down")
     pass
 
 

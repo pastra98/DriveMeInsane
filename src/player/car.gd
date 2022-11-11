@@ -76,9 +76,9 @@ func get_right_velocity() -> Vector2:
 func crash(body) -> void:
     """
     """
-    $Explosion.show() # old code from prev project
-    $Explosion.play()
-    $Sprite.hide()
+    $"Explosion".show() # old code from prev project
+    $"Explosion".play()
+    $"Sprite".hide()
 
 
 func _on_Explosion_animation_finished() -> void:

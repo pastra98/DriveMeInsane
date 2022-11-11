@@ -15,7 +15,7 @@ func _ready():
 
 
 func _physics_process(delta): # testing
-    $Car/Label.text = str(get_current_kph())
+    $"Car/Label".text = str(get_current_kph())
 
 
 func get_current_kph() -> int:
