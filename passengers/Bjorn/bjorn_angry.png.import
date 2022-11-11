@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/izaak_happy.png-3ca9774b7be5dd2bf2076db829d4b07f.stex"
+path="res://.import/bjorn_angry.png-c7fee44f3ba1b4104e9abc816bbad476.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://passengers/izaak/izaak_happy.png"
-dest_files=[ "res://.import/izaak_happy.png-3ca9774b7be5dd2bf2076db829d4b07f.stex" ]
+source_file="res://passengers/Bjorn/bjorn_angry.png"
+dest_files=[ "res://.import/bjorn_angry.png-c7fee44f3ba1b4104e9abc816bbad476.stex" ]
 
 [params]
 

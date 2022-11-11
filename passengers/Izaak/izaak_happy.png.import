@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lucy_happy.png-f7ab935c69b9ff27b973886ade799a3d.stex"
+path="res://.import/izaak_happy.png-514f67775ae03058c60d9ff6971e08e9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://passengers/lucy/lucy_happy.png"
-dest_files=[ "res://.import/lucy_happy.png-f7ab935c69b9ff27b973886ade799a3d.stex" ]
+source_file="res://passengers/Izaak/izaak_happy.png"
+dest_files=[ "res://.import/izaak_happy.png-514f67775ae03058c60d9ff6971e08e9.stex" ]
 
 [params]
 

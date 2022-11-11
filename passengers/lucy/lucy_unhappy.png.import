@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lucy_unhappy.png-627d1b7579a3453b87507c40414f1dcd.stex"
+path="res://.import/lucy_unhappy.png-d4c9ec6f2bdb88dfc40b89a20617d9d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://passengers/lucy/lucy_unhappy.png"
-dest_files=[ "res://.import/lucy_unhappy.png-627d1b7579a3453b87507c40414f1dcd.stex" ]
+source_file="res://passengers/Lucy/lucy_unhappy.png"
+dest_files=[ "res://.import/lucy_unhappy.png-d4c9ec6f2bdb88dfc40b89a20617d9d5.stex" ]
 
 [params]
 

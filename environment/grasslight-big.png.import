@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grasslight-big.png-7d60a8e31c016aeca6392fc57f50b1cd.stex"
+path="res://.import/grasslight-big.png-39de82d51195cae75cdd9cae3ea30383.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/grasslight-big.png"
-dest_files=[ "res://.import/grasslight-big.png-7d60a8e31c016aeca6392fc57f50b1cd.stex" ]
+source_file="res://Environment/grasslight-big.png"
+dest_files=[ "res://.import/grasslight-big.png-39de82d51195cae75cdd9cae3ea30383.stex" ]
 
 [params]
 

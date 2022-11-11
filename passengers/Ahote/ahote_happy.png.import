@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/xiu_happy.png-1cd6b485a1127c4162585ab8161c9021.stex"
+path="res://.import/ahote_happy.png-8d7a225ceb9a7367e633cb444d3a1cd1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://passengers/xiu/xiu_happy.png"
-dest_files=[ "res://.import/xiu_happy.png-1cd6b485a1127c4162585ab8161c9021.stex" ]
+source_file="res://passengers/Ahote/ahote_happy.png"
+dest_files=[ "res://.import/ahote_happy.png-8d7a225ceb9a7367e633cb444d3a1cd1.stex" ]
 
 [params]
 

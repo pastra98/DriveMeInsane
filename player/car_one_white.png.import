@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/car_one_white.png-3078eb6a7b878284f8a9d2238177a6b2.stex"
+path="res://.import/car_one_white.png-caa0d4cb45e5124c62830acf2e8cb810.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/car_one_white.png"
-dest_files=[ "res://.import/car_one_white.png-3078eb6a7b878284f8a9d2238177a6b2.stex" ]
+source_file="res://Player/car_one_white.png"
+dest_files=[ "res://.import/car_one_white.png-caa0d4cb45e5124c62830acf2e8cb810.stex" ]
 
 [params]
 
