@@ -30,7 +30,7 @@ func insanity_change(change_by, reason):
 func load_passenger_config(pass_name: String):
     var config = ConfigFile.new()
     # try to open the specified file, break execution if it doesn't exist
-    var err = config.load("Passengers/Bob/%s.cfg" % pass_name)
+    var err = config.load("res://Player/Passengers/%s.cfg" % pass_name)
     if err == OK:
         set_passenger_basics(config)
         set_passenger_sensibilities(config)
