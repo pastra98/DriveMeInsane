@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/xiu_angry.png-97f162af4a7dbc654e4f93810d42608b.stex"
+path="res://.import/xiu_angry.png-728a02c514afa52e074ceb86404e1f1e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://passengers/Xiu/xiu_angry.png"
-dest_files=[ "res://.import/xiu_angry.png-97f162af4a7dbc654e4f93810d42608b.stex" ]
+source_file="res://passengers/xiu/xiu_angry.png"
+dest_files=[ "res://.import/xiu_angry.png-728a02c514afa52e074ceb86404e1f1e.stex" ]
 
 [params]
 

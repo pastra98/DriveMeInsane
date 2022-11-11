@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/juan_angry.png-fdb9cd62a0e206c88fbf5e5e94b23333.stex"
+path="res://.import/juan_angry.png-d513699ded3988506b11abbb32280e3a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://passengers/Juan/juan_angry.png"
-dest_files=[ "res://.import/juan_angry.png-fdb9cd62a0e206c88fbf5e5e94b23333.stex" ]
+source_file="res://passengers/juan/juan_angry.png"
+dest_files=[ "res://.import/juan_angry.png-d513699ded3988506b11abbb32280e3a.stex" ]
 
 [params]
 

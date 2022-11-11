@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ahote_unhappy.png-138ab83e507a2819772e5ee88a4db986.stex"
+path="res://.import/ahote_unhappy.png-1bd54c6bcab1b641a2fe6a4d874c1d2c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://passengers/Ahote/ahote_unhappy.png"
-dest_files=[ "res://.import/ahote_unhappy.png-138ab83e507a2819772e5ee88a4db986.stex" ]
+source_file="res://passengers/ahote/ahote_unhappy.png"
+dest_files=[ "res://.import/ahote_unhappy.png-1bd54c6bcab1b641a2fe6a4d874c1d2c.stex" ]
 
 [params]
 

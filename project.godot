@@ -17,17 +17,17 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "TooCloseSensibility",
 "language": "GDScript",
-"path": "res://player/SanityEffects/too_close.gd"
+"path": "res://player/sanity_effects/too_close.gd"
 }, {
 "base": "Reference",
 "class": "TooFastSensibility",
 "language": "GDScript",
-"path": "res://player/SanityEffects/too_fast.gd"
+"path": "res://player/sanity_effects/too_fast.gd"
 }, {
 "base": "Reference",
 "class": "TooSlowSensibility",
 "language": "GDScript",
-"path": "res://player/SanityEffects/too_slow.gd"
+"path": "res://player/sanity_effects/too_slow.gd"
 } ]
 _global_script_class_icons={
 "Passenger": "",

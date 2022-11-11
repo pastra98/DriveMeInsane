@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/izaak_unhappy.png-100dcc60b68770b1a990017c5e05a628.stex"
+path="res://.import/izaak_unhappy.png-0b15fdd96730a10fc3b9e2ad3f33cb9b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://passengers/Izaak/izaak_unhappy.png"
-dest_files=[ "res://.import/izaak_unhappy.png-100dcc60b68770b1a990017c5e05a628.stex" ]
+source_file="res://passengers/izaak/izaak_unhappy.png"
+dest_files=[ "res://.import/izaak_unhappy.png-0b15fdd96730a10fc3b9e2ad3f33cb9b.stex" ]
 
 [params]
 
