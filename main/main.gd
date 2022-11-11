@@ -2,6 +2,7 @@ extends Node2D
 
 var player
 var curr_lvl
+var unlocked_passengers = ["bob"]
 
 onready var bg_scene = load("res://environment/menu_background/BackgroundLevel.tscn").instance()
 
@@ -25,5 +26,5 @@ func load_level(level_nr):
 
 func place_player_in_level(level):
     player = load("res://player/Player.tscn").instance()
-    curr_lvl.get_node("PlayerPos").add_child(player)
+    level.get_node("PlayerPos").add_child(player)
     GuiManager.add_player_status(player)

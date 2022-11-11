@@ -1,7 +1,8 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://environment/221106 city_sprite.png" type="Texture" id=1]
+[ext_resource path="res://environment/big_tilemap.png" type="Texture" id=1]
 [ext_resource path="res://environment/level_data.gd" type="Script" id=2]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 512, 448, 256, 448, 256, 256, 512, 256 )

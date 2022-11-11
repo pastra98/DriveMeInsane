@@ -11,7 +11,7 @@ var health = 100
 
 
 func _ready():
-    add_passenger("Bob")
+    add_passenger("bob")
 
 
 func _physics_process(delta): # testing

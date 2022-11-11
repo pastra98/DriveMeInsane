@@ -3,7 +3,7 @@
 [ext_resource path="res://environment/Map1.tscn" type="PackedScene" id=1]
 
 [node name="Level" instance=ExtResource( 1 )]
-required_points = 1
+required_points = 100
 
 [node name="PlayerPos" type="Position2D" parent="." index="2"]
 position = Vector2( 640, 675 )
