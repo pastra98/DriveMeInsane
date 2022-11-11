@@ -8,10 +8,10 @@ const LV_TO_KPH = 0.1 # see google drive doc for how this value was derived
 const DAMAGE_LEVELS = {5:0, 15:10, 20:15, 25:20, 30:30, 35:40, 40:50, 45:60, 50:75, 55:85, 60:100}
 
 var health = 100
-
+onready var passengers = $Car/PassengerManager
 
 func _ready():
-    add_passenger("bob")
+    pass
 
 
 func _physics_process(delta): # testing
@@ -20,12 +20,6 @@ func _physics_process(delta): # testing
 
 func get_current_kph() -> int:
     return int($Car.linear_velocity.length() * LV_TO_KPH)
-
-
-func add_passenger(passenger_name: String):
-    var new_passenger = Passenger.new(passenger_name)
-    $Car/PassengerManager.add_child(new_passenger)
-    GuiManager.add_passenger_window(new_passenger)
 
 
 func _on_CollisionDetector_body_entered(body:Node):

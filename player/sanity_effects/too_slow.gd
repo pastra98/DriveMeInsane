@@ -2,7 +2,7 @@ class_name TooSlowSensibility
 extends Node2D
 
 signal inc_insanity(amt, reason)
-onready var player = $"/root/Main".player
+onready var player = $"/root/Main/Level".player
 
 var too_slow: int
 var insanity_effect: int
@@ -16,3 +16,7 @@ func _physics_process(delta):
     if player.get_current_kph() < too_slow:
         emit_signal("inc_insanity", insanity_effect, "Too Slow!!")
         # this needs to not trigger when car is standing still at the start
+
+
+func get_txt_description() -> String:
+    return "%s: +%s insanity when going under %s kph" % [name, insanity_effect, too_slow]

@@ -2,7 +2,7 @@ class_name TooCloseSensibility
 extends Area2D
 
 signal inc_insanity(amt, reason)
-onready var player = $"/root/Main".player
+onready var player = $"/root/Main/Level".player
 
 var too_fast: int
 var insanity_effect: int
@@ -33,3 +33,8 @@ func _on_body_entered(body:Node):
         return # this needs to be solved with collision layers!!
     if player.get_current_kph() > too_fast:
         emit_signal("inc_insanity", insanity_effect, "Too close!!")
+
+
+func get_txt_description() -> String:
+    return "%s: +%s insanity when close to other objects" % [name, insanity_effect]
+    # TODO: need better descriptions

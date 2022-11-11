@@ -4,12 +4,8 @@ extends Node2D
 signal new_insanity(amt, reason)
 signal new_picture(imgpath)
 
-# references to all sensibilities (child nodes), also set by config
-var sensibilities: Array = []
-
-# base properties of passenger set by config
+# base properties of passenger set by config - passenger name becomes node name
 var insanity: int
-var passenger_name: String
 var imgpath: String
 var lore: String
 
@@ -44,7 +40,7 @@ func load_passenger_config(pass_name: String):
 
 func set_passenger_basics(conf: ConfigFile):
     insanity = conf.get_value("Basics", "start_insanity")
-    passenger_name = conf.get_value("Basics", "name")
+    name = conf.get_value("Basics", "name")
     imgpath = conf.get_value("Basics", "imgpath")
     lore = conf.get_value("Basics", "lore")
 
@@ -70,6 +66,12 @@ func set_passenger_sensibilities(conf: ConfigFile):
                     conf.get_value(section, "insanity_effect")
                     )
         if new_sensibility: # make sure the section that was read was a sensibility, not e.g. basics
-            sensibilities.append(new_sensibility)
             new_sensibility.connect("inc_insanity", self, "insanity_change")
             add_child(new_sensibility)
+
+
+func get_sensibilities_txt():
+    var txt = ""
+    for sensibility in get_children():
+        txt = txt + sensibility.get_txt_description() + "\n"
+    return txt

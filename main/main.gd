@@ -1,6 +1,5 @@
 extends Node2D
 
-var player
 var curr_lvl
 var unlocked_passengers = ["bob"]
 var completed_lvls = []
@@ -22,10 +21,4 @@ func load_level(level_nr):
         2:
             print("2")
     add_child(curr_lvl)
-    place_player_in_level(curr_lvl)
-
-
-func place_player_in_level(level):
-    player = load("res://player/Player.tscn").instance()
-    level.get_node("PlayerPos").add_child(player)
-    GuiManager.add_player_status(player)
+    curr_lvl.prepare_level(unlocked_passengers)

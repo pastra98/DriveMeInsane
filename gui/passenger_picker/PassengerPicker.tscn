@@ -2,7 +2,7 @@
 
 [ext_resource path="res://gui/passenger_picker/passenger_picker.gd" type="Script" id=1]
 [ext_resource path="res://gui/passenger_picker/car_seat/CarSeat.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gui/passenger_picker/passenger_card/PassengerCard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/fonts/dogica.tres" type="DynamicFont" id=4]
 
 [node name="PassengerPicker" type="MarginContainer"]
 anchor_left = 0.5
@@ -32,15 +32,15 @@ margin_bottom = -10.0
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
 margin_right = 1004.0
 margin_bottom = 580.0
-custom_constants/separation = 15
+custom_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="Seats" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
 margin_right = 1004.0
 margin_bottom = 168.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="CarSeat1" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+[node name="CarSeat1" parent="Panel/MarginContainer/VBoxContainer/Seats" instance=ExtResource( 2 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -50,7 +50,7 @@ margin_top = 0.0
 margin_right = 344.0
 margin_bottom = 168.0
 
-[node name="CarSeat2" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+[node name="CarSeat2" parent="Panel/MarginContainer/VBoxContainer/Seats" instance=ExtResource( 2 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -60,7 +60,7 @@ margin_top = 0.0
 margin_right = 492.0
 margin_bottom = 168.0
 
-[node name="CarSeat3" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+[node name="CarSeat3" parent="Panel/MarginContainer/VBoxContainer/Seats" instance=ExtResource( 2 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -70,7 +70,7 @@ margin_top = 0.0
 margin_right = 640.0
 margin_bottom = 168.0
 
-[node name="CarSeat4" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+[node name="CarSeat4" parent="Panel/MarginContainer/VBoxContainer/Seats" instance=ExtResource( 2 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -81,72 +81,24 @@ margin_right = 788.0
 margin_bottom = 168.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
-margin_top = 183.0
+margin_top = 176.0
 margin_right = 1004.0
-margin_bottom = 568.0
-rect_min_size = Vector2( 1004, 385 )
+margin_bottom = 546.0
+rect_min_size = Vector2( 1004, 370 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
-margin_right = 1300.0
-margin_bottom = 360.0
+[node name="PickList" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
 custom_constants/separation = 20
 
-[node name="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 200.0
-margin_bottom = 360.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 554.0
+margin_right = 1004.0
+margin_bottom = 578.0
+alignment = 1
 
-[node name="MarginContainer2" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 220.0
-margin_top = 0.0
-margin_right = 420.0
-margin_bottom = 360.0
-
-[node name="MarginContainer3" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 440.0
-margin_top = 0.0
-margin_right = 640.0
-margin_bottom = 360.0
-
-[node name="MarginContainer4" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 660.0
-margin_top = 0.0
-margin_right = 860.0
-margin_bottom = 360.0
-
-[node name="MarginContainer5" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 880.0
-margin_top = 0.0
-margin_right = 1080.0
-margin_bottom = 360.0
-
-[node name="MarginContainer6" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1100.0
-margin_top = 0.0
-margin_right = 1300.0
-margin_bottom = 360.0
+[node name="StartLevel" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 400.0
+margin_right = 604.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+custom_fonts/font = ExtResource( 4 )
+text = "Start Level!"
