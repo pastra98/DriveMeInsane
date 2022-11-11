@@ -9,11 +9,12 @@
 [node name="PassengerWindow" type="MarginContainer"]
 anchor_right = 0.233
 anchor_bottom = 0.297
+rect_min_size = Vector2( 260, 180 )
 script = ExtResource( 3 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-margin_right = 238.0
-margin_bottom = 178.0
+margin_right = 260.0
+margin_bottom = 180.0
 
 [node name="InsanityBar" type="TextureProgress" parent="NinePatchRect"]
 margin_left = 9.0

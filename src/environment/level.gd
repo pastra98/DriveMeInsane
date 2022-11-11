@@ -39,7 +39,8 @@ func add_passenger_to_player(passenger_ref: Passenger):
     player.passengers.add_child(passenger_ref)
 
 
-func remove_passenger_from_player(passenger_ref: Passenger):
+func remove_passenger_from_player(passenger_ref: Passenger, _seat_name: String):
+    # TODO: fix this- super hacky, seat name is not needed here but since we only use one signal for gui and level, we do it this way
     player.passengers.remove_child(passenger_ref)
     $"AvailablePassengers".add_child(passenger_ref)
 
@@ -53,4 +54,6 @@ func start_level(): # probably is going to be triggered by button in picker
     GuiManager.add_player_status(player)
     for passenger in player.get_node("Car/PassengerManager").get_children():
         GuiManager.add_passenger_window(passenger)
+    # TODO: maybe not do this so directly
+    GuiManager.get_node("PassengerPicker").queue_free()
     is_playing = true

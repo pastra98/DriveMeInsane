@@ -31,9 +31,7 @@ func add_level_picker():
 
 
 func add_passenger_picker(passenger_instances: Array):
-    # make new passenger picker
     var pass_picker = load("res://gui/passenger_picker/PassengerPicker.tscn").instance()
+    add_child(pass_picker) # needs to be caled b4 adding passengers
     pass_picker.add_passenger_cards(passenger_instances)
-    add_child(pass_picker)
-    # those signals will tell level.gd (root of level scene) to add_passenger_to_player()
-    pass
+    pass_picker.connect("level_started", $"/root/Main/Level", "start_level")

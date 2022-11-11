@@ -102,3 +102,5 @@ margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 custom_fonts/font = ExtResource( 4 )
 text = "Start Level!"
+
+[connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/HBoxContainer2/StartLevel" to="." method="_on_StartLevel_button_down"]

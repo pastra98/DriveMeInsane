@@ -1,6 +1,6 @@
 extends MarginContainer
 
-signal passenger_added_to_player(pass_ref)
+signal passenger_added_to_player(pass_ref) # triggers stuff in level.gd and passenger_picker.gd
 
 var passenger_ref: Passenger
 
@@ -27,3 +27,6 @@ func _on_AddToCar_button_down():
 
 func _on_all_passengers_seated():
     $"Panel/TopVBox/AddToCar".disabled = true
+
+func _on_free_seats_available():
+    $"Panel/TopVBox/AddToCar".disabled = false
