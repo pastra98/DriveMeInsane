@@ -3,6 +3,7 @@ extends Node2D
 var player
 var curr_lvl
 var unlocked_passengers = ["bob"]
+var completed_lvls = []
 
 onready var bg_scene = load("res://environment/menu_background/BackgroundLevel.tscn").instance()
 

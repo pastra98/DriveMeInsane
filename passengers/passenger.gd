@@ -4,12 +4,16 @@ extends Node2D
 signal new_insanity(amt, reason)
 signal new_picture(imgpath)
 
+# references to all sensibilities (child nodes), also set by config
 var sensibilities: Array = []
 
+# base properties of passenger set by config
 var insanity: int
 var passenger_name: String
 var imgpath: String
-var insanity_levels = [40, 80]
+var lore: String
+
+const INSANITY_LEVELS = [40, 80]
 
 func _init(pass_name: String):
     name = pass_name
@@ -19,9 +23,9 @@ func _init(pass_name: String):
 func insanity_change(change_by, reason):
     insanity = min(insanity + change_by, 100)
     emit_signal("new_insanity", insanity, reason)
-    if insanity > insanity_levels[1]:
+    if insanity > INSANITY_LEVELS[1]:
         emit_signal("new_picture", imgpath % "angry")
-    elif insanity > insanity_levels[0]:
+    elif insanity > INSANITY_LEVELS[0]:
         emit_signal("new_picture", imgpath % "unhappy")
     else:
         emit_signal("new_picture", imgpath % "happy")
@@ -42,6 +46,7 @@ func set_passenger_basics(conf: ConfigFile):
     insanity = conf.get_value("Basics", "start_insanity")
     passenger_name = conf.get_value("Basics", "name")
     imgpath = conf.get_value("Basics", "imgpath")
+    lore = conf.get_value("Basics", "lore")
 
 
 func set_passenger_sensibilities(conf: ConfigFile):
