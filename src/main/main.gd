@@ -1,7 +1,8 @@
 extends Node2D
 
 var curr_lvl
-var unlocked_passengers = ["bob"]
+# ["ahote", "bjorn", "bob", "hiroshi", "izaak", "juan", "karen", "lucy", "martha", "mike", "xiu"]
+var unlocked_passengers = ["ahote", "bjorn", "bob", "hiroshi", "izaak", "juan", "karen", "lucy", "martha", "mike", "xiu"]
 var completed_lvls = []
 
 onready var bg_scene = load("res://environment/menu_background/BackgroundLevel.tscn").instance()
