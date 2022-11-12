@@ -3,7 +3,6 @@
 [ext_resource path="res://environment/level.gd" type="Script" id=1]
 [ext_resource path="res://environment/small_tilemap.png" type="Texture" id=2]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
