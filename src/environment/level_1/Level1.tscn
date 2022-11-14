@@ -6,7 +6,7 @@
 points_1_star = 50
 points_2_stars = 60
 points_3_stars = 70
-time_to_complete = 120
+time_to_complete = 30
 
 [node name="PlayerPos" type="Position2D" parent="." index="2"]
 position = Vector2( 640, 675 )
