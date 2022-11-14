@@ -1,6 +1,7 @@
 extends Node2D
 
-signal new_player_health(health_lvl)
+signal new_health(health_lvl)
+signal new_score(score_pts)
 signal player_dead
 
 const LV_TO_KPH = 0.1 # see google drive doc for how this value was derived
@@ -8,6 +9,7 @@ const LV_TO_KPH = 0.1 # see google drive doc for how this value was derived
 const DAMAGE_LEVELS = {5:0, 15:10, 20:15, 25:20, 30:30, 35:40, 40:50, 45:60, 50:75, 55:85, 60:100}
 
 var health = 100
+var score = 0
 onready var passengers = $Car/PassengerManager
 
 func _ready():
@@ -34,8 +36,13 @@ func _on_CollisionDetector_body_entered(body:Node):
 
 func take_damage(damage):
     health = max(0, health - damage)
-    emit_signal("new_player_health", health)
+    emit_signal("new_health", health)
     # play sounds and animations depending on damage level here
     if health == 0:
         emit_signal("player_dead")
     
+
+func _on_raging_passenger(pass_name, rage_pts):
+    # not sure if we actually need pass_name, other things can happen here to
+    score += rage_pts
+    emit_signal("new_score", score)
