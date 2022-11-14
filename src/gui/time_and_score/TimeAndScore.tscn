@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gui/fonts/dogica.tres" type="DynamicFont" id=1]
+[ext_resource path="res://gui/time_and_score/time_score.gd" type="Script" id=2]
+
+[node name="TimeAndScore" type="MarginContainer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -262.0
+margin_right = 262.0
+margin_bottom = 28.0
+script = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 524.0
+margin_bottom = 28.0
+alignment = 1
+
+[node name="TimeVBox" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 28.0
+
+[node name="TimeText" type="Label" parent="HBoxContainer/TimeVBox"]
+margin_right = 64.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 1 )
+text = "Time"
+align = 1
+
+[node name="Time" type="Label" parent="HBoxContainer/TimeVBox"]
+margin_top = 16.0
+margin_right = 64.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 1 )
+text = "60"
+align = 1
+
+[node name="Sep" type="Control" parent="HBoxContainer"]
+margin_left = 68.0
+margin_right = 88.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="ScoreVBox" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 92.0
+margin_right = 524.0
+margin_bottom = 28.0
+
+[node name="ScoreText" type="Label" parent="HBoxContainer/ScoreVBox"]
+margin_right = 432.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 1 )
+text = "Score - 10pts to get 1 star"
+align = 1
+
+[node name="Score" type="Label" parent="HBoxContainer/ScoreVBox"]
+margin_top = 16.0
+margin_right = 432.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 1 )
+text = "90"
+align = 1
