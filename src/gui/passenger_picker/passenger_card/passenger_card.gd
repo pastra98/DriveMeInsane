@@ -21,8 +21,8 @@ func set_passenger(passenger_instance: Passenger):
 
 func _on_AddToCar_button_down():
     emit_signal("passenger_added_to_player", passenger_ref)
+    passenger_ref.scream()
     hide()
-    # TODO: need to show again if passenger is removed from selection
 
 
 func _on_all_passengers_seated():

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample"
+path="res://.import/karen_scream_1.wav-1d9be0be19b78f9be0c3325e430972a1.sample"
 
 [deps]
 
-source_file="res://audio/sounds/radio_analog_button.wav"
-dest_files=[ "res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample" ]
+source_file="res://passengers/karen/karen_scream_1.wav"
+dest_files=[ "res://.import/karen_scream_1.wav-1d9be0be19b78f9be0c3325e430972a1.sample" ]
 
 [params]
 

@@ -11,12 +11,13 @@ var rage_points: int
 var rage_cooldown_sec: int
 var lore: String
 # those are derived from the ressource_path
-var soundpath
+var soundpath: String
 var imgpath: String
 
 const INSANITY_LEVELS = [40, 80]
 var raging = false
 var rage_timer: Timer
+var sound_player: AudioStreamPlayer
 
 var sensibilities = []
 
@@ -28,11 +29,16 @@ func _init(pass_name: String):
     rage_timer.name = "RageTimer"
     rage_timer.connect("timeout", self, "_on_rage_cooldown_finished")
     add_child(rage_timer)
+    # set up audio player
+    sound_player = AudioStreamPlayer.new()
+    sound_player.name = "SoundPlayer"
+    add_child(sound_player)
 
 
 func insanity_change(change_by, reason):
     if raging:
         return # do not register any insanity changes while ranging
+    # TODO: play some sounds here also
     insanity = min(insanity + change_by, 100)
     emit_signal("new_insanity", insanity, reason)
     if insanity > INSANITY_LEVELS[1]:
@@ -64,7 +70,7 @@ func set_passenger_basics(conf: ConfigFile):
     rage_cooldown_sec = conf.get_value("Basics", "rage_cooldown_sec")
     var ressource_path = conf.get_value("Basics", "ressource_path")
     imgpath = ressource_path + name + "_%s.png"
-    soundpath = ressource_path + "_scream_%s.wav"
+    soundpath = ressource_path + name + "_scream_%s.wav"
 
 
 func set_passenger_sensibilities(conf: ConfigFile):
@@ -101,13 +107,18 @@ func get_sensibilities_txt():
 
 
 func rage():
-    # TODO: play sound here
-    # TODO: start timer
-    # TODO: reset insanity after timer
-    print("raging: %s + %s points" % [name, rage_points])
     emit_signal("passenger_raging", name, rage_points)
+    scream()
     rage_timer.start(rage_cooldown_sec)
     raging = true
+
+
+func scream():
+    # TODO: randomize screams
+    # TODO: accept params for which scream level to play
+    # TODO: stop playing again
+    sound_player.stream = load(soundpath % 1)
+    sound_player.play()
 
 
 func _on_rage_cooldown_finished():

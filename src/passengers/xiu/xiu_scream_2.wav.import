@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample"
+path="res://.import/xiu_scream_2.wav-25a5de5f7f160a352f7653658839284b.sample"
 
 [deps]
 
-source_file="res://audio/sounds/radio_analog_button.wav"
-dest_files=[ "res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample" ]
+source_file="res://passengers/xiu/xiu_scream_2.wav"
+dest_files=[ "res://.import/xiu_scream_2.wav-25a5de5f7f160a352f7653658839284b.sample" ]
 
 [params]
 

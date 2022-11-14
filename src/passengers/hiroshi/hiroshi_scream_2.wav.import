@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample"
+path="res://.import/hiroshi_scream_2.wav-5ea75f8061fb1bcef82c566ccb6e3d74.sample"
 
 [deps]
 
-source_file="res://audio/sounds/radio_analog_button.wav"
-dest_files=[ "res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample" ]
+source_file="res://passengers/hiroshi/hiroshi_scream_2.wav"
+dest_files=[ "res://.import/hiroshi_scream_2.wav-5ea75f8061fb1bcef82c566ccb6e3d74.sample" ]
 
 [params]
 

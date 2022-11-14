@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample"
+path="res://.import/ahote_scream_1.wav-218e435e3676d872877ac346d55f5a61.sample"
 
 [deps]
 
-source_file="res://audio/sounds/radio_analog_button.wav"
-dest_files=[ "res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample" ]
+source_file="res://passengers/ahote/ahote_scream_1.wav"
+dest_files=[ "res://.import/ahote_scream_1.wav-218e435e3676d872877ac346d55f5a61.sample" ]
 
 [params]
 

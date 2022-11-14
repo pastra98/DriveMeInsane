@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample"
+path="res://.import/bob_scream_2.wav-00f22a8892ed29f0dcd164c6825a9904.sample"
 
 [deps]
 
-source_file="res://audio/sounds/radio_analog_button.wav"
-dest_files=[ "res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample" ]
+source_file="res://passengers/bob/bob_scream_2.wav"
+dest_files=[ "res://.import/bob_scream_2.wav-00f22a8892ed29f0dcd164c6825a9904.sample" ]
 
 [params]
 
