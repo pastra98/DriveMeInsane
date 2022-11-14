@@ -15,7 +15,8 @@ func load_game_hud(player: Node2D, passenger_refs_arr: Array):
     $"PassengerPicker".queue_free()
     # add player status
     player_status = load("res://gui/player_status/PlayerStatus.tscn").instance()
-    player.connect("new_player_health", player_status, "update_health")
+    player.connect("new_health", player_status, "update_health")
+    player.connect("new_score", player_status, "update_score")
     add_child(player_status)
     # add the passenger windows
     for passenger_ref in passenger_refs_arr:
@@ -26,8 +27,14 @@ func load_game_hud(player: Node2D, passenger_refs_arr: Array):
         new_passenger_window.update_insanity(passenger_ref.insanity, "Lets start!")
         new_passenger_window.update_picture(passenger_ref.imgpath % "happy")
     # add time and score
-    var time_score = load("res://gui/time_and_score/TimeAndScore.tscn").instance()
+    var time_score = load("res://gui/time/time.tscn").instance()
     add_child(time_score)
+
+func clear_game_hud():
+    $"PlayerStatus".queue_free()
+    for passenger_window in $"PassengerMargin/PassengerContainer".get_children():
+        passenger_window.queue_free()
+    $"Time".queue_free()
 
 # ---------- PASSENGER PICKER ----------
 
