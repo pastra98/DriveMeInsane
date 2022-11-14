@@ -19,8 +19,7 @@ var trans_type = 1 # TRANS_SINE
 var next_track
 
 func _ready():
-    playing = true
-    switch_music(music1)
+    pass
 
 
 func _unhandled_input(event): # not sure if this stuff should be handled here, for now it is just testing
