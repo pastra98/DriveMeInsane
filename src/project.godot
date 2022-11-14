@@ -45,6 +45,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GuiManager="*res://gui/GuiManager.tscn"
+MusicPlayer="*res://audio/MusicPlayer.tscn"
 
 [gui]
 
