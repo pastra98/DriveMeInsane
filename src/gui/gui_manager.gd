@@ -30,11 +30,24 @@ func load_game_hud(player: Node2D, passenger_refs_arr: Array):
     var time_score = load("res://gui/time/time.tscn").instance()
     add_child(time_score)
 
+
 func clear_game_hud():
     $"PlayerStatus".queue_free()
     for passenger_window in $"PassengerMargin/PassengerContainer".get_children():
         passenger_window.queue_free()
     $"Time".queue_free()
+
+
+func show_game_over(is_level_passed: bool):
+    var game_over_screen = load("res://gui/game_over/GameOver.tscn").instance()
+    if is_level_passed:
+        game_over_screen.won = true
+        # TODO: connect next level
+    else:
+        game_over_screen.won = false
+        game_over_screen.connect("restart", $"/root/Main/Level", "restart_level")
+    # TODO: also connect to options, this will trigger stuff in the gui manager
+    # TODO: connect main menu
 
 # ---------- PASSENGER PICKER ----------
 

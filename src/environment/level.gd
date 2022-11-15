@@ -1,5 +1,7 @@
 extends Node
 
+signal level_completed(lvl_nr, pts)
+
 export(int) var points_1_star = null
 export(int) var points_2_stars = null
 export(int) var points_3_stars = null
@@ -11,7 +13,11 @@ var point_levels = [points_1_star, points_2_stars, points_3_stars]
 var timer: Timer
 var available_passengers
 
+onready var main = get_parent()
+
 func _ready():
+    # TODO: connect all other signals that trigger responsibilities of main
+    connect("level_completed", main, "_on_level_completed")
     # do some checks here if the exports have been set by the scene
     for property in get_property_list():
         if property.usage == 8199 and get(property.name) == null:
@@ -67,19 +73,27 @@ func start_level(): # probably is going to be triggered by button in picker
     yield(get_tree().create_timer(1), "timeout") # TODO: clean wait until level starts - also disable driving car
     timer.start(time_to_complete)
 
+# ---------- GAME OVER ----------
 
 func player_crashed():
-    level_passed()
+    pass
 
 
 func time_up():
     GuiManager.clear_game_hud()
     level_passed()
+    timer.stop()
 
 
 func level_passed():
-    pass
+    emit_signal("level_completed", name, player.score) # TODO: this just test
 
 
 func level_failed():
+    pass
+
+
+func restart_level():
+    # TODO: maybe implement some reset_level() func that is called
+    # TODO: then call prepare level -> but supply passenger picker with previously picked passengers
     pass
