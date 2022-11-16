@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 # Driving Properties
-const ACCELERATION = 5
+const ACCELERATION = 10
 const MAX_FORWARD_VELOCITY = 900
 const DRAG_COEFFICIENT = 0.999 # Recommended: 0.99 - Affects how fast you slow down
 const STEERING_TORQUE = 10 # Affects turning speed
@@ -16,8 +16,10 @@ const DRIFT_EXTREMUM = 250 # Right velocity higher than this will cause you to s
 const DRIFT_ASYMPTOTE = 20 # During a slide you need to reduce right velocity to this to gain control
 
 # Vehicle velocity and angular velocity. Override rigidbody velocity in physics process
-var _velocity = Vector2()
 var _angular_velocity = 0
+var collision_force : Vector2 = Vector2.ZERO
+
+var prev_lv : Vector2 = Vector2.ZERO
 
 func _ready():
     """
@@ -28,49 +30,32 @@ func _ready():
 func _integrate_forces(state):
     """
     """
-    # use our own drag
-    _velocity *= DRAG_COEFFICIENT
-    if can_drift:
-        # If we are sticking to the road and our right velocity is high enough
-        if _drift_factor == WHEEL_GRIP_STICKY and get_right_velocity().length() > DRIFT_EXTREMUM:
-            _drift_factor = WHEEL_GRIP_SLIPPERY
-        # If we are sliding on the road
-        elif get_right_velocity().length() < DRIFT_ASYMPTOTE:
-            _drift_factor = WHEEL_GRIP_STICKY
-    # Add drift to velocity
-    _velocity = get_up_velocity() + (get_right_velocity() * _drift_factor)
     # Accelerate
     if Input.is_action_pressed("ui_up"):
-        _velocity += -transform.y * ACCELERATION
+        state.add_central_force(-transform.y * ACCELERATION)
     # Break / Reverse
     elif Input.is_action_pressed("ui_down"):
-        _velocity -= -transform.y * ACCELERATION
+        state.add_central_force(transform.y * ACCELERATION)
     # Prevent exceeding max velocity
     var max_speed = (Vector2(0, -1) * MAX_FORWARD_VELOCITY).rotated(get_rotation())
-    var x = clamp(_velocity.x, -abs(max_speed.x), abs(max_speed.x))
-    var y = clamp(_velocity.y, -abs(max_speed.y), abs(max_speed.y))
-    _velocity = Vector2(x, y)
+    var x = clamp(state.linear_velocity.x, -abs(max_speed.x), abs(max_speed.x))
+    var y = clamp(state.linear_velocity.y, -abs(max_speed.y), abs(max_speed.y))
+    state.linear_velocity = Vector2(x, y)
     # Torque depends that the vehicle is moving
-    var torque = lerp(0, STEERING_TORQUE, _velocity.length() / MAX_FORWARD_VELOCITY)
+    var torque = lerp(0, STEERING_TORQUE, state.linear_velocity.length() / MAX_FORWARD_VELOCITY)
     # Steer Right
     if Input.is_action_pressed("ui_right"):
         state.angular_velocity = torque
     # Steer Left
     elif Input.is_action_pressed("ui_left"):
         state.angular_velocity = -torque
-    # Apply the force
-    state.linear_velocity = _velocity
     # engine sounds
     # TODO: shifting, braking, ignition maybe...
-    $"Sounds/Engine".pitch_scale = range_lerp(_velocity.length(), 0, MAX_FORWARD_VELOCITY, 0.5, 3)
-    $"Sounds/Engine".volume_db = min(-60 + _velocity.length()/2, -10)
-    
+    $"Sounds/Engine".pitch_scale = range_lerp(state.linear_velocity.length(), 0, MAX_FORWARD_VELOCITY, 0.5, 3)
+    $"Sounds/Engine".volume_db = min(-60 + state.linear_velocity.length()/2, -10)
 
-func get_up_velocity() -> Vector2:
-    # Returns the vehicle's forward velocity
-    return -transform.y * _velocity.dot(-transform.y)
-
-
-func get_right_velocity() -> Vector2:
-    # Returns the vehicle's sidewards velocity
-    return -transform.x * _velocity.dot(-transform.x)
+    collision_force = Vector2.ZERO
+    if state.get_contact_count() > 0:
+        var dv : Vector2 = state.linear_velocity - prev_lv
+        collision_force = dv / (state.inverse_mass * state.step)
+        print(collision_force.length())

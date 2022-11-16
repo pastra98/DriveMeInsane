@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/car_one_white.png" type="Texture" id=2]
@@ -66,15 +66,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=15]
-radius = 24.0
-height = 192.0
-
 [node name="Player" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Car" type="RigidBody2D" parent="."]
 collision_mask = 2147483648
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="Car"]
@@ -104,13 +102,6 @@ scale = Vector2( 2, 2 )
 frames = SubResource( 28 )
 speed_scale = 2.0
 
-[node name="CollisionDetector" type="Area2D" parent="Car"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Car/CollisionDetector"]
-position = Vector2( 1, -3 )
-scale = Vector2( 1, 0.5 )
-shape = SubResource( 15 )
-
 [node name="PassengerManager" type="Node2D" parent="Car"]
 
 [node name="Sounds" type="Node2D" parent="Car"]
@@ -123,4 +114,3 @@ autoplay = true
 [node name="Explosion" type="AudioStreamPlayer" parent="Car/Sounds"]
 
 [connection signal="animation_finished" from="Car/Explosion" to="." method="_on_Explosion_animation_finished"]
-[connection signal="body_entered" from="Car/CollisionDetector" to="." method="_on_CollisionDetector_body_entered"]

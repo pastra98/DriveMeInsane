@@ -24,16 +24,6 @@ func get_current_kph() -> int:
     return int($Car.linear_velocity.length() * LV_TO_KPH)
 
 
-func _on_CollisionDetector_body_entered(body:Node):
-    if body.is_in_group("static_env"):
-        var curr_speed = get_current_kph()
-        # this is kind of stupid, I'd rather have a continuous exponential func
-        for speed in DAMAGE_LEVELS.keys():
-            if curr_speed <= speed:
-                take_damage(DAMAGE_LEVELS[speed])
-                return
-
-
 func take_damage(damage):
     health = max(0, health - damage)
     emit_signal("new_health", health)
@@ -53,6 +43,7 @@ func _on_raging_passenger(pass_name, rage_pts):
 
 func explode():
     # TODO: stop receiving player input, freeze car..
+    $"Car".sleeping = true
     $"Car/Explosion".show() 
     $"Car/Explosion".play()
     $"Car/Sprite".hide()
