@@ -31,21 +31,18 @@ func load_game_hud(player: Node2D, passenger_refs_arr: Array):
     add_child(time_score)
 
 
-func clear_game_hud():
+func show_level_over_gui(lvl_nr: int, stars: int, next_lvl_unlock: bool, points: int):
+    # first clear the in-game hud
     $"PlayerStatus".queue_free()
     for passenger_window in $"PassengerMargin/PassengerContainer".get_children():
         passenger_window.queue_free()
     $"Time".queue_free()
-
-
-func show_game_over(is_level_passed: bool):
+    # then show the game over screen
     var game_over_screen = load("res://gui/game_over/GameOver.tscn").instance()
-    if is_level_passed:
-        game_over_screen.won = true
-        # TODO: connect next level
-    else:
-        game_over_screen.won = false
-        game_over_screen.connect("restart", $"/root/Main/Level", "restart_level")
+    game_over_screen.setup(lvl_nr, stars, next_lvl_unlock, points)
+    game_over_screen.connect("restart", $"/root/Main/Level", "restart_level")
+    add_child(game_over_screen)
+    # TODO: connect next level
     # TODO: also connect to options, this will trigger stuff in the gui manager
     # TODO: connect main menu
 
