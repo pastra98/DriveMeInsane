@@ -19,7 +19,6 @@ const DRIFT_ASYMPTOTE = 20 # During a slide you need to reduce right velocity to
 var _velocity = Vector2()
 var _angular_velocity = 0
 
-
 func _ready():
     """
     """
@@ -61,6 +60,10 @@ func _integrate_forces(state):
         state.angular_velocity = -torque
     # Apply the force
     state.linear_velocity = _velocity
+    # engine sounds
+    # TODO: shifting, braking, ignition maybe...
+    $"Sounds/Engine".pitch_scale = range_lerp(_velocity.length(), 0, MAX_FORWARD_VELOCITY, 0.5, 3)
+    $"Sounds/Engine".volume_db = min(-60 + _velocity.length()/2, -10)
     
 
 func get_up_velocity() -> Vector2:
@@ -71,15 +74,3 @@ func get_up_velocity() -> Vector2:
 func get_right_velocity() -> Vector2:
     # Returns the vehicle's sidewards velocity
     return -transform.x * _velocity.dot(-transform.x)
-
-
-func crash(body) -> void:
-    """
-    """
-    $"Explosion".show() # old code from prev project
-    $"Explosion".play()
-    $"Sprite".hide()
-
-
-func _on_Explosion_animation_finished() -> void:
-    $Explosion.stop(); $Explosion.hide()

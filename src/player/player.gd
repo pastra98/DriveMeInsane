@@ -39,6 +39,9 @@ func take_damage(damage):
     emit_signal("new_health", health)
     # play sounds and animations depending on damage level here
     if health == 0:
+        score = 0
+        explode()
+        yield(get_tree().create_timer(2), "timeout") # wait
         emit_signal("player_dead")
     
 
@@ -46,3 +49,15 @@ func _on_raging_passenger(pass_name, rage_pts):
     # not sure if we actually need pass_name, other things can happen here to
     score += rage_pts
     emit_signal("new_score", score)
+
+
+func explode():
+    # TODO: stop receiving player input, freeze car..
+    $"Car/Explosion".show() 
+    $"Car/Explosion".play()
+    $"Car/Sprite".hide()
+
+
+func _on_Explosion_animation_finished():
+    $"Car/Explosion".stop()
+    $"Car/Explosion".hide()

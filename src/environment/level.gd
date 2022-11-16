@@ -31,7 +31,7 @@ func _ready():
     # add timer node
     timer = Timer.new() # TODO: maybe later ticking sound when timer is low
     timer.name = "Timer"
-    timer.connect("timeout", self, "time_up")
+    timer.connect("timeout", self, "_on_time_up")
     add_child(timer)
 
 # ---------- BEFORE GAME STARTS ----------
@@ -39,6 +39,7 @@ func _ready():
 func prepare_level(unlocked_passengers: Array):
     # make player instance and add to spawn pos
     player = load("res://player/Player.tscn").instance()
+    player.connect("player_dead", self, "_on_player_dead")
     $"PlayerPos".add_child(player)
     # make passenger instances and add to container node (AvailablePassengers)
     var passenger_instances = []
@@ -82,11 +83,12 @@ func start_level(): # probably is going to be triggered by button in picker
 
 # ---------- GAME OVER ----------
 
-func player_crashed():
-    level_over(0) # 0 pts for crashing
+func _on_player_dead():
+    timer.stop()
+    level_over(player.score) # should be set to 0 pts for crashing
 
 
-func time_up():
+func _on_time_up():
     timer.stop()
     level_over(player.score)
 
