@@ -19,6 +19,10 @@ const DRIFT_ASYMPTOTE = 20 # During a slide you need to reduce right velocity to
 var _velocity = Vector2()
 var _angular_velocity = 0
 
+var collision_force : Vector2 = Vector2.ZERO
+var prev_lv : Vector2 = Vector2.ZERO
+var t = 0
+
 func _ready():
     """
     """
@@ -28,6 +32,22 @@ func _ready():
 func _integrate_forces(state):
     """
     """
+    # colls
+    print(state.step)
+    t += state.step # TODO: if time step above certain num update prev_lv - prevent 
+    print(t)
+    collision_force = Vector2.ZERO
+    if state.get_contact_count() > 0:
+        var dv : Vector2 = state.linear_velocity - prev_lv
+        collision_force = dv / (state.inverse_mass * state.step)
+        print(collision_force.dot(state.get_contact_local_normal(0))/1000)
+
+        state.apply_impulse(state.get_contact_local_position(0), state.get_contact_local_normal(0)*dv.length()/10)
+        state.angular_velocity = clamp(state.angular_velocity, -TAU, TAU)
+        # state.apply_central_impulse(state.get_contact_local_normal(0)*50)
+        _velocity = state.linear_velocity
+
+        # return
     # use our own drag
     _velocity *= DRAG_COEFFICIENT
     if can_drift:

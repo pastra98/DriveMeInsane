@@ -75,6 +75,8 @@ script = ExtResource( 1 )
 
 [node name="Car" type="RigidBody2D" parent="."]
 collision_mask = 2147483648
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="Car"]
