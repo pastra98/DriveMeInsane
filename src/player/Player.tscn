@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/car_one_white.png" type="Texture" id=2]
 [ext_resource path="res://player/car.gd" type="Script" id=3]
+[ext_resource path="res://player/smoke.gd" type="Script" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 region = Rect2( 0, 0, 96, 96 )
@@ -48,6 +49,14 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="Curve" id=16]
+_data = [ Vector2( 0, 0.652273 ), 0.0, -0.0553515, 0, 0, Vector2( 0.504951, 0.997727 ), -0.706294, -0.706294, 0, 0, Vector2( 1, 0 ), 0.52936, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=17]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.0167598, 0.988827 )
+colors = PoolColorArray( 0.562012, 0.562012, 0.562012, 1, 0.82373, 0.65641, 0.65641, 1 )
+
 [sub_resource type="CapsuleShape2D" id=14]
 radius = 23.2
 height = 166.8
@@ -83,6 +92,26 @@ position = Vector2( 9, 0 )
 rotation = 3.14159
 texture = ExtResource( 2 )
 offset = Vector2( 8, 0 )
+
+[node name="Smoke" type="CPUParticles2D" parent="Car/Sprite"]
+show_behind_parent = true
+position = Vector2( 9.00014, -56 )
+amount = 18
+explosiveness = 0.03
+randomness = 0.04
+lifetime_randomness = 0.16
+local_coords = false
+direction = Vector2( 0, -1 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 51.13
+initial_velocity_random = 0.45
+scale_amount = 12.0
+scale_amount_random = 0.57
+scale_amount_curve = SubResource( 16 )
+color = Color( 0.521569, 0.513726, 0.513726, 1 )
+color_ramp = SubResource( 17 )
+hue_variation_random = 0.59
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
 position = Vector2( 0.8, -2.8 )
