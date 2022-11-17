@@ -117,6 +117,7 @@ autoplay = true
 
 [node name="Tires" type="AudioStreamPlayer" parent="Car/Sounds"]
 stream = ExtResource( 9 )
+volume_db = -80.0
 autoplay = true
 
 [node name="Crashes" type="Node2D" parent="Car/Sounds"]

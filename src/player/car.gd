@@ -7,7 +7,7 @@ const ACCELERATION = 5
 const MAX_FORWARD_VELOCITY = 900
 const DRAG_COEFFICIENT = 0.999 # Recommended: 0.99 - Affects how fast you slow down
 const BRAKE_POWER = 0.95 # Recommended: 0.99 - Affects how fast you slow down
-const STEERING_TORQUE = 10 # Affects turning speed
+const STEERING_TORQUE = 7 # Affects turning speed
 const STEERING_DAMP = 8 # 7 - Affects how fast the torque slows down
 
 # Drifting & Tire Friction
