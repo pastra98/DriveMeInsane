@@ -10,4 +10,10 @@ https://www.soundjay.com/transportation/sounds/truck-idling-02.mp3
 https://www.soundjay.com/transportation/sounds/car-ignition-2.mp3
 scream sounds by soundjay: https://www.soundjay.com/scream-sound-effect.html
 Explosion spritesheet by JRob774 on opengameart: https://opengameart.org/content/pixel-explosion-12-frames
+Sounds from freesound:
+https://freesound.org/people/qubodup/sounds/151624/
+https://freesound.org/people/BehanSean/sounds/422438/
+https://freesound.org/people/Eponn/sounds/420356/
+https://freesound.org/people/fiezewarthog/sounds/504921/
+https://freesound.org/people/audible-edge/sounds/71739/
 
