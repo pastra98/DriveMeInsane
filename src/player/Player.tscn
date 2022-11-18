@@ -82,6 +82,7 @@ script = ExtResource( 3 )
 [node name="Camera2D" type="Camera2D" parent="Car"]
 rotation = -1.5708
 current = true
+zoom = Vector2( 1.5, 1.5 )
 
 [node name="Label" type="Label" parent="Car"]
 margin_top = -103.0

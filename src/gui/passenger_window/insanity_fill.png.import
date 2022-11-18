@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/health_bar_fill.png-a7afa8d92c1159455b0e6d6ee3c14c3d.stex"
+path="res://.import/insanity_fill.png-2499ccfb1e927ebef2b48a577143e5b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/player_status/health_bar_fill.png"
-dest_files=[ "res://.import/health_bar_fill.png-a7afa8d92c1159455b0e6d6ee3c14c3d.stex" ]
+source_file="res://gui/passenger_window/insanity_fill.png"
+dest_files=[ "res://.import/insanity_fill.png-2499ccfb1e927ebef2b48a577143e5b0.stex" ]
 
 [params]
 
