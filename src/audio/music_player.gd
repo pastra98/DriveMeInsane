@@ -10,7 +10,7 @@ TODO:
     sound fades out and the new one fades in
 """
 
-onready var music1 = preload("res://audio/testing/Ensoniq-ZR-76-01-Dope-77.wav")
+onready var main_theme = preload("res://audio/music/main_theme.wav")
 onready var music2 = preload("res://audio/testing/Ensoniq-ZR-76-African-LP.wav")
 
 var trans_dur = 1.00 # will
@@ -26,17 +26,14 @@ func _unhandled_input(event): # not sure if this stuff should be handled here, f
     if event is InputEventKey and event.pressed:
         # track
         if event.scancode == KEY_1:
-            switch_music(music1)
+            switch_music(main_theme)
         elif event.scancode == KEY_2:
             switch_music(music2)
-        # volume
-        if event.scancode == KEY_UP:
-            volume_db += 1
-        elif event.scancode == KEY_DOWN:
-            volume_db -= 1
-        # fade
+        # 
         if event.scancode == KEY_F:
-            pass
+            stop()
+        elif event.scancode == KEY_A:
+            play()
 
 
 func switch_music(title):

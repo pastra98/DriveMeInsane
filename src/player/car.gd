@@ -27,6 +27,8 @@ var t_vel_update: float = 0.0
 
 var sound_rng = RandomNumberGenerator.new()
 
+var disabled = true
+
 func _ready():
     """
     """

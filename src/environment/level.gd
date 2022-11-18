@@ -79,6 +79,8 @@ func start_level(): # probably is going to be triggered by button in picker
     get_tree().paused = true
     yield(get_tree().create_timer(1), "timeout") 
     get_tree().paused = false
+    player.get_node("Car").disabled = false
+    print(player.get_node("Car").disabled)
     timer.start(time_to_complete)
 
 # ---------- GAME OVER ----------
