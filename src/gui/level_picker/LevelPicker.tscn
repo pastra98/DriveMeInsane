@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gui/level_picker/level_picker.gd" type="Script" id=1]
 [ext_resource path="res://gui/fonts/dogica.tres" type="DynamicFont" id=2]
+[ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=3]
 
 [sub_resource type="InputEventKey" id=1]
 pressed = true
@@ -19,6 +20,7 @@ margin_left = -200.0
 margin_top = -200.0
 margin_right = 200.0
 margin_bottom = 200.0
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
 
 [node name="Panel" type="Panel" parent="."]

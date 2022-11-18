@@ -53,7 +53,5 @@ func unseat_passenger(passenger_ref: Passenger, seat_name: String):
 
 
 func _on_StartLevel_button_down():
-    print(n_seated)
-    # if n_seated == 4:
-    #     emit_signal("level_started")
+    # TODO: can do some checks on how many people need to be seated for lvl, grey out button before
     emit_signal("level_started")

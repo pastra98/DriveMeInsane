@@ -3,9 +3,9 @@ extends MarginContainer
 var timer: Timer
 # var text_timeout
 
-onready var bar = $NinePatchRect/InsanityBar
-onready var label = $NinePatchRect/CurrentEffect
-onready var img = $NinePatchRect/PassengerPic
+onready var bar = $VBoxContainer/InsanityBar
+onready var label = $VBoxContainer/CurrentEffect
+onready var img = $VBoxContainer/PassengerPic
 
 func _ready():
     timer = Timer.new()

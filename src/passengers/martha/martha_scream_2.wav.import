@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/martha_scream_2.wav-017f5664291a5f6165543068343e908e.sample"
+
+[deps]
+
+source_file="res://passengers/martha/martha_scream_2.wav"
+dest_files=[ "res://.import/martha_scream_2.wav-017f5664291a5f6165543068343e908e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

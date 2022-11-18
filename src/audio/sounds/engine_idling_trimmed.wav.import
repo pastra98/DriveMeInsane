@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/engine_idling_trimmed.wav-39a6db269cf2d7350e3b7844c345efbb.sample"
+
+[deps]
+
+source_file="res://audio/sounds/engine_idling_trimmed.wav"
+dest_files=[ "res://.import/engine_idling_trimmed.wav-39a6db269cf2d7350e3b7844c345efbb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
