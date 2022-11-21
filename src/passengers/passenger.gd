@@ -35,9 +35,13 @@ func _init(pass_name: String):
     add_child(sound_player)
 
 
-func insanity_change(change_by, reason):
+func insanity_change(change_by, reason, is_broadcast):
     if raging:
-        return # do not register any insanity changes while ranging
+        return # do not register any insanity changes while raging
+    # if it is a broadcast, it should only affect other passengers
+    if is_broadcast:
+        get_parent().change_everyones_insanity(self, change_by, reason)
+        return
     # TODO: play some sounds here also
     insanity = min(insanity + change_by, 100)
     emit_signal("new_insanity", insanity, reason)
@@ -106,7 +110,7 @@ func set_passenger_sensibilities(conf: ConfigFile):
             cooldown_timer.name = new_sensibility.name + "Timer"
             cooldown_timer.connect("timeout", new_sensibility, "cooldown_over")
             new_sensibility.add_child(cooldown_timer)
-            new_sensibility.connect("inc_insanity", self, "insanity_change")
+            new_sensibility.connect("change_insanity", self, "insanity_change")
             add_child(new_sensibility)
             sensibilities.append(new_sensibility)
 
@@ -135,4 +139,4 @@ func scream():
 
 func _on_rage_cooldown_finished():
     raging = false
-    insanity_change(-100, "Ok, drive careful now")
+    insanity_change(-100, "Ok, drive careful now", false)

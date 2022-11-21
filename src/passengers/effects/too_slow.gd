@@ -1,7 +1,7 @@
 class_name TooSlowSensibility
 extends Node2D
 
-signal inc_insanity(amt, reason)
+signal change_insanity(amt, reason, is_broadcast)
 onready var player = $"/root/Main/Level".player
 
 var too_slow: int
@@ -18,7 +18,7 @@ func _init(speed_low_tol: int, insanity_eff: int, cooldown_time: int):
 
 func _physics_process(delta):
     if player.get_current_kph() < too_slow and not is_on_cooldown:
-        emit_signal("inc_insanity", insanity_effect, "Too Slow!!")
+        emit_signal("change_insanity", insanity_effect, "Too Slow!!", false)
         get_node(name + "Timer").start(cooldown)
         is_on_cooldown = true
         # this needs to not trigger when car is standing still at the start

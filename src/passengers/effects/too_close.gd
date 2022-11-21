@@ -1,7 +1,7 @@
 class_name TooCloseSensibility
 extends Area2D
 
-signal inc_insanity(amt, reason)
+signal change_insanity(amt, reason, is_broadcast)
 onready var player = $"/root/Main/Level".player
 
 var too_fast: int
@@ -33,7 +33,7 @@ func _ready():
 
 func _on_body_entered(body:Node):
     if body.is_in_group("static_env") and player.get_current_kph() > too_fast and not is_on_cooldown:
-        emit_signal("inc_insanity", insanity_effect, "Too close!!")
+        emit_signal("change_insanity", insanity_effect, "Too close!!", false)
         get_node(name + "Timer").start(cooldown)
         is_on_cooldown = true
 
