@@ -21,7 +21,8 @@ func set_passenger(passenger_instance: Passenger):
 
 func _on_AddToCar_button_down():
     emit_signal("passenger_added_to_player", passenger_ref)
-    passenger_ref.scream()
+    # TODO: this now no longer works cause they're not in the tree b4 the game starts
+    # passenger_ref.scream()
     hide()
 
 
