@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
+"base": "Reference",
 "class": "Passenger",
 "language": "GDScript",
-"path": "res://passengers/ressources/passenger.gd"
+"path": "res://passengers/passenger.gd"
 }, {
 "base": "Area2D",
 "class": "TooCloseSensibility",
