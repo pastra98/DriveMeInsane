@@ -12,7 +12,7 @@ func _ready():
 func _on_RemoveSeat_button_down():
     if passenger_ref != null:
         $Label.text = "Nobody"
-        $RemoveSeat.texture_normal = load("res://passengers/nobody.png")
+        $RemoveSeat.texture_normal = load("res://passengers/ressources/nobody.png")
         emit_signal("passenger_removed_from_player", passenger_ref, name)
         passenger_ref = null
 

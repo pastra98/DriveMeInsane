@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Passenger",
 "language": "GDScript",
-"path": "res://passengers/passenger.gd"
+"path": "res://passengers/ressources/passenger.gd"
 }, {
 "base": "Area2D",
 "class": "TooCloseSensibility",
 "language": "GDScript",
-"path": "res://player/sanity_effects/too_close.gd"
+"path": "res://passengers/sanity_effects/too_close.gd"
 }, {
 "base": "Node2D",
 "class": "TooFastSensibility",
 "language": "GDScript",
-"path": "res://player/sanity_effects/too_fast.gd"
+"path": "res://passengers/sanity_effects/too_fast.gd"
 }, {
 "base": "Node2D",
 "class": "TooSlowSensibility",
 "language": "GDScript",
-"path": "res://player/sanity_effects/too_slow.gd"
+"path": "res://passengers/sanity_effects/too_slow.gd"
 } ]
 _global_script_class_icons={
 "Passenger": "",
@@ -50,7 +50,7 @@ MusicPlayer="*res://audio/MusicPlayer.tscn"
 [display]
 
 window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/stretch/aspect="expand"
 
 [gui]
 

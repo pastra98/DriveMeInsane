@@ -27,8 +27,6 @@ var t_vel_update: float = 0.0
 
 var sound_rng = RandomNumberGenerator.new()
 
-var disabled = true
-
 func _ready():
     """
     """
@@ -112,4 +110,3 @@ func play_crash_sound(col_force: float):
             as_player.volume_db = range_lerp(col_force, 0, 7, -50, 0)
             as_player.play()
             break
-    # print("")
