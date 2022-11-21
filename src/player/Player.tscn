@@ -96,7 +96,7 @@ offset = Vector2( 8, 0 )
 [node name="Smoke" type="CPUParticles2D" parent="Car/Sprite"]
 show_behind_parent = true
 position = Vector2( 9.00014, -56 )
-amount = 18
+amount = 24
 explosiveness = 0.03
 randomness = 0.04
 lifetime_randomness = 0.16
