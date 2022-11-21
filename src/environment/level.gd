@@ -12,7 +12,7 @@ var player: Node2D
 onready var point_levels = [points_1_star, points_2_stars, points_3_stars]
 
 var timer: Timer
-var available_passengers: Node2D
+var available_passengers = []
 var selected_passenger_names = []
 
 onready var main = get_parent()
@@ -24,10 +24,6 @@ func _ready():
     for property in get_property_list():
         if property.usage == 8199 and get(property.name) == null:
             print("Property %s\nHas not been set in the inspector" % property.name); breakpoint
-    # add container for passengers during level picking
-    available_passengers = Node2D.new()
-    available_passengers.name = "AvailablePassengers"
-    add_child(available_passengers)
     # add timer node
     timer = Timer.new() # TODO: maybe later ticking sound when timer is low
     timer.name = "Timer"
@@ -41,23 +37,21 @@ func prepare_level(unlocked_passengers: Array):
     player = load("res://player/Player.tscn").instance()
     player.connect("player_dead", self, "_on_player_dead")
     # make passenger instances and add to container node (AvailablePassengers)
-    var passenger_instances = []
-    for passenger_name in unlocked_passengers:
-        var new_passenger = Passenger.new(passenger_name)
-        passenger_instances.append(new_passenger)
-        available_passengers.add_child(new_passenger)
-    GuiManager.add_passenger_picker(passenger_instances)
+    for passenger in unlocked_passengers:
+        var new_passenger = Passenger.new(passenger)
+        available_passengers.append(new_passenger)
+    GuiManager.add_passenger_picker(available_passengers)
 
 
 func add_passenger_to_player(passenger_ref: Passenger):
-    available_passengers.remove_child(passenger_ref)
     player.get_node("Car/PassengerManager").add_child(passenger_ref)
+    available_passengers.erase(passenger_ref)
+
 
 
 func remove_passenger_from_player(passenger_ref: Passenger, _seat_name: String):
-    # TODO: fix this- super hacky, seat name is not needed here but since we only use one signal for gui and level, we do it this way
     player.get_node("Car/PassengerManager").remove_child(passenger_ref)
-    available_passengers.add_child(passenger_ref)
+    available_passengers.append(passenger_ref)
 
 # ----------  GAME STARTS ----------
 
@@ -65,16 +59,18 @@ func start_level(): # probably is going to be triggered by button in picker
     # add player to tree
     $"PlayerPos".add_child(player)
     # free unused passengers that are still children of AvailablePassengers
-    for passenger in available_passengers.get_children():
+    for passenger in available_passengers:
         passenger.queue_free()
+    available_passengers.clear()
     # connect selected passengers to player
+    var selected_passenger_refs = []
     selected_passenger_names.clear() # needs to be cleared otherwise it grows every time level is restarted
-    var passenger_refs = player.get_node("Car/PassengerManager").get_children()
-    for passenger in passenger_refs:
+    for passenger in player.get_node("Car/PassengerManager").get_children():
         passenger.connect("passenger_raging", player, "_on_raging_passenger")
         selected_passenger_names.append(passenger.name)
+        selected_passenger_refs.append(passenger)
     # set up the gui
-    GuiManager.load_game_hud(player, passenger_refs)
+    GuiManager.load_game_hud(player, selected_passenger_refs)
     # delay a bit and then start timer
     # TODO: show some countdown and ticking noise here
     get_tree().paused = true
@@ -112,10 +108,15 @@ func level_over(points: int):
 func restart_level():
     # prepare level again
     prepare_level(main.unlocked_passengers)
-    #
+    # add previous selected passengers again
     for passenger_name in selected_passenger_names:
-        var passenger = available_passengers.get_node(passenger_name)
+        # have to get new passenger ref from available_passengers based off name
+        var passenger_ref: Passenger
+        for passenger in available_passengers:
+            if passenger.name == passenger_name:
+                passenger_ref = passenger
+                break
         # hacky: this stuff is normally triggered by a signal in passenger_card.gd
-        GuiManager.get_node("PassengerPicker").seat_passenger(passenger)
+        GuiManager.get_node("PassengerPicker").seat_passenger(passenger_ref)
         GuiManager.get_node("PassengerPicker").picklist.get_node(passenger_name + "Card").hide()
-        add_passenger_to_player(passenger)
+        add_passenger_to_player(passenger_ref)
