@@ -17,6 +17,7 @@ func _init(speed_tol: int, insanity_eff: int, cooldown_time: int):
     name = "TooFast"
 
 func _physics_process(delta):
+    print("I'm active!!!")
     if player.get_current_kph() > too_fast and not is_on_cooldown:
         emit_signal("inc_insanity", insanity_effect, "Too fast!!")
         get_node(name + "Timer").start(cooldown)

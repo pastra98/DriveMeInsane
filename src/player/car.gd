@@ -60,6 +60,7 @@ func _integrate_forces(state):
         _lv_override *= DRAG_COEFFICIENT
         $"Sounds/Tires".stream_paused = true
     # If we are sticking to the road and our right velocity is high enough
+    # TODO: play some drifting sounds
     if (_drift_factor == WHEEL_GRIP_STICKY and get_right_velocity().length() > DRIFT_EXTREMUM) or _is_braking:
         _drift_factor = WHEEL_GRIP_SLIPPERY
     # If we are sliding on the road

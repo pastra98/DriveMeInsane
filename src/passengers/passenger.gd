@@ -96,6 +96,11 @@ func set_passenger_sensibilities(conf: ConfigFile):
                     conf.get_value(section, "insanity_effect"),
                     conf.get_value(section, "cooldown")
                     )
+            "RelaxationFart":
+                new_sensibility = RelaxationFart.new(
+                    conf.get_value(section, "insanity_effect"),
+                    conf.get_value(section, "cooldown")
+                    )
         if new_sensibility: # make sure the section that was read was a sensibility, not e.g. basics
             var cooldown_timer = Timer.new()
             cooldown_timer.name = new_sensibility.name + "Timer"

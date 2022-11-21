@@ -9,28 +9,34 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "Node2D",
 "class": "Passenger",
 "language": "GDScript",
 "path": "res://passengers/passenger.gd"
 }, {
+"base": "Node2D",
+"class": "RelaxationFart",
+"language": "GDScript",
+"path": "res://passengers/effects/relaxation_fart.gd"
+}, {
 "base": "Area2D",
 "class": "TooCloseSensibility",
 "language": "GDScript",
-"path": "res://passengers/sanity_effects/too_close.gd"
+"path": "res://passengers/effects/too_close.gd"
 }, {
 "base": "Node2D",
 "class": "TooFastSensibility",
 "language": "GDScript",
-"path": "res://passengers/sanity_effects/too_fast.gd"
+"path": "res://passengers/effects/too_fast.gd"
 }, {
 "base": "Node2D",
 "class": "TooSlowSensibility",
 "language": "GDScript",
-"path": "res://passengers/sanity_effects/too_slow.gd"
+"path": "res://passengers/effects/too_slow.gd"
 } ]
 _global_script_class_icons={
 "Passenger": "",
+"RelaxationFart": "",
 "TooCloseSensibility": "",
 "TooFastSensibility": "",
 "TooSlowSensibility": ""
