@@ -37,10 +37,9 @@ func _ready():
 # ---------- BEFORE GAME STARTS ----------
 
 func prepare_level(unlocked_passengers: Array):
-    # make player instance and add to spawn pos
+    # make player instance - but don't add it to tree yet
     player = load("res://player/Player.tscn").instance()
     player.connect("player_dead", self, "_on_player_dead")
-    $"PlayerPos".add_child(player)
     # make passenger instances and add to container node (AvailablePassengers)
     var passenger_instances = []
     for passenger_name in unlocked_passengers:
@@ -52,17 +51,19 @@ func prepare_level(unlocked_passengers: Array):
 
 func add_passenger_to_player(passenger_ref: Passenger):
     available_passengers.remove_child(passenger_ref)
-    player.passengers.add_child(passenger_ref)
+    player.get_node("Car/PassengerManager").add_child(passenger_ref)
 
 
 func remove_passenger_from_player(passenger_ref: Passenger, _seat_name: String):
     # TODO: fix this- super hacky, seat name is not needed here but since we only use one signal for gui and level, we do it this way
-    player.passengers.remove_child(passenger_ref)
+    player.get_node("Car/PassengerManager").remove_child(passenger_ref)
     available_passengers.add_child(passenger_ref)
 
 # ----------  GAME STARTS ----------
 
 func start_level(): # probably is going to be triggered by button in picker
+    # add player to tree
+    $"PlayerPos".add_child(player)
     # free unused passengers that are still children of AvailablePassengers
     for passenger in available_passengers.get_children():
         passenger.queue_free()
