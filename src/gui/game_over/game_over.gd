@@ -36,7 +36,8 @@ func _on_Options_button_down():
 
 
 func _on_MainMenu_button_down():
-    pass # Replace with function body.
+    GuiManager.show_main_menu()
+    queue_free()
 
 
 func _on_Restart_button_down():
