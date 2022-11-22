@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/car_one_white.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://audio/crashes/collision_light_3.wav" type="AudioStream" id=7]
 [ext_resource path="res://audio/crashes/collision_light_2.wav" type="AudioStream" id=8]
 [ext_resource path="res://audio/sounds/tire_squeal_trimmed.wav" type="AudioStream" id=9]
+[ext_resource path="res://player/passenger_manager.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=14]
 radius = 23.2
@@ -108,6 +109,7 @@ frames = SubResource( 28 )
 speed_scale = 2.0
 
 [node name="PassengerManager" type="Node2D" parent="Car"]
+script = ExtResource( 10 )
 
 [node name="Sounds" type="Node2D" parent="Car"]
 

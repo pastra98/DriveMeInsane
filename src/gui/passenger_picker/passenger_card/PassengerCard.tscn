@@ -4,42 +4,54 @@
 [ext_resource path="res://gui/fonts/dogica.tres" type="DynamicFont" id=2]
 [ext_resource path="res://gui/passenger_picker/passenger_card/passenger_card.gd" type="Script" id=3]
 [ext_resource path="res://GUI/Fonts/dogica.tres" type="DynamicFont" id=4]
-
-[sub_resource type="StyleBoxFlat" id=1]
+[ext_resource path="res://gui/fonts/pixellari.tres" type="DynamicFont" id=5]
 
 [node name="PassengerCard" type="MarginContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -175.0
-margin_right = 100.0
-margin_bottom = 175.0
+margin_left = -150.0
+margin_top = -170.0
+margin_right = 150.0
+margin_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 200, 350 )
+rect_min_size = Vector2( 300, 340 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="."]
-margin_right = 200.0
-margin_bottom = 350.0
-custom_styles/panel = SubResource( 1 )
+margin_right = 300.0
+margin_bottom = 340.0
 
 [node name="TopVBox" type="VBoxContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
 
-[node name="CenterContainer" type="CenterContainer" parent="Panel/TopVBox"]
-margin_right = 200.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TopVBox"]
+margin_right = 280.0
+margin_bottom = 294.0
+custom_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TopVBox/HBoxContainer"]
+margin_right = 150.0
+margin_bottom = 294.0
+rect_min_size = Vector2( 150, 0 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/TopVBox/HBoxContainer/VBoxContainer"]
+margin_right = 150.0
 margin_bottom = 96.0
 
-[node name="PassengerPic" type="TextureRect" parent="Panel/TopVBox/CenterContainer"]
-margin_left = 52.0
-margin_right = 148.0
+[node name="PassengerPic" type="TextureRect" parent="Panel/TopVBox/HBoxContainer/VBoxContainer/CenterContainer"]
+margin_left = 27.0
+margin_right = 123.0
 margin_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -49,41 +61,44 @@ size_flags_vertical = 0
 theme = ExtResource( 1 )
 expand = true
 
-[node name="Name" type="Label" parent="Panel/TopVBox"]
+[node name="Name" type="Label" parent="Panel/TopVBox/HBoxContainer/VBoxContainer"]
 margin_top = 100.0
-margin_right = 200.0
+margin_right = 150.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 4 )
 align = 1
 
-[node name="Lore" type="RichTextLabel" parent="Panel/TopVBox"]
+[node name="Effects" type="RichTextLabel" parent="Panel/TopVBox/HBoxContainer/VBoxContainer"]
 margin_top = 124.0
-margin_right = 200.0
-margin_bottom = 204.0
-rect_min_size = Vector2( 0, 80 )
+margin_right = 150.0
+margin_bottom = 294.0
+rect_min_size = Vector2( 96, 170 )
 size_flags_vertical = 0
+custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 
-[node name="Effects" type="RichTextLabel" parent="Panel/TopVBox"]
-margin_top = 208.0
-margin_right = 200.0
-margin_bottom = 308.0
+[node name="Lore" type="RichTextLabel" parent="Panel/TopVBox/HBoxContainer"]
+margin_left = 160.0
+margin_right = 280.0
+margin_bottom = 294.0
 rect_min_size = Vector2( 0, 100 )
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 
 [node name="AddToCar" type="Button" parent="Panel/TopVBox"]
-margin_left = 9.0
-margin_top = 312.0
-margin_right = 191.0
-margin_bottom = 336.0
+margin_left = 49.0
+margin_top = 298.0
+margin_right = 231.0
+margin_bottom = 322.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 2 )
 text = "seat in car"
 
-[connection signal="mouse_entered" from="Panel/TopVBox/CenterContainer/PassengerPic" to="Panel/TopVBox" method="_on_PassengerPic_mouse_entered"]
-[connection signal="mouse_exited" from="Panel/TopVBox/CenterContainer/PassengerPic" to="Panel/TopVBox" method="_on_PassengerPic_mouse_exited"]
+[connection signal="mouse_entered" from="Panel/TopVBox/HBoxContainer/VBoxContainer/CenterContainer/PassengerPic" to="Panel/TopVBox/HBoxContainer/VBoxContainer" method="_on_PassengerPic_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/TopVBox/HBoxContainer/VBoxContainer/CenterContainer/PassengerPic" to="Panel/TopVBox/HBoxContainer/VBoxContainer" method="_on_PassengerPic_mouse_exited"]
 [connection signal="button_down" from="Panel/TopVBox/AddToCar" to="." method="_on_AddToCar_button_down"]

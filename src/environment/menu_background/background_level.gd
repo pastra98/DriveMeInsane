@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 const TIME_TO_TRAVERSE = 60
 

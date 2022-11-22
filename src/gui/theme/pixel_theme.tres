@@ -1,10 +1,11 @@
-[gd_resource type="Theme" load_steps=9 format=2]
+[gd_resource type="Theme" load_steps=10 format=2]
 
 [ext_resource path="res://gui/fonts/dogica_small.tres" type="DynamicFont" id=1]
 [ext_resource path="res://gui/theme/styleboxes/blue_button.tres" type="StyleBox" id=2]
 [ext_resource path="res://gui/theme/styleboxes/black_white_border.tres" type="StyleBox" id=3]
 [ext_resource path="res://gui/theme/styleboxes/grabber_highlight.tres" type="StyleBox" id=4]
 [ext_resource path="res://gui/theme/styleboxes/scroll.tres" type="StyleBox" id=5]
+[ext_resource path="res://gui/theme/styleboxes/stylebox_disabled_button.tres" type="StyleBox" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.164706, 0.305882, 0.27451, 1 )
@@ -46,7 +47,7 @@ corner_radius_bottom_left = 3
 
 [resource]
 default_font = ExtResource( 1 )
-Button/styles/focus = null
+Button/styles/disabled = ExtResource( 6 )
 Button/styles/hover = SubResource( 1 )
 Button/styles/normal = ExtResource( 2 )
 Button/styles/pressed = ExtResource( 2 )

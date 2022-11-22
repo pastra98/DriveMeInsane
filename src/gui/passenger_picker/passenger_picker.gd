@@ -6,7 +6,7 @@ signal level_started
 
 onready var seats = $"Panel/MarginContainer/VBoxContainer/Seats"
 onready var level = $"/root/Main/Level"
-onready var picklist = $"Panel/MarginContainer/VBoxContainer/ScrollContainer/PickList"
+onready var picklist = $"Panel/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/PickList"
 
 var n_seated = 0
 # TODO: find a cleaner solution, I just can't be assed now
@@ -25,7 +25,7 @@ func add_passenger_cards(passenger_instances: Array):
         connect("free_seats_available", new_card, "_on_free_seats_available")
         new_card.connect("passenger_added_to_player", self, "seat_passenger")
         new_card.connect("passenger_added_to_player", level, "add_passenger_to_player")
-        $"Panel/MarginContainer/VBoxContainer/ScrollContainer/PickList".add_child(new_card)
+        $"Panel/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/PickList".add_child(new_card)
     for seat in seats.get_children():
         seat.connect("passenger_removed_from_player", self, "unseat_passenger")
         seat.connect("passenger_removed_from_player", level, "remove_passenger_from_player")
