@@ -5,11 +5,11 @@ var curr_lvl
 var unlocked_passengers = ["bob"]
 var completed_lvls = {}
 
-onready var bg_scene = load("res://environment/menu_background/BackgroundLevel.tscn").instance()
+# var bg_scene = load("res://environment/menu_background/BackgroundLevel.tscn").instance()
 
 func _ready():
-    add_child(bg_scene)
-    GuiManager.add_level_picker()
+    # add_child(bg_scene)
+    GuiManager.show_main_menu()
 
 
 func load_level(level_nr):

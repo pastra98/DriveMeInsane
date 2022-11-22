@@ -1,11 +1,5 @@
 extends MarginContainer
 
-"""
-TODO:
-- make it more procedural, able to add new buttons for levels based on code, also
-  don't hardcode a function for every button obviously.
-"""
-
 signal new_level_picked(lvl_nr)
 onready var main = get_node("/root/Main")
 
@@ -20,9 +14,9 @@ func _ready():
             var new_button = Button.new()
             new_button.text = String(lvl_nr)
             if lvl_nr == 1 or main.completed_lvls.has(lvl_nr):
-                new_button.icon = load("res://gui/level_picker/unlocked.png")
+                new_button.icon = load("res://gui/main_menu/level_picker/unlocked.png")
             else:
-                new_button.icon = load("res://gui/level_picker/locked.png")
+                new_button.icon = load("res://gui/main_menu/level_picker/locked.png")
                 new_button.disabled = true
             new_button.connect("pressed", self, "level_button_pressed", [lvl_nr])
             $"Panel/VBoxContainer/GridContainer".add_child(new_button)

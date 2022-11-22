@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bar_bg.png-c07bfb837e1c4c12e195a120fe42dc63.stex"
+path="res://.import/bar_bg.png-376fbc2d02fe248ca59b1c5f2538d6cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/passenger_window/bar_bg.png"
-dest_files=[ "res://.import/bar_bg.png-c07bfb837e1c4c12e195a120fe42dc63.stex" ]
+source_file="res://gui/game_hud/passenger_window/bar_bg.png"
+dest_files=[ "res://.import/bar_bg.png-376fbc2d02fe248ca59b1c5f2538d6cb.stex" ]
 
 [params]
 

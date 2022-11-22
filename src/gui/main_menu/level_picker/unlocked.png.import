@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/locked.png-a685cc3015f22d4b5e9f2f03bd2fc0ed.stex"
+path="res://.import/unlocked.png-3e9ddb7cd19ca0fc15580345a810401e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/level_picker/locked.png"
-dest_files=[ "res://.import/locked.png-a685cc3015f22d4b5e9f2f03bd2fc0ed.stex" ]
+source_file="res://gui/main_menu/level_picker/unlocked.png"
+dest_files=[ "res://.import/unlocked.png-3e9ddb7cd19ca0fc15580345a810401e.stex" ]
 
 [params]
 
