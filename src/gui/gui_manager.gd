@@ -19,8 +19,8 @@ func load_game_hud(player: Node2D, passenger_refs_arr: Array):
     var hud = load("res://gui/game_hud/GameHUD.tscn").instance()
     add_child(hud) # TODO: consider delegating some stuff to the game HUD scene and add script there?
     # connect player to player status
-    player.connect("new_health", $"PlayerStatus", "update_health")
-    player.connect("new_score", $"PlayerStatus", "update_score")
+    player.connect("new_health", $"GameHUD/PlayerStatus", "update_health")
+    player.connect("new_score", $"GameHUD/PlayerStatus", "update_score")
     # add the passenger windows
     for passenger_ref in passenger_refs_arr:
         var new_passenger_window = load("res://gui/game_hud/passenger_window/PassengerWindow.tscn").instance()
