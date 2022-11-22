@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=1]
 [ext_resource path="res://gui/fonts/dogica.tres" type="DynamicFont" id=2]
 [ext_resource path="res://gui/passenger_picker/passenger_card/passenger_card.gd" type="Script" id=3]
 [ext_resource path="res://GUI/Fonts/dogica.tres" type="DynamicFont" id=4]
-
-[sub_resource type="StyleBoxFlat" id=1]
 
 [node name="PassengerCard" type="MarginContainer"]
 anchor_left = 0.5
@@ -27,7 +25,6 @@ script = ExtResource( 3 )
 [node name="Panel" type="Panel" parent="."]
 margin_right = 200.0
 margin_bottom = 350.0
-custom_styles/panel = SubResource( 1 )
 
 [node name="TopVBox" type="VBoxContainer" parent="Panel"]
 anchor_right = 1.0

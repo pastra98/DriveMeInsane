@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "InsanityScream",
+"language": "GDScript",
+"path": "res://passengers/effects/insanity_scream.gd"
+}, {
+"base": "Node2D",
 "class": "Passenger",
 "language": "GDScript",
 "path": "res://passengers/passenger.gd"
@@ -35,6 +40,7 @@ _global_script_classes=[ {
 "path": "res://passengers/effects/too_slow.gd"
 } ]
 _global_script_class_icons={
+"InsanityScream": "",
 "Passenger": "",
 "RelaxationFart": "",
 "TooCloseSensibility": "",

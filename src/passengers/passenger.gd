@@ -105,7 +105,13 @@ func set_passenger_sensibilities(conf: ConfigFile):
                     conf.get_value(section, "insanity_effect"),
                     conf.get_value(section, "cooldown")
                     )
+            "InsanityScream":
+                new_sensibility = InsanityScream.new(
+                    conf.get_value(section, "insanity_effect")
+                    )
+                connect("passenger_raging", new_sensibility, "_on_passenger_raging") # connect signal to sensibility
         if new_sensibility: # make sure the section that was read was a sensibility, not e.g. basics
+            # add cooldown timer as child to every sensibility
             var cooldown_timer = Timer.new()
             cooldown_timer.name = new_sensibility.name + "Timer"
             cooldown_timer.connect("timeout", new_sensibility, "cooldown_over")
@@ -138,5 +144,6 @@ func scream():
 
 
 func _on_rage_cooldown_finished():
+    rage_timer.stop()
     raging = false
     insanity_change(-100, "Ok, drive careful now", false)
