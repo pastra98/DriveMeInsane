@@ -7,15 +7,17 @@ export(int) var points_1_star = null
 export(int) var points_2_stars = null
 export(int) var points_3_stars = null
 export(int) var time_to_complete = null
+export(Array) var unlocks_passengers = []
 
+var level_sound: AudioStreamPlayer
 var player: Node2D
-onready var point_levels = [points_1_star, points_2_stars, points_3_stars]
 
 var timer: Timer
 var available_passengers = []
 var selected_passenger_names = []
 
 onready var main = get_parent()
+onready var point_levels = [points_1_star, points_2_stars, points_3_stars]
 
 func _ready():
     # TODO: connect all other signals that trigger responsibilities of main
@@ -29,6 +31,10 @@ func _ready():
     timer.name = "Timer"
     timer.connect("timeout", self, "_on_time_up")
     add_child(timer)
+    # add sound player
+    level_sound = AudioStreamPlayer.new()
+    level_sound.name = "LevelSound"
+    add_child(level_sound)
 
 # ---------- BEFORE GAME STARTS ----------
 
@@ -100,6 +106,11 @@ func level_over(points: int):
             stars += 1
     if stars > 0:
         emit_signal("level_completed", level_nr, points) # TODO: this just test - also only caught by main
+        level_sound.stream = load("res://audio/sounds/success.wav")
+        level_sound.play()
+    else:
+        level_sound.stream = load("res://audio/sounds/fail_trombone.wav")
+        level_sound.play()
     # this stuff afterwards
     var next_lvl_unlock = main.completed_lvls.has(level_nr)
     GuiManager.show_level_over_gui(level_nr, stars, next_lvl_unlock, points)

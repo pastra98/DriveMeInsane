@@ -28,7 +28,7 @@ func _physics_process(delta):
         emit_signal("change_insanity", insanity_effect, "Fart!", true)
 
 func get_txt_description() -> String:
-    return "%s: +%s insanity when passenger farts. Farts every %s seconds while insanity is 0" % [name, insanity_effect, cooldown]
+    return "%s:\n+%s insanity when passenger farts. Farts every %s seconds while insanity is 0" % [name, insanity_effect, cooldown]
 
 
 func cooldown_over():

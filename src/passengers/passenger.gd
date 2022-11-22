@@ -124,7 +124,7 @@ func set_passenger_sensibilities(conf: ConfigFile):
 func get_sensibilities_txt():
     var txt = ""
     for sensibility in sensibilities:
-        txt = txt + sensibility.get_txt_description() + "\n"
+        txt = txt + "- " + sensibility.get_txt_description() + "\n"
     return txt
 
 

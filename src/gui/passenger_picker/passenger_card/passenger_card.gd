@@ -13,10 +13,10 @@ func _ready():
 func set_passenger(passenger_instance: Passenger):
     passenger_ref = passenger_instance
     name = passenger_ref.name + "Card"
-    $"Panel/TopVBox/Name".text = passenger_ref.name
-    $"Panel/TopVBox/Lore".bbcode_text = "[center]%s[/center]" % passenger_ref.lore
-    $"Panel/TopVBox/Effects".bbcode_text = "[center]%s[/center]" % passenger_ref.get_sensibilities_txt()
-    $"Panel/TopVBox/CenterContainer/PassengerPic".texture = load(passenger_ref.imgpath % "happy")
+    $"Panel/TopVBox/HBoxContainer/VBoxContainer/Name".text = passenger_ref.name
+    $"Panel/TopVBox/HBoxContainer/Lore".bbcode_text = passenger_ref.lore
+    $"Panel/TopVBox/HBoxContainer/VBoxContainer/Effects".bbcode_text = passenger_ref.get_sensibilities_txt()
+    $"Panel/TopVBox/HBoxContainer/VBoxContainer/CenterContainer/PassengerPic".texture = load(passenger_ref.imgpath % "happy")
 
 
 func _on_AddToCar_button_down():

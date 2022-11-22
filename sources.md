@@ -1,6 +1,7 @@
 ivan skodje steering: https://www.github.com/ivanskodje-godotengine/Vehicle-Controller-2D
 
 Dogica font by Roberto Mocci: https://www.dafont.com/de/roberto-mocci.d8882
+Pixellari font by Zacchary Dempsey-Plante: https://www.dafont.com/de/pixellari.font
 
 Explosion spritesheet by JRob774 on opengameart: https://opengameart.org/content/pixel-explosion-12-frames
 

@@ -25,7 +25,7 @@ func _physics_process(delta):
 
 
 func get_txt_description() -> String:
-    return "%s: +%s insanity when going under %s kph" % [name, insanity_effect, too_slow]
+    return "%s:\n+%s insanity when going under %s kph" % [name, insanity_effect, too_slow]
 
 
 func cooldown_over():

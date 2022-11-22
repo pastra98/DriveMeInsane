@@ -15,4 +15,4 @@ func _on_passenger_raging(): # gets triggered by signal, connected in passenger.
     emit_signal("change_insanity", insanity_effect, "Loud scream!", true)
 
 func get_txt_description() -> String:
-    return "%s: +%s insanity when passenger Screams. Screams when on full insanity" % [name, insanity_effect]
+    return "%s:\n+%s insanity when passenger Screams. Screams when on full insanity" % [name, insanity_effect]
