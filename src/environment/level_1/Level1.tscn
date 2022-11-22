@@ -8,6 +8,7 @@ points_1_star = 10
 points_2_stars = 20
 points_3_stars = 30
 time_to_complete = 30
+unlocks_passengers = [ "Ahote" ]
 
 [node name="PlayerPos" type="Position2D" parent="." index="2"]
 position = Vector2( 640, 675 )

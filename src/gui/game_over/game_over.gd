@@ -21,7 +21,6 @@ func setup(lvl_nr: int, stars: int, next_lvl_unlock: bool, points: int):
     buttons = $"Panel/MarginContainer/VBoxContainer"
     if not next_lvl_unlock:
         buttons.get_node("NextLevel").hide()
-    print("We got %s stars!!!" % stars)
     # TODO: show text info etc based on lvl_passed
     var success = "completed" if stars > 0 else "failed"
     buttons.get_node("Text").text = "Lvl %s!" % success

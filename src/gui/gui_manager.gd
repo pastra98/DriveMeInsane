@@ -4,6 +4,9 @@ extends CanvasLayer
 const MAX_PASSENGERS = 4 # TODO: maybe later find better solution
 
 var player_status
+onready var main = get_node("/root/Main")
+# onready var n_unlock_pass = get_node("/root/Main").unlocked_passengers.size()
+onready var n_unlock_pass = main.unlocked_passengers.size()
 
 func _ready():	
     pass
@@ -31,7 +34,7 @@ func load_game_hud(player: Node2D, passenger_refs_arr: Array):
     add_child(time_score)
 
 
-func show_level_over_gui(lvl_nr: int, stars: int, next_lvl_unlock: bool, points: int):
+func show_level_over_gui(lvl_nr: int, stars: int, points: int):
     # first clear the in-game hud
     $"PlayerStatus".queue_free()
     for passenger_window in $"PassengerMargin/PassengerContainer".get_children():
@@ -39,9 +42,16 @@ func show_level_over_gui(lvl_nr: int, stars: int, next_lvl_unlock: bool, points:
     $"Time".queue_free()
     # then show the game over screen
     var game_over_screen = load("res://gui/game_over/GameOver.tscn").instance()
-    game_over_screen.setup(lvl_nr, stars, next_lvl_unlock, points)
+    game_over_screen.setup(lvl_nr, stars, main.completed_lvls.has(lvl_nr), points)
     game_over_screen.connect("restart", $"/root/Main/Level", "restart_level")
     add_child(game_over_screen)
+    # check if new unlocked passengers and show if this is the case
+    if n_unlock_pass < main.unlocked_passengers.size():
+        var new_ones = main.unlocked_passengers.slice(n_unlock_pass, -1)
+        var unlocker = load("res://gui/passenger_unlocks/PassengerUnlocks.tscn").instance()
+        unlocker.show_passengers(new_ones)
+        add_child(unlocker)
+        n_unlock_pass = main.unlocked_passengers.size()
     # TODO: connect next level
     # TODO: also connect to options, this will trigger stuff in the gui manager
     # TODO: connect main menu
