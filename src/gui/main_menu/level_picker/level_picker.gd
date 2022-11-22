@@ -13,7 +13,7 @@ func _ready():
             var lvl_nr = int(file_name.get_basename().lstrip("Level"))
             var new_button = Button.new()
             new_button.text = String(lvl_nr)
-            if lvl_nr == 1 or main.completed_lvls.has(lvl_nr):
+            if lvl_nr == 1 or main.completed_lvls.has(lvl_nr-1): # lvl 1 is unlock, so is any lvl where prev lvl is passed
                 new_button.icon = load("res://gui/main_menu/level_picker/unlocked.png")
             else:
                 new_button.icon = load("res://gui/main_menu/level_picker/locked.png")
