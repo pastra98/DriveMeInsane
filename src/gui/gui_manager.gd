@@ -43,7 +43,6 @@ func show_level_over_gui(lvl_nr: int, stars: int, points: int):
     # then show the game over screen
     var game_over_screen = load("res://gui/game_over/GameOver.tscn").instance()
     game_over_screen.setup(lvl_nr, stars, main.completed_lvls.has(lvl_nr), points)
-    game_over_screen.connect("restart", $"/root/Main/Level", "restart_level")
     add_child(game_over_screen)
     # check if new unlocked passengers and show if this is the case
     if n_unlock_pass < main.unlocked_passengers.size():

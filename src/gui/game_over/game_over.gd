@@ -1,22 +1,21 @@
 extends MarginContainer
 
-# create new signals here for every button signal that is received. maybe a bit ugly
-signal restart
-
-var setup_complete = false
+var level_nr: int
 
 onready var buttons: VBoxContainer
+onready var main = get_node("/root/Main")
+onready var level = get_node("/root/Main/Level")
 
 func _ready():
-    # check if level_won or level_lost has been called
-    if not setup_complete:
+    # check if setup has been called
+    if not level_nr:
         print("Level must be setup before adding game over screen to tree")
         breakpoint
     pass
 
 
 func setup(lvl_nr: int, stars: int, next_lvl_unlock: bool, points: int):
-    setup_complete = true
+    level_nr = lvl_nr
     # hide next level button if not unlocked
     buttons = $"Panel/MarginContainer/VBoxContainer"
     if not next_lvl_unlock:
@@ -28,7 +27,8 @@ func setup(lvl_nr: int, stars: int, next_lvl_unlock: bool, points: int):
 
 
 func _on_NextLevel_button_down():
-    pass # Replace with function body.
+    main.load_level(level_nr + 1)
+    queue_free()
 
 
 func _on_Options_button_down():
@@ -40,6 +40,6 @@ func _on_MainMenu_button_down():
 
 
 func _on_Restart_button_down():
-    emit_signal("restart")
+    level.restart_level()
     queue_free()
 

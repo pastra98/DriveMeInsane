@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/small_tilemap.png-3e6f86a7f89c4ec2dac2b98aa099a05c.stex"
+path="res://.import/unlocked.png-73645fdade6f61cee0483b39a2637a32.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/small_tilemap.png"
-dest_files=[ "res://.import/small_tilemap.png-3e6f86a7f89c4ec2dac2b98aa099a05c.stex" ]
+source_file="res://gui/level_picker/unlocked.png"
+dest_files=[ "res://.import/unlocked.png-73645fdade6f61cee0483b39a2637a32.stex" ]
 
 [params]
 

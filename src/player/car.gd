@@ -7,14 +7,14 @@ const ACCELERATION = 5
 const MAX_FORWARD_VELOCITY = 900
 const DRAG_COEFFICIENT = 0.999 # Recommended: 0.99 - Affects how fast you slow down
 const BRAKE_POWER = 0.95 # Recommended: 0.99 - Affects how fast you slow down
-const STEERING_TORQUE = 7 # Affects turning speed
+const STEERING_TORQUE = 8 # Affects turning speed
 const STEERING_DAMP = 8 # 7 - Affects how fast the torque slows down
 
 # Drifting & Tire Friction
 var _drift_factor = WHEEL_GRIP_STICKY # Determines how much (or little) your vehicle drifts
 const WHEEL_GRIP_STICKY = 0.85 # Default drift coef (will stick to road, most of the time)
 const WHEEL_GRIP_SLIPPERY = 0.99 # Affects how much you "slide"
-const DRIFT_EXTREMUM = 200 # Right velocity higher than this will cause you to slide
+const DRIFT_EXTREMUM = 250 # Right velocity higher than this will cause you to slide
 const DRIFT_ASYMPTOTE = 20 # During a slide you need to reduce right velocity to this to gain control
 
 # Vehicle velocity and angular velocity. Override rigidbody velocity in physics process
@@ -80,7 +80,7 @@ func _integrate_forces(state):
     var y = clamp(_lv_override.y, -abs(max_speed.y), abs(max_speed.y))
     _lv_override = Vector2(x, y)
     # Torque depends that the vehicle is moving
-    var torque = lerp(0, STEERING_TORQUE, _lv_override.length() / MAX_FORWARD_VELOCITY)
+    var torque = lerp(0, STEERING_TORQUE, _lv_override.length() / (MAX_FORWARD_VELOCITY*2))
     # Steer Right
     if Input.is_action_pressed("ui_right"):
         state.angular_velocity = torque

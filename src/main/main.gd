@@ -15,13 +15,9 @@ func _ready():
 func load_level(level_nr):
     # first remove all children of the main node - thus far should only be level
     for child in get_children():
-        child.queue_free()
+        child.free() # can't use queue free cause it won't delete b4 loading next lvl
     # TODO: maybe at some point replace match statement with a string format that loads scene - keep level names coherent
-    match level_nr:
-        1:
-            curr_lvl = load("res://environment/level_1/Level1.tscn").instance()
-        2:
-            print("2")
+    curr_lvl = load("res://environment/levels/Level%s.tscn" % level_nr).instance()
     add_child(curr_lvl)
     curr_lvl.prepare_level(unlocked_passengers)
 
