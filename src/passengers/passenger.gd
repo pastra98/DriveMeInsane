@@ -100,6 +100,13 @@ func set_passenger_sensibilities(conf: ConfigFile):
                     conf.get_value(section, "insanity_effect"),
                     conf.get_value(section, "cooldown")
                     )
+            "AutomaticEffect":
+                new_sensibility = AutomaticEffect.new(
+                    conf.get_value(section, "message"),
+                    conf.get_value(section, "is_broadcasting"),
+                    conf.get_value(section, "insanity_effect"),
+                    conf.get_value(section, "cooldown")
+                    )
             "RelaxationFart":
                 new_sensibility = RelaxationFart.new(
                     conf.get_value(section, "insanity_effect"),
