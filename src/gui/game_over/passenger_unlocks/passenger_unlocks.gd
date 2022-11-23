@@ -13,8 +13,3 @@ func show_passengers(unlocked_passenger_names: Array):
         new_card.set_passenger(passenger)
         new_card.get_node("Panel/TopVBox/AddToCar").hide()
         $"Panel/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/UnlockList".add_child(new_card)
-
-
-
-func _on_CloseWindowButton_button_down():
-    queue_free()

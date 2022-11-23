@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=1]
-[ext_resource path="res://gui/fonts/dogica.tres" type="DynamicFont" id=2]
-[ext_resource path="res://gui/fonts/pixellari.tres" type="DynamicFont" id=3]
+[ext_resource path="res://gui/fonts/pixellari_16.tres" type="DynamicFont" id=3]
 [ext_resource path="res://GUI/Fonts/dogica.tres" type="DynamicFont" id=4]
 [ext_resource path="res://gui/before_level/passenger_picker/passenger_card/passenger_card.gd" type="Script" id=5]
 
@@ -37,12 +36,12 @@ margin_bottom = -10.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/TopVBox"]
 margin_right = 280.0
-margin_bottom = 294.0
+margin_bottom = 289.0
 custom_constants/separation = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/TopVBox/HBoxContainer"]
 margin_right = 150.0
-margin_bottom = 294.0
+margin_bottom = 289.0
 rect_min_size = Vector2( 150, 0 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel/TopVBox/HBoxContainer/VBoxContainer"]
@@ -73,8 +72,8 @@ align = 1
 [node name="Effects" type="RichTextLabel" parent="Panel/TopVBox/HBoxContainer/VBoxContainer"]
 margin_top = 124.0
 margin_right = 150.0
-margin_bottom = 294.0
-rect_min_size = Vector2( 96, 170 )
+margin_bottom = 289.0
+rect_min_size = Vector2( 96, 165 )
 size_flags_vertical = 0
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
@@ -82,21 +81,19 @@ bbcode_enabled = true
 [node name="Lore" type="RichTextLabel" parent="Panel/TopVBox/HBoxContainer"]
 margin_left = 160.0
 margin_right = 280.0
-margin_bottom = 294.0
-rect_min_size = Vector2( 0, 100 )
+margin_bottom = 289.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 
 [node name="AddToCar" type="Button" parent="Panel/TopVBox"]
-margin_left = 49.0
-margin_top = 298.0
-margin_right = 231.0
-margin_bottom = 322.0
-rect_min_size = Vector2( 0, 24 )
+margin_left = 70.0
+margin_top = 293.0
+margin_right = 210.0
+margin_bottom = 323.0
+rect_min_size = Vector2( 140, 24 )
 size_flags_horizontal = 4
-custom_fonts/font = ExtResource( 2 )
 text = "seat in car"
 
 [connection signal="mouse_entered" from="Panel/TopVBox/HBoxContainer/VBoxContainer/CenterContainer/PassengerPic" to="Panel/TopVBox/HBoxContainer/VBoxContainer" method="_on_PassengerPic_mouse_entered"]

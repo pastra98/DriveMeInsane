@@ -31,10 +31,6 @@ func _on_NextLevel_button_down():
     queue_free()
 
 
-func _on_Options_button_down():
-    pass # Replace with function body.
-
-
 func _on_MainMenu_button_down():
     GuiManager.show_main_menu()
     queue_free()

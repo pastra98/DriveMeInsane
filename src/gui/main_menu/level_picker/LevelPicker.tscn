@@ -2,7 +2,8 @@
 
 [ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=1]
 [ext_resource path="res://gui/main_menu/level_picker/level_picker.gd" type="Script" id=2]
-[ext_resource path="res://gui/fonts/pixellari_big.tres" type="DynamicFont" id=3]
+[ext_resource path="res://gui/fonts/pixellari_48.tres" type="DynamicFont" id=3]
+
 
 [node name="LevelPicker" type="MarginContainer"]
 anchor_left = 0.5

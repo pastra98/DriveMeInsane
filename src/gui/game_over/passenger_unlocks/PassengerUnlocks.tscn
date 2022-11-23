@@ -2,9 +2,8 @@
 
 [ext_resource path="res://gui/game_over/passenger_unlocks/passenger_unlocks.gd" type="Script" id=1]
 [ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=3]
-[ext_resource path="res://gui/fonts/pixellari_big.tres" type="DynamicFont" id=4]
+[ext_resource path="res://gui/fonts/pixellari_48.tres" type="DynamicFont" id=4]
 [ext_resource path="res://passengers/ressources/remove.png" type="Texture" id=5]
-
 
 [node name="PassengerUnlocks" type="MarginContainer"]
 anchor_left = 0.5
