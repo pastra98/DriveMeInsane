@@ -133,6 +133,6 @@ func restart_level():
                 passenger_ref = passenger
                 break
         # hacky: this stuff is normally triggered by a signal in passenger_card.gd
-        GuiManager.get_node("PassengerPicker").seat_passenger(passenger_ref)
-        GuiManager.get_node("PassengerPicker").picklist.get_node(passenger_name + "Card").hide()
+        GuiManager.get_node("BeforeLevel/PassengerPicker").seat_passenger(passenger_ref)
+        GuiManager.get_node("BeforeLevel/PassengerPicker").picklist.get_node(passenger_name + "Card").hide()
         add_passenger_to_player(passenger_ref)
