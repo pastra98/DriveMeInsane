@@ -3,12 +3,14 @@ extends RigidBody2D
 signal damage_taken(amt)
 
 # Driving Properties
-const ACCELERATION = 5
+const MAX_ACCELERATION = 5
 const MAX_FORWARD_VELOCITY = 900
 const DRAG_COEFFICIENT = 0.999 # Recommended: 0.99 - Affects how fast you slow down
 const BRAKE_POWER = 0.95 # Recommended: 0.99 - Affects how fast you slow down
 const STEERING_TORQUE = 8 # Affects turning speed
 const STEERING_DAMP = 8 # 7 - Affects how fast the torque slows down
+
+var acceleration = MAX_ACCELERATION
 
 # Drifting & Tire Friction
 var _drift_factor = WHEEL_GRIP_STICKY # Determines how much (or little) your vehicle drifts
@@ -71,10 +73,10 @@ func _integrate_forces(state):
     _lv_override = get_up_velocity() + (r_vel * _drift_factor)
     # Accelerate
     if Input.is_action_pressed("ui_up"):
-        _lv_override += -transform.y * ACCELERATION
+        _lv_override += -transform.y * acceleration
     # Break / Reverse
     elif Input.is_action_pressed("ui_down"):
-        _lv_override -= -transform.y * ACCELERATION
+        _lv_override -= -transform.y * acceleration
     # Prevent exceeding max velocity
     var max_speed = (Vector2(0, -1) * MAX_FORWARD_VELOCITY).rotated(get_rotation())
     var x = clamp(_lv_override.x, -abs(max_speed.x), abs(max_speed.x))

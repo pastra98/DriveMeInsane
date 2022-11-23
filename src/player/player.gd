@@ -44,7 +44,7 @@ func _on_raging_passenger(pass_name, rage_pts):
 
 
 func explode():
-    $"Car".sleeping = true # TODO: actually stop the car from receiving input, also before the level starts
+    $"Car".acceleration = 0 # TODO: actually stop the car from receiving input, also before the level starts
     $"Car/Explosion".show() 
     $"Car/Explosion".play()
     $"Car/Sprite".hide()
