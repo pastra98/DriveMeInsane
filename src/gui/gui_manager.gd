@@ -20,6 +20,7 @@ func show_main_menu():
 # ---------- PASSENGER PICKER ----------
 
 func add_passenger_picker(passenger_refs_arr: Array):
+    clear_control_children()
     var before_level = load("res://gui/before_level/BeforeLevel.tscn").instance()
     add_child(before_level) # needs to be caled b4 adding passengers
     before_level.get_node("PassengerPicker").add_passenger_cards(passenger_refs_arr)

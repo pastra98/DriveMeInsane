@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gui/game_over/game_over.gd" type="Script" id=1]
 [ext_resource path="res://gui/fonts/pixellari_24.tres" type="DynamicFont" id=2]
 [ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=3]
 [ext_resource path="res://gui/game_over/star_gray.png" type="Texture" id=4]
+[ext_resource path="res://audio/sounds/star.wav" type="AudioStream" id=5]
 
 [node name="GameOver" type="MarginContainer"]
 anchor_left = 0.5
@@ -94,6 +95,9 @@ margin_bottom = 246.0
 rect_min_size = Vector2( 0, 24 )
 custom_fonts/font = ExtResource( 2 )
 text = "main menu"
+
+[node name="StarSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 
 [connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/NextLevel" to="." method="_on_NextLevel_button_down"]
 [connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/Restart" to="." method="_on_Restart_button_down"]
