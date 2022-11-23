@@ -2,7 +2,6 @@
 
 [ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=1]
 [ext_resource path="res://gui/fonts/pixellari_16.tres" type="DynamicFont" id=3]
-[ext_resource path="res://GUI/Fonts/dogica.tres" type="DynamicFont" id=4]
 [ext_resource path="res://gui/before_level/passenger_picker/passenger_card/passenger_card.gd" type="Script" id=5]
 
 [node name="PassengerCard" type="MarginContainer"]
@@ -66,7 +65,7 @@ margin_right = 150.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
 align = 1
 
 [node name="Effects" type="RichTextLabel" parent="Panel/TopVBox/HBoxContainer/VBoxContainer"]
