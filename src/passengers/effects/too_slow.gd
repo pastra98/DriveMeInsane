@@ -17,11 +17,12 @@ func _init(speed_low_tol: int, insanity_eff: int, cooldown_time: int):
     name = "TooSlow"
 
 func _physics_process(delta):
-    if player.get_current_kph() < too_slow and not is_on_cooldown:
+    var vel = player.get_current_kph()
+    # prevent exploitation by just standing still
+    if vel > 1 and vel < too_slow and not is_on_cooldown:
         emit_signal("change_insanity", insanity_effect, "Too Slow!!", false)
         get_node(name + "Timer").start(cooldown)
         is_on_cooldown = true
-        # this needs to not trigger when car is standing still at the start
 
 
 func get_txt_description() -> String:
