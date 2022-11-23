@@ -19,7 +19,7 @@ func _ready():
 func add_passenger_cards(passenger_instances: Array):
     # passenger picker needs to be in tree for this to work bc. it can't make connections to level else
     for passenger in passenger_instances:
-        var new_card = load("res://gui/passenger_picker/passenger_card/PassengerCard.tscn").instance()
+        var new_card = load("res://gui/before_level/passenger_picker/passenger_card/PassengerCard.tscn").instance()
         new_card.set_passenger(passenger)
         connect("all_passengers_seated", new_card, "_on_all_passengers_seated")
         connect("free_seats_available", new_card, "_on_free_seats_available")

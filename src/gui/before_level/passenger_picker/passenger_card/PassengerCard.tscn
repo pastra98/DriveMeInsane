@@ -2,9 +2,9 @@
 
 [ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=1]
 [ext_resource path="res://gui/fonts/dogica.tres" type="DynamicFont" id=2]
-[ext_resource path="res://gui/passenger_picker/passenger_card/passenger_card.gd" type="Script" id=3]
+[ext_resource path="res://gui/fonts/pixellari.tres" type="DynamicFont" id=3]
 [ext_resource path="res://GUI/Fonts/dogica.tres" type="DynamicFont" id=4]
-[ext_resource path="res://gui/fonts/pixellari.tres" type="DynamicFont" id=5]
+[ext_resource path="res://gui/before_level/passenger_picker/passenger_card/passenger_card.gd" type="Script" id=5]
 
 [node name="PassengerCard" type="MarginContainer"]
 anchor_left = 0.5
@@ -21,7 +21,7 @@ rect_min_size = Vector2( 300, 340 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 1 )
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 
 [node name="Panel" type="Panel" parent="."]
 margin_right = 300.0
@@ -76,7 +76,7 @@ margin_right = 150.0
 margin_bottom = 294.0
 rect_min_size = Vector2( 96, 170 )
 size_flags_vertical = 0
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 
 [node name="Lore" type="RichTextLabel" parent="Panel/TopVBox/HBoxContainer"]
@@ -86,7 +86,7 @@ margin_bottom = 294.0
 rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 
 [node name="AddToCar" type="Button" parent="Panel/TopVBox"]

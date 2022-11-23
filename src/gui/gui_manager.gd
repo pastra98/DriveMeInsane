@@ -41,7 +41,7 @@ func show_level_over_gui(lvl_nr: int, stars: int, points: int):
     # check if new unlocked passengers and show if this is the case
     if n_unlock_pass < main.unlocked_passengers.size():
         var new_ones = main.unlocked_passengers.slice(n_unlock_pass, -1)
-        var unlocker = load("res://gui/passenger_unlocks/PassengerUnlocks.tscn").instance()
+        var unlocker = load("res://gui/game_over/passenger_unlocks/PassengerUnlocks.tscn").instance()
         unlocker.show_passengers(new_ones)
         add_child(unlocker)
         n_unlock_pass = main.unlocked_passengers.size()
@@ -52,7 +52,7 @@ func show_level_over_gui(lvl_nr: int, stars: int, points: int):
 # ---------- PASSENGER PICKER ----------
 
 func add_passenger_picker(passenger_refs_arr: Array):
-    var pass_picker = load("res://gui/passenger_picker/PassengerPicker.tscn").instance()
+    var pass_picker = load("res://gui/before_level/passenger_picker/PassengerPicker.tscn").instance()
     add_child(pass_picker) # needs to be caled b4 adding passengers
     pass_picker.add_passenger_cards(passenger_refs_arr)
     pass_picker.connect("level_started", $"/root/Main/Level", "start_level")
