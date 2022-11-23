@@ -58,16 +58,17 @@ func _integrate_forces(state):
         _lv_override *= DRAG_COEFFICIENT
     # If we are sticking to the road and our right velocity is high enough
     # TODO: play some drifting sounds
-    if (_drift_factor == WHEEL_GRIP_STICKY and get_right_velocity().length() > DRIFT_EXTREMUM) or _is_braking:
+    var r_vel = get_right_velocity()
+    if (_drift_factor == WHEEL_GRIP_STICKY and r_vel.length() > DRIFT_EXTREMUM) or _is_braking:
         _drift_factor = WHEEL_GRIP_SLIPPERY
         $"Sounds/Tires".volume_db = min(-80 + _lv_override.length()/2, -10)
         $"Sounds/Tires".stream_paused = false
     # If we are sliding on the road
-    elif get_right_velocity().length() < DRIFT_ASYMPTOTE:
+    elif r_vel.length() < DRIFT_ASYMPTOTE:
         _drift_factor = WHEEL_GRIP_STICKY
         $"Sounds/Tires".stream_paused = true
     # Add drift to velocity
-    _lv_override = get_up_velocity() + (get_right_velocity() * _drift_factor)
+    _lv_override = get_up_velocity() + (r_vel * _drift_factor)
     # Accelerate
     if Input.is_action_pressed("ui_up"):
         _lv_override += -transform.y * ACCELERATION
