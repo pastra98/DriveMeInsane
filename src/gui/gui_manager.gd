@@ -17,18 +17,21 @@ func show_main_menu():
     mm.get_node("LevelPicker").connect("new_level_picked", main, "load_level")
     add_child(mm)
     
-# ---------- PASSENGER PICKER ----------
+# ---------- BEFORE LEVEL ----------
 
-func add_passenger_picker(passenger_refs_arr: Array):
+func show_passenger_picker(passenger_refs_arr: Array, lvl_info: Dictionary):
     clear_control_children()
     var before_level = load("res://gui/before_level/BeforeLevel.tscn").instance()
     add_child(before_level) # needs to be caled b4 adding passengers
+    # pass passenger refs to Picker, TODO: make this more elegant - maybe add script to BeforeLevel scene root
     before_level.get_node("PassengerPicker").add_passenger_cards(passenger_refs_arr)
     before_level.get_node("PassengerPicker").connect("level_started", $"/root/Main/Level", "start_level")
+    # pass level info to info scene
+    before_level.get_node("LevelInfo").setup(lvl_info)
 
 # ---------- UI WHILE DRIVING IN LEVEL ----------
 
-func load_game_hud(player: Node2D, passenger_refs_arr: Array):
+func show_game_hud(player: Node2D, passenger_refs_arr: Array):
     # set's up the UI elements needed during gameplay
     clear_control_children()
     var hud = load("res://gui/game_hud/GameHUD.tscn").instance()
