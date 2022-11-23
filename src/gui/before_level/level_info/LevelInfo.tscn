@@ -21,12 +21,16 @@ script = ExtResource( 7 )
 [node name="Panel" type="Panel" parent="."]
 margin_right = 256.0
 margin_bottom = 552.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_right = 0.969
+anchor_bottom = 0.986
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 248.0
-margin_bottom = 544.0
+margin_right = -0.0640106
+margin_bottom = -0.272034
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
