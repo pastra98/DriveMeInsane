@@ -8,10 +8,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="PassengerPicker" parent="." instance=ExtResource( 1 )]
-margin_left = -488.0
-margin_top = -276.0
-margin_right = 285.0
-margin_bottom = 337.0
-rect_scale = Vector2( 0.9, 0.9 )
 
 [node name="LevelInfo" parent="." instance=ExtResource( 2 )]
