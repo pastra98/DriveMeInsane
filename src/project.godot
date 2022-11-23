@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "DriftHater",
+"language": "GDScript",
+"path": "res://passengers/effects/drift_hater.gd"
+}, {
+"base": "Node2D",
 "class": "InsanityScream",
 "language": "GDScript",
 "path": "res://passengers/effects/insanity_scream.gd"
@@ -40,6 +45,7 @@ _global_script_classes=[ {
 "path": "res://passengers/effects/too_slow.gd"
 } ]
 _global_script_class_icons={
+"DriftHater": "",
 "InsanityScream": "",
 "Passenger": "",
 "RelaxationFart": "",
