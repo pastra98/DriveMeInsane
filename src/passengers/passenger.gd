@@ -43,7 +43,7 @@ func insanity_change(change_by, reason, is_broadcast):
         get_parent().change_everyones_insanity(self, change_by, reason)
         return
     # TODO: play some sounds here also
-    insanity = min(insanity + change_by, 100)
+    insanity = clamp(insanity + change_by, 0, 100)
     emit_signal("new_insanity", insanity, reason)
     if insanity > INSANITY_LEVELS[1]:
         emit_signal("new_picture", imgpath % "angry")
