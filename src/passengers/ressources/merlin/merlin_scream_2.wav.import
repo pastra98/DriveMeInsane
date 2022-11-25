@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/merlin_scream_2.wav-9607f20237323b61aab0f26b5a5c423d.sample"
+
+[deps]
+
+source_file="res://passengers/ressources/merlin/merlin_scream_2.wav"
+dest_files=[ "res://.import/merlin_scream_2.wav-9607f20237323b61aab0f26b5a5c423d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
