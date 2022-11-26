@@ -5,11 +5,11 @@ signal change_insanity(amt, reason, is_broadcast)
 onready var passenger = get_parent()
 
 
-var insanity_effect: int
+var insanity_effect: float
 var cooldown: int
 var is_on_cooldown = false
 
-func _init(insanity_eff: int, cooldown_time: int):
+func _init(insanity_eff: float, cooldown_time: int):
     # passenger = get_parent()
     insanity_effect = insanity_eff
     cooldown = cooldown_time

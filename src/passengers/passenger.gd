@@ -6,7 +6,7 @@ signal passenger_raging(pass_name, rage_pts)
 signal new_picture(imgpath)
 
 # base properties of passenger set by config - passenger name becomes node name
-var insanity: int
+var insanity: float
 var rage_points: int
 var rage_cooldown_sec: int
 var lore: String
@@ -43,7 +43,7 @@ func insanity_change(change_by, reason, is_broadcast):
         get_parent().change_everyones_insanity(self, change_by, reason)
         return
     # TODO: play some sounds here also
-    insanity = clamp(insanity + change_by, 0, 100)
+    insanity = clamp(insanity + change_by, 0.0, 100.0)
     emit_signal("new_insanity", insanity, reason)
     if insanity > INSANITY_LEVELS[1]:
         emit_signal("new_picture", imgpath % "angry")
@@ -91,14 +91,12 @@ func set_passenger_sensibilities(conf: ConfigFile):
             "TooFastSensibility":
                 new_sensibility = TooFastSensibility.new(
                     conf.get_value(section, "too_fast"),
-                    conf.get_value(section, "insanity_effect"),
-                    conf.get_value(section, "cooldown")
+                    conf.get_value(section, "insanity_effect")
                     )
             "TooSlowSensibility":
                 new_sensibility = TooSlowSensibility.new(
                     conf.get_value(section, "too_slow"),
-                    conf.get_value(section, "insanity_effect"),
-                    conf.get_value(section, "cooldown")
+                    conf.get_value(section, "insanity_effect")
                     )
             "AutomaticEffect":
                 new_sensibility = AutomaticEffect.new(

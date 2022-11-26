@@ -3,9 +3,9 @@ extends Node2D
 
 signal change_insanity(amt, reason, is_broadcast)
 
-var insanity_effect: int
+var insanity_effect: float
 
-func _init(insanity_eff: int):
+func _init(insanity_eff: float):
     insanity_effect = insanity_eff
     name = "InsanityScream"
 

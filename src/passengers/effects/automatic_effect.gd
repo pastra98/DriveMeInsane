@@ -4,14 +4,14 @@ extends Node2D
 signal change_insanity(amt, reason, is_broadcast)
 onready var player = $"/root/Main/Level".player
 
-var insanity_effect: int
+var insanity_effect: float
 var message: String
 var is_broadcasting: bool
 var cooldown: int
 
 var is_on_cooldown = false
 
-func _init(reason: String, is_broadcast: bool, insanity_eff: int, cooldown_time: int):
+func _init(reason: String, is_broadcast: bool, insanity_eff: float, cooldown_time: int):
     message = reason
     is_broadcasting = is_broadcast
     insanity_effect = insanity_eff

@@ -9,11 +9,11 @@ var coll_size_mult: float
 
 var collider: CollisionShape2D
 
-var insanity_effect: int
+var insanity_effect: float
 var cooldown: int
 var is_on_cooldown = false
 
-func _init(speed_tol: int, coll_s_mult: float, insanity_eff: int, cooldown_time: int):
+func _init(speed_tol: int, coll_s_mult: float, insanity_eff: float, cooldown_time: int):
     too_fast = speed_tol
     coll_size_mult = coll_s_mult
     insanity_effect = insanity_eff
