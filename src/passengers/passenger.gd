@@ -116,6 +116,11 @@ func set_passenger_sensibilities(conf: ConfigFile):
                 new_sensibility = DriftHater.new(
                     conf.get_value(section, "insanity_effect")
                     )
+            "AllGasNoBrakes":
+                new_sensibility = AllGasNoBrakes.new(
+                    conf.get_value(section, "insanity_required")
+                    )
+                connect("new_insanity", new_sensibility, "_on_new_insanity")
             "InsanityScream":
                 new_sensibility = InsanityScream.new(
                     conf.get_value(section, "insanity_effect")

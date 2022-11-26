@@ -11,6 +11,7 @@ const STEERING_TORQUE = 8 # Affects turning speed
 const STEERING_DAMP = 8 # 7 - Affects how fast the torque slows down
 
 var acceleration = MAX_ACCELERATION
+var all_gas_no_brakes = false
 
 # Drifting & Tire Friction
 var _drift_factor = WHEEL_GRIP_STICKY # Determines how much (or little) your vehicle drifts
@@ -53,7 +54,7 @@ func _integrate_forces(state):
         play_crash_sound(col_force)
         emit_signal("damage_taken", col_force)
     # handbrake velocity override
-    _is_braking = Input.is_action_pressed("ui_select")
+    _is_braking = Input.is_action_pressed("ui_select") and not all_gas_no_brakes
     if _is_braking:
         _lv_override *= BRAKE_POWER
     else:
@@ -72,10 +73,10 @@ func _integrate_forces(state):
     # Add drift to velocity
     _lv_override = get_up_velocity() + (r_vel * _drift_factor)
     # Accelerate
-    if Input.is_action_pressed("ui_up"):
+    if Input.is_action_pressed("ui_up") or all_gas_no_brakes:
         _lv_override += -transform.y * acceleration
     # Break / Reverse
-    elif Input.is_action_pressed("ui_down"):
+    elif Input.is_action_pressed("ui_down") and not all_gas_no_brakes:
         _lv_override -= -transform.y * acceleration
     # Prevent exceeding max velocity
     var max_speed = (Vector2(0, -1) * MAX_FORWARD_VELOCITY).rotated(get_rotation())
