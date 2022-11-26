@@ -8,7 +8,6 @@ var t = 0
 
 var insanity_effect: int
 
-
 func _init(insanity_eff: int):
     # passenger = get_parent()
     insanity_effect = insanity_eff
