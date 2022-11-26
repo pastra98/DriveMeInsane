@@ -7,7 +7,7 @@ const MAX_ACCELERATION = 5
 const MAX_FORWARD_VELOCITY = 900
 const DRAG_COEFFICIENT = 0.999 # Recommended: 0.99 - Affects how fast you slow down
 const BRAKE_POWER = 0.95 # Recommended: 0.99 - Affects how fast you slow down
-const STEERING_TORQUE = 8 # Affects turning speed
+const STEERING_TORQUE = 5 # Affects turning speed
 const STEERING_DAMP = 8 # 7 - Affects how fast the torque slows down
 
 var acceleration = MAX_ACCELERATION
@@ -84,7 +84,7 @@ func _integrate_forces(state):
     var y = clamp(_lv_override.y, -abs(max_speed.y), abs(max_speed.y))
     _lv_override = Vector2(x, y)
     # Torque depends that the vehicle is moving
-    var torque = lerp(0, STEERING_TORQUE, _lv_override.length() / (MAX_FORWARD_VELOCITY*2))
+    var torque = lerp(0, STEERING_TORQUE, _lv_override.length() / MAX_FORWARD_VELOCITY)
     # Steer Right
     if Input.is_action_pressed("ui_right"):
         state.angular_velocity = torque
