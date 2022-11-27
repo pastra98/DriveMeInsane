@@ -12,8 +12,8 @@ func _ready():
 
 func update_insanity(new_value, reason):
     bar.value = new_value
-    # label.bbcode_text = "[b]%s[/b]" % reason
-    label.bbcode_text = "[b][color=red]%s[/color][/b]" % reason
+    label.bbcode_text = "[wave amp=51 freq=10][color=red]%s" % reason
+    $"AnimationPlayer".play("go_red")
 
 
 func clear_text():
