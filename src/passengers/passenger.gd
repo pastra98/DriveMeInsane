@@ -60,9 +60,10 @@ func insanity_change(change_by, reason, is_broadcast):
             scream(insanity_lvl)
         if insanity_lvl == 4:
             rage()
+            insanity_lvl = -1
             return
         # don't change image after max inanity
-        emit_signal("new_picture", imgpath % [["happy", "unhappy", "angry"][insanity_lvl-1]])
+        emit_signal("new_picture", imgpath % [["happy", "happy", "unhappy", "angry"][insanity_lvl]])
 
 
 func load_passenger_config(pass_name: String):
@@ -146,7 +147,7 @@ func set_passenger_sensibilities(conf: ConfigFile):
 
 
 func get_sensibilities_txt():
-    var txt = ""
+    var txt = "+%s rage points\n\n" % rage_points
     for sensibility in sensibilities:
         txt = txt + "- " + sensibility.get_txt_description() + "\n"
     return txt
