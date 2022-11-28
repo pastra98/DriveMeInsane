@@ -1,8 +1,8 @@
 extends Node2D
 
 var curr_lvl
-# ["ahote", "bjorn", "bob", "hiroshi", "karl", "juan", "karen", "lucy", "martha", "mike", "xiu"]
-var unlocked_passengers = ["ahote", "bjorn", "bob", "hiroshi", "karl", "juan", "karen", "lucy", "martha", "mike", "xiu"]
+# ["ahote", "bjorn", "bob", "hiroshi", "karl", "juan", "karen", "lucy", "martha", "mike", "xiu", "marvin", "dave", "merlin"]
+var unlocked_passengers = ["ahote", "bjorn", "bob", "hiroshi", "karl", "juan", "karen", "lucy", "martha", "mike", "xiu", "marvin", "hugh", "merlin"]
 var completed_lvls = {}
 
 func _ready():

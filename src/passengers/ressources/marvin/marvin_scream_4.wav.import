@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/trollface_scream_2.wav-3ed4cd7469ce6390949f85e106c4ebfa.sample"
+path="res://.import/marvin_scream_4.wav-128f6e13686b41ebd6e16c894498b358.sample"
 
 [deps]
 
-source_file="res://passengers/ressources/trollface/trollface_scream_2.wav"
-dest_files=[ "res://.import/trollface_scream_2.wav-3ed4cd7469ce6390949f85e106c4ebfa.sample" ]
+source_file="res://passengers/ressources/marvin/marvin_scream_4.wav"
+dest_files=[ "res://.import/marvin_scream_4.wav-128f6e13686b41ebd6e16c894498b358.sample" ]
 
 [params]
 
