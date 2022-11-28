@@ -64,7 +64,7 @@ func _integrate_forces(state):
     var r_vel = get_right_velocity()
     if (_drift_factor == WHEEL_GRIP_STICKY and r_vel.length() > DRIFT_EXTREMUM) or _is_braking:
         _drift_factor = WHEEL_GRIP_SLIPPERY
-        $"Sounds/Tires".volume_db = min(-80 + _lv_override.length()/2, -10)
+        $"Sounds/Tires".volume_db = min(-80 + _lv_override.length()/2, -40)
         $"Sounds/Tires".stream_paused = false
     # If we are sliding on the road
     elif r_vel.length() < DRIFT_ASYMPTOTE:
@@ -96,7 +96,7 @@ func _integrate_forces(state):
     # engine sounds
     # TODO: shifting, ignition maybe...
     $"Sounds/Engine".pitch_scale = range_lerp(_lv_override.length(), 0, MAX_FORWARD_VELOCITY, 0.5, 3)
-    $"Sounds/Engine".volume_db = min(-80 + _lv_override.length()/2, -30)
+    $"Sounds/Engine".volume_db = min(-80 + _lv_override.length()/2, -50)
     
 
 func get_up_velocity() -> Vector2:
