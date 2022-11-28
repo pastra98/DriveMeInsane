@@ -11,6 +11,7 @@ export(Array, String) var unlocks_passengers = []
 
 var level_sound: AudioStreamPlayer
 var player: Node2D
+var is_level_started = false
 
 var timer: Timer
 var available_passengers = []
@@ -86,12 +87,8 @@ func start_level(): # probably is going to be triggered by button in picker
     # set up the gui
     GuiManager.show_game_hud(player, selected_passenger_refs)
     # delay a bit and then start timer
-    # TODO: show some countdown and ticking noise here
+    timer.start(3)
     level_sound.play()
-    yield(get_tree().create_timer(3), "timeout") 
-    timer.start(time_to_complete)
-    GuiManager.get_node("GameHUD").start_countdown = true
-    player.get_node("Car").enable()
 
 # ---------- GAME OVER ----------
 
@@ -102,7 +99,15 @@ func _on_player_dead():
 
 func _on_time_up():
     timer.stop()
-    level_over(player.score)
+    if is_level_started:
+        # end the level
+        level_over(player.score)
+    else:
+        # start the level
+        timer.start(time_to_complete)
+        GuiManager.get_node("GameHUD").countdown_finished = true
+        player.get_node("Car").enable()
+        is_level_started = true
 
 
 func level_over(points: int):

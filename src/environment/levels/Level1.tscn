@@ -4,10 +4,10 @@
 
 [node name="Level" instance=ExtResource( 1 )]
 level_nr = 1
-points_1_star = 10
-points_2_stars = 20
-points_3_stars = 30
-time_to_complete = 30
+points_1_star = 1
+points_2_stars = 2
+points_3_stars = 3
+time_to_complete = 60
 unlocks_passengers = [ "Ahote" ]
 
 [node name="PlayerPos" type="Position2D" parent="." index="1"]
