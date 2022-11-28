@@ -34,6 +34,8 @@ func _ready():
     # add sound player
     level_sound = AudioStreamPlayer.new()
     level_sound.name = "LevelSound"
+    level_sound.volume_db = -50
+    level_sound.stream = load("res://audio/sounds/countdown.wav") # load countdown so it will play instantly
     add_child(level_sound)
 
 # ---------- BEFORE GAME STARTS ----------
@@ -85,10 +87,11 @@ func start_level(): # probably is going to be triggered by button in picker
     GuiManager.show_game_hud(player, selected_passenger_refs)
     # delay a bit and then start timer
     # TODO: show some countdown and ticking noise here
-    get_tree().paused = true
-    yield(get_tree().create_timer(1), "timeout") 
-    get_tree().paused = false
+    level_sound.play()
+    yield(get_tree().create_timer(3), "timeout") 
     timer.start(time_to_complete)
+    GuiManager.get_node("GameHUD").start_countdown = true
+    player.get_node("Car").enable()
 
 # ---------- GAME OVER ----------
 
