@@ -112,7 +112,7 @@ func get_right_velocity() -> Vector2:
 func play_crash_sound(col_force: float):
     for as_player in $"Sounds/Crashes".get_children():
         if sound_rng.randf() < 0.3 and not as_player.playing:
-            as_player.volume_db = range_lerp(col_force, 0, 7, -50, 0)
+            as_player.volume_db = range_lerp(col_force, 0, 7, -80, -40)
             as_player.play()
             break
 
