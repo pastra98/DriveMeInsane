@@ -1,34 +1,29 @@
 extends CPUParticles2D
 
-onready var player = get_node("/root/Main/Level/PlayerPos/Player")
+onready var player = $"../../.."
 
 # yes, this is very verbose and could have been done using a single array,
 # but for readability purposes it's like this
-
 # Amount scaling was initially tried, however Godot resets all particles after
 # changing particle amount
 
-var initial_lifetime = lifetime
-var initial_scale = scale_amount 
-var initial_spread = spread
+const MIN_LIFETIME: float = 0.5
+const MIN_SCALE: float = 12.0
+const MIN_SPREAD: float = 45.0 
 
-const max_lifetime = 0.8
-const max_scale = 40
-const max_spread = 20
+const MAX_LIFETIME: float = 1.0
+const MAX_SCALE: float = 40.0
+const MAX_SPREAD: float = 20.0
 
-const top_speed = 50
+const TOP_SPEED: float = 70.0
 
-func _ready():
-    pass 
+var t = 0
 
 func _process(delta):
-    set_lifetime(calculate_smoke(initial_lifetime, max_lifetime))
-    set_param(PARAM_SCALE, calculate_smoke(initial_scale, max_scale))
-    set_spread(calculate_smoke(initial_spread, max_spread))
-
-
-func calculate_smoke(initial, maximum):
-    var scale_speed = player.get_current_kph() / float(top_speed)
-    var factor = (maximum / float(initial) - 1) * scale_speed + 1
-    return initial * factor
-    
+    t += delta
+    if t > 0.2:
+        var speed_scale = player.get_current_kph() / TOP_SPEED
+        lifetime = lerp(MIN_LIFETIME, MAX_LIFETIME, speed_scale)
+        scale_amount = lerp(MIN_SCALE, MAX_SCALE, speed_scale)
+        spread = lerp(MIN_SPREAD, MAX_SPREAD, speed_scale)
+        t = 0
