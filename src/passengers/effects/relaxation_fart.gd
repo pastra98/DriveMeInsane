@@ -3,6 +3,7 @@ extends Node2D
 
 signal change_insanity(amt, reason, is_broadcast)
 onready var passenger = get_parent()
+onready var car = $"../../.."
 
 
 var insanity_effect: float
@@ -16,7 +17,7 @@ func _init(insanity_eff: float, cooldown_time: int):
     name = "RelaxationFart"
 
 func _physics_process(delta):
-    if passenger.insanity == 0 and not is_on_cooldown:
+    if passenger.insanity == 0 and not is_on_cooldown and car.acceleration != 0:
         # start timer until next fart - must happen before yield, otherwise this get called multiple times
         get_node(name + "Timer").start(cooldown)
         is_on_cooldown = true

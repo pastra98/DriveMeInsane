@@ -3,6 +3,7 @@ extends Node2D
 
 signal change_insanity(amt, reason, is_broadcast)
 onready var player = $"/root/Main/Level".player
+onready var car = $"../../.."
 
 var insanity_effect: float
 var message: String
@@ -19,7 +20,7 @@ func _init(reason: String, is_broadcast: bool, insanity_eff: float, cooldown_tim
     name = "AutomaticEffect"
 
 func _physics_process(delta):
-    if not is_on_cooldown:
+    if not is_on_cooldown and car.acceleration != 0: # checks if car is enabled
         emit_signal("change_insanity", insanity_effect, message, is_broadcasting)
         # even when it is a broadcast, effect always applies to passenger aswell
         if is_broadcasting:

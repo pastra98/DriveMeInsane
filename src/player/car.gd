@@ -10,7 +10,7 @@ const BRAKE_POWER = 0.95 # Recommended: 0.99 - Affects how fast you slow down
 const STEERING_TORQUE = 5 # Affects turning speed
 const STEERING_DAMP = 8 # 7 - Affects how fast the torque slows down
 
-var acceleration = MAX_ACCELERATION
+var acceleration = 0
 var all_gas_no_brakes = false
 
 # Drifting & Tire Friction
@@ -115,3 +115,11 @@ func play_crash_sound(col_force: float):
             as_player.volume_db = range_lerp(col_force, 0, 7, -50, 0)
             as_player.play()
             break
+
+
+func disable():
+    acceleration = 0
+
+
+func enable():
+    acceleration = MAX_ACCELERATION
