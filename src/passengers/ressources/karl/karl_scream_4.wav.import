@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/izaak_scream_2.wav-cfa859798d023e35c46e0fdeee34d058.sample"
+path="res://.import/karl_scream_4.wav-27382d024078e4ad17c508d6c0eb0015.sample"
 
 [deps]
 
-source_file="res://passengers/ressources/izaak/izaak_scream_2.wav"
-dest_files=[ "res://.import/izaak_scream_2.wav-cfa859798d023e35c46e0fdeee34d058.sample" ]
+source_file="res://passengers/ressources/karl/karl_scream_4.wav"
+dest_files=[ "res://.import/karl_scream_4.wav-27382d024078e4ad17c508d6c0eb0015.sample" ]
 
 [params]
 
