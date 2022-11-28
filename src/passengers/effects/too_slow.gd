@@ -13,7 +13,6 @@ func _init(speed_low_tol: int, insanity_eff: float):
     too_slow = speed_low_tol
     insanity_effect = insanity_eff
     name = "TooSlow"
-    print(insanity_eff)
 
 func _physics_process(delta):
     t += delta
