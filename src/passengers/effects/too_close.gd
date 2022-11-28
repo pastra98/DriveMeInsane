@@ -39,7 +39,7 @@ func _on_body_entered(body:Node):
 
 
 func get_txt_description() -> String:
-    return "%s:\n+%s insanity when close to other objects" % [name, insanity_effect]
+    return "%s:\n+%s insanity when close to other objects and going faster than %s kph" % [name, insanity_effect, too_fast]
     # TODO: need better descriptions
 
 
