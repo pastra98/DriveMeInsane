@@ -3,12 +3,15 @@ extends RigidBody2D
 signal damage_taken(amt)
 
 # Driving Properties
-const ACCELERATION = 5
+const MAX_ACCELERATION = 5
 const MAX_FORWARD_VELOCITY = 900
 const DRAG_COEFFICIENT = 0.999 # Recommended: 0.99 - Affects how fast you slow down
 const BRAKE_POWER = 0.95 # Recommended: 0.99 - Affects how fast you slow down
-const STEERING_TORQUE = 8 # Affects turning speed
+const STEERING_TORQUE = 5 # Affects turning speed
 const STEERING_DAMP = 8 # 7 - Affects how fast the torque slows down
+
+var acceleration = 0
+var all_gas_no_brakes = false
 
 # Drifting & Tire Friction
 var _drift_factor = WHEEL_GRIP_STICKY # Determines how much (or little) your vehicle drifts
@@ -51,7 +54,7 @@ func _integrate_forces(state):
         play_crash_sound(col_force)
         emit_signal("damage_taken", col_force)
     # handbrake velocity override
-    _is_braking = Input.is_action_pressed("ui_select")
+    _is_braking = Input.is_action_pressed("ui_select") and not all_gas_no_brakes
     if _is_braking:
         _lv_override *= BRAKE_POWER
     else:
@@ -61,7 +64,7 @@ func _integrate_forces(state):
     var r_vel = get_right_velocity()
     if (_drift_factor == WHEEL_GRIP_STICKY and r_vel.length() > DRIFT_EXTREMUM) or _is_braking:
         _drift_factor = WHEEL_GRIP_SLIPPERY
-        $"Sounds/Tires".volume_db = min(-80 + _lv_override.length()/2, -10)
+        $"Sounds/Tires".volume_db = min(-80 + _lv_override.length()/2, -40)
         $"Sounds/Tires".stream_paused = false
     # If we are sliding on the road
     elif r_vel.length() < DRIFT_ASYMPTOTE:
@@ -70,18 +73,18 @@ func _integrate_forces(state):
     # Add drift to velocity
     _lv_override = get_up_velocity() + (r_vel * _drift_factor)
     # Accelerate
-    if Input.is_action_pressed("ui_up"):
-        _lv_override += -transform.y * ACCELERATION
+    if Input.is_action_pressed("ui_up") or all_gas_no_brakes:
+        _lv_override += -transform.y * acceleration
     # Break / Reverse
-    elif Input.is_action_pressed("ui_down"):
-        _lv_override -= -transform.y * ACCELERATION
+    elif Input.is_action_pressed("ui_down") and not all_gas_no_brakes:
+        _lv_override -= -transform.y * acceleration
     # Prevent exceeding max velocity
     var max_speed = (Vector2(0, -1) * MAX_FORWARD_VELOCITY).rotated(get_rotation())
     var x = clamp(_lv_override.x, -abs(max_speed.x), abs(max_speed.x))
     var y = clamp(_lv_override.y, -abs(max_speed.y), abs(max_speed.y))
     _lv_override = Vector2(x, y)
     # Torque depends that the vehicle is moving
-    var torque = lerp(0, STEERING_TORQUE, _lv_override.length() / (MAX_FORWARD_VELOCITY*2))
+    var torque = lerp(0, STEERING_TORQUE, _lv_override.length() / MAX_FORWARD_VELOCITY)
     # Steer Right
     if Input.is_action_pressed("ui_right"):
         state.angular_velocity = torque
@@ -93,7 +96,7 @@ func _integrate_forces(state):
     # engine sounds
     # TODO: shifting, ignition maybe...
     $"Sounds/Engine".pitch_scale = range_lerp(_lv_override.length(), 0, MAX_FORWARD_VELOCITY, 0.5, 3)
-    $"Sounds/Engine".volume_db = min(-80 + _lv_override.length()/2, -30)
+    $"Sounds/Engine".volume_db = min(-80 + _lv_override.length()/2, -50)
     
 
 func get_up_velocity() -> Vector2:
@@ -109,6 +112,14 @@ func get_right_velocity() -> Vector2:
 func play_crash_sound(col_force: float):
     for as_player in $"Sounds/Crashes".get_children():
         if sound_rng.randf() < 0.3 and not as_player.playing:
-            as_player.volume_db = range_lerp(col_force, 0, 7, -50, 0)
+            as_player.volume_db = range_lerp(col_force, 0, 7, -80, -40)
             as_player.play()
             break
+
+
+func disable():
+    acceleration = 0
+
+
+func enable():
+    acceleration = MAX_ACCELERATION

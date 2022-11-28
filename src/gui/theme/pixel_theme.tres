@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=10 format=2]
 
-[ext_resource path="res://gui/fonts/dogica_small.tres" type="DynamicFont" id=1]
+[ext_resource path="res://gui/fonts/pixellari_24.tres" type="DynamicFont" id=1]
 [ext_resource path="res://gui/theme/styleboxes/blue_button.tres" type="StyleBox" id=2]
 [ext_resource path="res://gui/theme/styleboxes/black_white_border.tres" type="StyleBox" id=3]
 [ext_resource path="res://gui/theme/styleboxes/grabber_highlight.tres" type="StyleBox" id=4]

@@ -10,6 +10,21 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "AllGasNoBrakes",
+"language": "GDScript",
+"path": "res://passengers/effects/all_gas_no_brakes.gd"
+}, {
+"base": "Node2D",
+"class": "AutomaticEffect",
+"language": "GDScript",
+"path": "res://passengers/effects/automatic_effect.gd"
+}, {
+"base": "Node2D",
+"class": "DriftHater",
+"language": "GDScript",
+"path": "res://passengers/effects/drift_hater.gd"
+}, {
+"base": "Node2D",
 "class": "InsanityScream",
 "language": "GDScript",
 "path": "res://passengers/effects/insanity_scream.gd"
@@ -40,6 +55,9 @@ _global_script_classes=[ {
 "path": "res://passengers/effects/too_slow.gd"
 } ]
 _global_script_class_icons={
+"AllGasNoBrakes": "",
+"AutomaticEffect": "",
+"DriftHater": "",
 "InsanityScream": "",
 "Passenger": "",
 "RelaxationFart": "",
@@ -78,5 +96,4 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
-environment/default_clear_color=Color( 0.572549, 0.827451, 1, 1 )
 environment/default_environment="res://default_env.tres"

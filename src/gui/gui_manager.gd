@@ -5,15 +5,33 @@ const MAX_PASSENGERS = 4 # TODO: maybe later find better solution
 
 var player_status
 onready var main = get_node("/root/Main")
-# onready var n_unlock_pass = get_node("/root/Main").unlocked_passengers.size()
 onready var n_unlock_pass = main.unlocked_passengers.size()
 
-func _ready():	
-    pass
+# ---------- MAIN MENU ----------
+
+func show_main_menu():
+    clear_control_children()
+    var bg_scene = load("res://environment/menu_background/BackgroundLevel.tscn").instance()
+    main.add_child(bg_scene)
+    var mm = load("res://gui/main_menu/MainMenu.tscn").instance()
+    mm.get_node("LevelPicker").connect("new_level_picked", main, "load_level")
+    add_child(mm)
+    
+# ---------- BEFORE LEVEL ----------
+
+func show_passenger_picker(passenger_refs_arr: Array, lvl_info: Dictionary):
+    clear_control_children()
+    var before_level = load("res://gui/before_level/BeforeLevel.tscn").instance()
+    add_child(before_level) # needs to be caled b4 adding passengers
+    # pass passenger refs to Picker, TODO: make this more elegant - maybe add script to BeforeLevel scene root
+    before_level.get_node("PassengerPicker").add_passenger_cards(passenger_refs_arr)
+    before_level.get_node("PassengerPicker").connect("level_started", $"/root/Main/Level", "start_level")
+    # pass level info to info scene
+    before_level.get_node("LevelInfo").setup(lvl_info)
 
 # ---------- UI WHILE DRIVING IN LEVEL ----------
 
-func load_game_hud(player: Node2D, passenger_refs_arr: Array):
+func show_game_hud(player: Node2D, passenger_refs_arr: Array):
     # set's up the UI elements needed during gameplay
     clear_control_children()
     var hud = load("res://gui/game_hud/GameHUD.tscn").instance()
@@ -30,43 +48,26 @@ func load_game_hud(player: Node2D, passenger_refs_arr: Array):
         new_passenger_window.update_insanity(passenger_ref.insanity, "Lets start!")
         new_passenger_window.update_picture(passenger_ref.imgpath % "happy")
 
+# ---------- LEVEL OVER GUI  ----------
 
 func show_level_over_gui(lvl_nr: int, stars: int, points: int):
     # first clear the in-game hud
     clear_control_children()
+    # check if new unlocked passengers and show if this is the case
+    if n_unlock_pass < main.unlocked_passengers.size():
+        var new_ones = main.unlocked_passengers.slice(n_unlock_pass, -1)
+        var unlocker = load("res://gui/game_over/passenger_unlocks/PassengerUnlocks.tscn").instance()
+        unlocker.show_passengers(new_ones)
+        add_child(unlocker)
+        n_unlock_pass = main.unlocked_passengers.size()
+        var close_button = unlocker.get_node("Panel/MarginContainer/VBoxContainer/HBoxContainer/CloseWindowButton")
+        yield(close_button, "button_down")
+        unlocker.queue_free()
     # then show the game over screen
     var game_over_screen = load("res://gui/game_over/GameOver.tscn").instance()
     game_over_screen.setup(lvl_nr, stars, main.completed_lvls.has(lvl_nr), points)
     add_child(game_over_screen)
-    # check if new unlocked passengers and show if this is the case
-    if n_unlock_pass < main.unlocked_passengers.size():
-        var new_ones = main.unlocked_passengers.slice(n_unlock_pass, -1)
-        var unlocker = load("res://gui/passenger_unlocks/PassengerUnlocks.tscn").instance()
-        unlocker.show_passengers(new_ones)
-        add_child(unlocker)
-        n_unlock_pass = main.unlocked_passengers.size()
-    # TODO: connect next level
-    # TODO: also connect to options, this will trigger stuff in the gui manager
-    # TODO: connect main menu
 
-# ---------- PASSENGER PICKER ----------
-
-func add_passenger_picker(passenger_refs_arr: Array):
-    var pass_picker = load("res://gui/passenger_picker/PassengerPicker.tscn").instance()
-    add_child(pass_picker) # needs to be caled b4 adding passengers
-    pass_picker.add_passenger_cards(passenger_refs_arr)
-    pass_picker.connect("level_started", $"/root/Main/Level", "start_level")
-
-# ---------- MAIN MENU ----------
-
-func show_main_menu():
-    clear_control_children()
-    var bg_scene = load("res://environment/menu_background/BackgroundLevel.tscn").instance()
-    main.add_child(bg_scene)
-    var mm = load("res://gui/main_menu/MainMenu.tscn").instance()
-    mm.get_node("LevelPicker").connect("new_level_picked", main, "load_level")
-    add_child(mm)
-    
 # ---------- UTILITIES ----------
 
 func clear_control_children():

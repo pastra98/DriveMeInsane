@@ -5,10 +5,6 @@ signal new_score(score_pts)
 signal player_dead
 
 const LV_TO_KPH = 0.1 # see google drive doc for how this value was derived
-# initially wanted to make this an exponential func, but couldn't find good parameters. check gdrive for ggb file
-
-# const DAMAGE_LEVELS = {5:0, 15:10, 20:15, 25:20, 30:30, 35:40, 40:50, 45:60, 50:75, 55:85, 60:100}
-const DAMAGE_LEVELS = {5:0}
 
 var health = 100
 var score = 0
@@ -44,7 +40,7 @@ func _on_raging_passenger(pass_name, rage_pts):
 
 
 func explode():
-    $"Car".sleeping = true # TODO: actually stop the car from receiving input, also before the level starts
+    $"Car".disable()
     $"Car/Explosion".show() 
     $"Car/Explosion".play()
     $"Car/Sprite".hide()

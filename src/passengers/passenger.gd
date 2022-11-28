@@ -6,7 +6,7 @@ signal passenger_raging(pass_name, rage_pts)
 signal new_picture(imgpath)
 
 # base properties of passenger set by config - passenger name becomes node name
-var insanity: int
+var insanity: float
 var rage_points: int
 var rage_cooldown_sec: int
 var lore: String
@@ -14,7 +14,9 @@ var lore: String
 var soundpath: String
 var imgpath: String
 
-const INSANITY_LEVELS = [40, 80]
+const INSANITY_LEVELS = [25, 50, 75, 100]
+var insanity_lvl = 0
+
 var raging = false
 var rage_timer: Timer
 var sound_player: AudioStreamPlayer
@@ -32,6 +34,7 @@ func _init(pass_name: String):
     # set up audio player
     sound_player = AudioStreamPlayer.new()
     sound_player.name = "SoundPlayer"
+    sound_player.volume_db = -10
     add_child(sound_player)
 
 
@@ -42,17 +45,23 @@ func insanity_change(change_by, reason, is_broadcast):
     if is_broadcast:
         get_parent().change_everyones_insanity(self, change_by, reason)
         return
-    # TODO: play some sounds here also
-    insanity = min(insanity + change_by, 100)
+    insanity = clamp(insanity + change_by, 0.0, 100.0)
     emit_signal("new_insanity", insanity, reason)
-    if insanity > INSANITY_LEVELS[1]:
-        emit_signal("new_picture", imgpath % "angry")
-        if insanity == 100:
+    #  figure out insanity lvl
+    var i = 0
+    for lvl in INSANITY_LEVELS:
+        if insanity < lvl:
+            break
+        i += 1
+    # check if new insanity lvl is higher than prev one
+    if i > insanity_lvl:
+        insanity_lvl = i
+        scream(insanity_lvl)
+        if insanity_lvl == 4:
             rage()
-    elif insanity > INSANITY_LEVELS[0]:
-        emit_signal("new_picture", imgpath % "unhappy")
-    else:
-        emit_signal("new_picture", imgpath % "happy")
+            return
+        # don't change image after max inanity
+        emit_signal("new_picture", imgpath % [["happy", "unhappy", "angry"][insanity_lvl-1]])
 
 
 func load_passenger_config(pass_name: String):
@@ -91,12 +100,17 @@ func set_passenger_sensibilities(conf: ConfigFile):
             "TooFastSensibility":
                 new_sensibility = TooFastSensibility.new(
                     conf.get_value(section, "too_fast"),
-                    conf.get_value(section, "insanity_effect"),
-                    conf.get_value(section, "cooldown")
+                    conf.get_value(section, "insanity_effect")
                     )
             "TooSlowSensibility":
                 new_sensibility = TooSlowSensibility.new(
                     conf.get_value(section, "too_slow"),
+                    conf.get_value(section, "insanity_effect")
+                    )
+            "AutomaticEffect":
+                new_sensibility = AutomaticEffect.new(
+                    conf.get_value(section, "message"),
+                    conf.get_value(section, "is_broadcasting"),
                     conf.get_value(section, "insanity_effect"),
                     conf.get_value(section, "cooldown")
                     )
@@ -105,6 +119,15 @@ func set_passenger_sensibilities(conf: ConfigFile):
                     conf.get_value(section, "insanity_effect"),
                     conf.get_value(section, "cooldown")
                     )
+            "DriftHater":
+                new_sensibility = DriftHater.new(
+                    conf.get_value(section, "insanity_effect")
+                    )
+            "AllGasNoBrakes":
+                new_sensibility = AllGasNoBrakes.new(
+                    conf.get_value(section, "insanity_required")
+                    )
+                connect("new_insanity", new_sensibility, "_on_new_insanity")
             "InsanityScream":
                 new_sensibility = InsanityScream.new(
                     conf.get_value(section, "insanity_effect")
@@ -130,16 +153,12 @@ func get_sensibilities_txt():
 
 func rage():
     emit_signal("passenger_raging", name, rage_points)
-    scream()
     rage_timer.start(rage_cooldown_sec)
     raging = true
 
 
-func scream():
-    # TODO: randomize screams
-    # TODO: accept params for which scream level to play
-    # TODO: stop playing again
-    sound_player.stream = load(soundpath % 1)
+func scream(rage_lvl: int):
+    sound_player.stream = load(soundpath % [rage_lvl])
     sound_player.play()
 
 

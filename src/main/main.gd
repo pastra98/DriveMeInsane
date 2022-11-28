@@ -1,14 +1,11 @@
 extends Node2D
 
 var curr_lvl
-# ["ahote", "bjorn", "bob", "hiroshi", "izaak", "juan", "karen", "lucy", "martha", "mike", "xiu"]
-var unlocked_passengers = ["bob"]
+# ["ahote", "bjorn", "bob", "hiroshi", "karl", "juan", "karen", "lucy", "martha", "mike", "xiu"]
+var unlocked_passengers = ["ahote", "bjorn", "bob", "hiroshi", "karl", "juan", "karen", "lucy", "martha", "mike", "xiu"]
 var completed_lvls = {}
 
-# var bg_scene = load("res://environment/menu_background/BackgroundLevel.tscn").instance()
-
 func _ready():
-    # add_child(bg_scene)
     GuiManager.show_main_menu()
 
 

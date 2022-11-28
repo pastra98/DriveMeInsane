@@ -34,6 +34,8 @@ func _ready():
     # add sound player
     level_sound = AudioStreamPlayer.new()
     level_sound.name = "LevelSound"
+    level_sound.volume_db = -50
+    level_sound.stream = load("res://audio/sounds/countdown.wav") # load countdown so it will play instantly
     add_child(level_sound)
 
 # ---------- BEFORE GAME STARTS ----------
@@ -46,7 +48,13 @@ func prepare_level(unlocked_passengers: Array):
     for passenger in unlocked_passengers:
         var new_passenger = Passenger.new(passenger)
         available_passengers.append(new_passenger)
-    GuiManager.add_passenger_picker(available_passengers)
+    # pass level nr to lvl info
+    var lvl_info = {
+        "lvl_nr": level_nr, "time": time_to_complete,
+        "1star": points_1_star, "2star": points_2_stars, "3star": points_3_stars,
+        "prev_points": main.completed_lvls[level_nr] if main.completed_lvls.has(level_nr) else 0
+    }
+    GuiManager.show_passenger_picker(available_passengers, lvl_info)
 
 
 func add_passenger_to_player(passenger_ref: Passenger):
@@ -76,13 +84,14 @@ func start_level(): # probably is going to be triggered by button in picker
         selected_passenger_names.append(passenger.name)
         selected_passenger_refs.append(passenger)
     # set up the gui
-    GuiManager.load_game_hud(player, selected_passenger_refs)
+    GuiManager.show_game_hud(player, selected_passenger_refs)
     # delay a bit and then start timer
     # TODO: show some countdown and ticking noise here
-    get_tree().paused = true
-    yield(get_tree().create_timer(1), "timeout") 
-    get_tree().paused = false
+    level_sound.play()
+    yield(get_tree().create_timer(3), "timeout") 
     timer.start(time_to_complete)
+    GuiManager.get_node("GameHUD").start_countdown = true
+    player.get_node("Car").enable()
 
 # ---------- GAME OVER ----------
 
@@ -127,6 +136,6 @@ func restart_level():
                 passenger_ref = passenger
                 break
         # hacky: this stuff is normally triggered by a signal in passenger_card.gd
-        GuiManager.get_node("PassengerPicker").seat_passenger(passenger_ref)
-        GuiManager.get_node("PassengerPicker").picklist.get_node(passenger_name + "Card").hide()
+        GuiManager.get_node("BeforeLevel/PassengerPicker").seat_passenger(passenger_ref)
+        GuiManager.get_node("BeforeLevel/PassengerPicker").picklist.get_node(passenger_name + "Card").hide()
         add_passenger_to_player(passenger_ref)
