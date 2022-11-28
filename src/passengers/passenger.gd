@@ -56,7 +56,8 @@ func insanity_change(change_by, reason, is_broadcast):
     # check if new insanity lvl is higher than prev one
     if i > insanity_lvl:
         insanity_lvl = i
-        scream(insanity_lvl)
+        if change_by > 0: # only scream when insanity increases
+            scream(insanity_lvl)
         if insanity_lvl == 4:
             rage()
             return
