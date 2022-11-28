@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=22 format=2]
-
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/car_one_white.png" type="Texture" id=2]
@@ -13,6 +11,14 @@
 [ext_resource path="res://audio/sounds/tire_squeal_trimmed.wav" type="AudioStream" id=9]
 [ext_resource path="res://player/passenger_manager.gd" type="Script" id=10]
 [ext_resource path="res://player/smoke.gd" type="Script" id=11]
+
+[sub_resource type="Curve" id=29]
+_data = [ Vector2( 0, 0.652273 ), 0.0, -0.0553515, 0, 0, Vector2( 0.504951, 0.997727 ), -0.706294, -0.706294, 0, 0, Vector2( 1, 0 ), 0.52936, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=30]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.0167598, 0.988827 )
+colors = PoolColorArray( 0.562012, 0.562012, 0.562012, 1, 0.82373, 0.65641, 0.65641, 1 )
 
 [sub_resource type="CapsuleShape2D" id=14]
 radius = 23.2
@@ -74,14 +80,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Curve" id=16]
-_data = [ Vector2( 0, 0.652273 ), 0.0, -0.0553515, 0, 0, Vector2( 0.504951, 0.997727 ), -0.706294, -0.706294, 0, 0, Vector2( 1, 0 ), 0.52936, 0.0, 0, 0 ]
-
-[sub_resource type="Gradient" id=17]
-interpolation_mode = 2
-offsets = PoolRealArray( 0.0167598, 0.988827 )
-colors = PoolColorArray( 0.562012, 0.562012, 0.562012, 1, 0.82373, 0.65641, 0.65641, 1 )
-
 [node name="Player" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -122,11 +120,11 @@ initial_velocity = 51.13
 initial_velocity_random = 0.45
 scale_amount = 12.0
 scale_amount_random = 0.57
-scale_amount_curve = SubResource( 16 )
+scale_amount_curve = SubResource( 29 )
 color = Color( 0.521569, 0.513726, 0.513726, 1 )
-color_ramp = SubResource( 17 )
+color_ramp = SubResource( 30 )
 hue_variation_random = 0.59
-script = ExtResource( 4 )
+script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
 position = Vector2( 0.8, -2.8 )
