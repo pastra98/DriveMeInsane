@@ -1,0 +1,20 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://environment/destructibles/BaseDestructible.tscn" type="PackedScene" id=1]
+[ext_resource path="res://environment/destructibles/stopsign/stopsign.png" type="Texture" id=2]
+[ext_resource path="res://environment/destructibles/stopsign/stopsign_frag1.png" type="Texture" id=3]
+[ext_resource path="res://environment/destructibles/stopsign/stopsign_frag3.png" type="Texture" id=4]
+[ext_resource path="res://environment/destructibles/stopsign/stopsign_frag2.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 34.0
+
+[node name="StopSign" instance=ExtResource( 1 )]
+mass = 0.05
+fragment_pics = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
+
+[node name="Complete" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="3"]
+shape = SubResource( 1 )

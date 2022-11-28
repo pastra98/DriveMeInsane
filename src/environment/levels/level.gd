@@ -132,6 +132,7 @@ func level_over(points: int):
 
 func restart_level():
     # prepare level again
+    get_tree().reload_current_scene()
     prepare_level(main.unlocked_passengers)
     # add previous selected passengers again
     for passenger_name in selected_passenger_names:
