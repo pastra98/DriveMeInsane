@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gui/game_hud/passenger_window/bar_bg.png" type="Texture" id=1]
 [ext_resource path="res://gui/game_hud/passenger_window/insanity_fill.png" type="Texture" id=2]
 [ext_resource path="res://gui/game_hud/passenger_window/passenger_window.gd" type="Script" id=3]
 [ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=4]
 [ext_resource path="res://gui/fonts/pixellari_16.tres" type="DynamicFont" id=5]
-[ext_resource path="res://passengers/ressources/bjorn/bjorn_happy.png" type="Texture" id=6]
+[ext_resource path="res://passengers/ressources/karl/karl_angry.png" type="Texture" id=6]
+[ext_resource path="res://gui/game_hud/passenger_window/go_red_anim.tres" type="Animation" id=7]
+[ext_resource path="res://gui/game_hud/passenger_window/go_blue_anim.tres" type="Animation" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -31,34 +33,6 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ "" ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "go_red"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/PassengerPic:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.8, 0.615686, 0.615686, 1 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/CurrentEffect:bbcode_text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 2 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
 "values": [ "" ]
 }
 
@@ -107,4 +81,5 @@ nine_patch_stretch = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
-anims/go_red = SubResource( 2 )
+anims/go_blue_anim = ExtResource( 8 )
+anims/go_red_anim = ExtResource( 7 )

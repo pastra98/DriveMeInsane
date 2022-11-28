@@ -12,8 +12,12 @@ func _ready():
 
 func update_insanity(new_value, reason):
     bar.value = new_value
-    label.bbcode_text = "[wave amp=51 freq=10][color=red]%s" % reason
-    $"AnimationPlayer".play("go_red")
+    var col = "red" if new_value > 0 else "red"
+    label.bbcode_text = "[wave amp=51 freq=10][color=%s]%s" % [col, reason]
+    if new_value > 0:
+        $"AnimationPlayer".play("go_red_anim")
+    else:
+        $"AnimationPlayer".play("go_blue_anim")
 
 
 func clear_text():
