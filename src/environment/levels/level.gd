@@ -11,7 +11,7 @@ export(Array, String) var unlocks_passengers = []
 
 var level_sound: AudioStreamPlayer
 var player: Node2D
-var is_level_started = false
+var is_level_started: bool
 
 var timer: Timer
 var available_passengers = []
@@ -43,6 +43,7 @@ func _ready():
 
 func prepare_level(unlocked_passengers: Array):
     # make player instance - but don't add it to tree yet
+    is_level_started = false
     player = load("res://player/Player.tscn").instance()
     player.connect("player_dead", self, "_on_player_dead")
     # make passenger instances and add to container node (AvailablePassengers)
