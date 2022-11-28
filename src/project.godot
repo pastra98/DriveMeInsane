@@ -10,27 +10,57 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "AllGasNoBrakes",
+"language": "GDScript",
+"path": "res://passengers/effects/all_gas_no_brakes.gd"
+}, {
+"base": "Node2D",
+"class": "AutomaticEffect",
+"language": "GDScript",
+"path": "res://passengers/effects/automatic_effect.gd"
+}, {
+"base": "Node2D",
+"class": "DriftHater",
+"language": "GDScript",
+"path": "res://passengers/effects/drift_hater.gd"
+}, {
+"base": "Node2D",
+"class": "InsanityScream",
+"language": "GDScript",
+"path": "res://passengers/effects/insanity_scream.gd"
+}, {
+"base": "Node2D",
 "class": "Passenger",
 "language": "GDScript",
 "path": "res://passengers/passenger.gd"
 }, {
+"base": "Node2D",
+"class": "RelaxationFart",
+"language": "GDScript",
+"path": "res://passengers/effects/relaxation_fart.gd"
+}, {
 "base": "Area2D",
 "class": "TooCloseSensibility",
 "language": "GDScript",
-"path": "res://player/sanity_effects/too_close.gd"
+"path": "res://passengers/effects/too_close.gd"
 }, {
 "base": "Node2D",
 "class": "TooFastSensibility",
 "language": "GDScript",
-"path": "res://player/sanity_effects/too_fast.gd"
+"path": "res://passengers/effects/too_fast.gd"
 }, {
 "base": "Node2D",
 "class": "TooSlowSensibility",
 "language": "GDScript",
-"path": "res://player/sanity_effects/too_slow.gd"
+"path": "res://passengers/effects/too_slow.gd"
 } ]
 _global_script_class_icons={
+"AllGasNoBrakes": "",
+"AutomaticEffect": "",
+"DriftHater": "",
+"InsanityScream": "",
 "Passenger": "",
+"RelaxationFart": "",
 "TooCloseSensibility": "",
 "TooFastSensibility": "",
 "TooSlowSensibility": ""
@@ -46,6 +76,11 @@ config/icon="res://icon.png"
 
 GuiManager="*res://gui/GuiManager.tscn"
 MusicPlayer="*res://audio/MusicPlayer.tscn"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [gui]
 

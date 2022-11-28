@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bjorn_scream_4.wav-610dc560c9166ea815e886c86cd422f5.sample"
+
+[deps]
+
+source_file="res://passengers/ressources/bjorn/bjorn_scream_4.wav"
+dest_files=[ "res://.import/bjorn_scream_4.wav-610dc560c9166ea815e886c86cd422f5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

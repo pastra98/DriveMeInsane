@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/karl_scream_3.wav-c9445310cc3efa47b720ee786f8062e4.sample"
+
+[deps]
+
+source_file="res://passengers/ressources/karl/karl_scream_3.wav"
+dest_files=[ "res://.import/karl_scream_3.wav-c9445310cc3efa47b720ee786f8062e4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
