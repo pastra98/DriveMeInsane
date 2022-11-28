@@ -8,7 +8,7 @@ onready var player = $"../../.."
 # changing particle amount
 
 const MIN_LIFETIME: float = 0.5
-const MIN_SCALE: float = 12.0
+const MIN_SCALE: float = 1.0
 const MIN_SPREAD: float = 45.0 
 
 const MAX_LIFETIME: float = 1.0
@@ -21,7 +21,7 @@ var t = 0
 
 func _process(delta):
     t += delta
-    if t > 0.2:
+    if t > 0.1:
         var speed_scale = player.get_current_kph() / TOP_SPEED
         lifetime = lerp(MIN_LIFETIME, MAX_LIFETIME, speed_scale)
         scale_amount = lerp(MIN_SCALE, MAX_SCALE, speed_scale)
