@@ -45,7 +45,6 @@ func show_game_hud(player: Node2D, passenger_refs_arr: Array):
         passenger_ref.connect("new_insanity", new_passenger_window, "update_insanity")
         passenger_ref.connect("new_picture", new_passenger_window, "update_picture")
         $"GameHUD/PassengerContainer".add_child(new_passenger_window)
-        new_passenger_window.update_insanity(passenger_ref.insanity, "Lets start!")
         new_passenger_window.update_picture(passenger_ref.imgpath % "happy")
 
 # ---------- LEVEL OVER GUI  ----------
