@@ -1,0 +1,44 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+<<<<<<< HEAD:GUI/energy_bar_fill.png.import
+path="res://.import/energy_bar_fill.png-84d9f3eda49f1b7e11c812e9930bbd52.stex"
+=======
+path="res://.import/bar_bg.png-376fbc2d02fe248ca59b1c5f2538d6cb.stex"
+>>>>>>> 1841f8f893e93cf920ea9ac39c412f73203460ea:src/gui/game_hud/passenger_window/bar_bg.png.import
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+<<<<<<< HEAD:GUI/energy_bar_fill.png.import
+source_file="res://GUI/energy_bar_fill.png"
+dest_files=[ "res://.import/energy_bar_fill.png-84d9f3eda49f1b7e11c812e9930bbd52.stex" ]
+=======
+source_file="res://gui/game_hud/passenger_window/bar_bg.png"
+dest_files=[ "res://.import/bar_bg.png-376fbc2d02fe248ca59b1c5f2538d6cb.stex" ]
+>>>>>>> 1841f8f893e93cf920ea9ac39c412f73203460ea:src/gui/game_hud/passenger_window/bar_bg.png.import
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
