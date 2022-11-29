@@ -4,7 +4,7 @@ signal damage_taken(amt)
 
 # Driving Properties
 const MAX_ACCELERATION = 5
-const MAX_FORWARD_VELOCITY = 900
+const MAX_FORWARD_VELOCITY = 800
 const DRAG_COEFFICIENT = 0.999 # Recommended: 0.99 - Affects how fast you slow down
 const BRAKE_POWER = 0.95 # Recommended: 0.99 - Affects how fast you slow down
 const STEERING_TORQUE = 5 # Affects turning speed

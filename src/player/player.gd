@@ -19,7 +19,7 @@ func _physics_process(delta): # testing
 
 
 func get_current_kph() -> int:
-    return int($Car.linear_velocity.length() * LV_TO_KPH)
+    return int($"Car".linear_velocity.length() * LV_TO_KPH)
 
 
 func take_damage(damage):
