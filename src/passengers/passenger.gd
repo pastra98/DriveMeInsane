@@ -84,8 +84,8 @@ func set_passenger_basics(conf: ConfigFile):
     rage_points = conf.get_value("Basics", "rage_points")
     rage_cooldown_sec = conf.get_value("Basics", "rage_cooldown_sec")
     var ressource_path = conf.get_value("Basics", "ressource_path")
-    imgpath = ressource_path + name + "_%s.png"
-    soundpath = ressource_path + name + "_scream_%s.wav"
+    imgpath = ressource_path + name.to_lower() + "_%s.png"
+    soundpath = ressource_path + name.to_lower() + "_scream_%s.wav"
 
 
 func set_passenger_sensibilities(conf: ConfigFile):
