@@ -94,12 +94,6 @@ rotation = -1.5708
 current = true
 zoom = Vector2( 1.5, 1.5 )
 
-[node name="Label" type="Label" parent="Car"]
-margin_top = -103.0
-margin_right = 40.0
-margin_bottom = -72.0
-rect_scale = Vector2( 3, 3 )
-
 [node name="Sprite" type="Sprite" parent="Car"]
 position = Vector2( 9, 0 )
 rotation = 3.14159

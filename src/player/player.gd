@@ -14,10 +14,6 @@ func _ready():
     $"Car".connect("damage_taken", self, "take_damage")
 
 
-func _physics_process(delta): # testing
-    $"Car/Label".text = str(get_current_kph())
-
-
 func get_current_kph() -> int:
     return int($"Car".linear_velocity.length() * LV_TO_KPH)
 
