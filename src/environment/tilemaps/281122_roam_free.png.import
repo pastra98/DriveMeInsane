@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/281122_roam_free.png-d960818e3985333c96e9c3bb0cc243aa.stex"
+path="res://.import/281122_roam_free.png-797ee1c24c9e29024f3f1908a6e9ecc0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/281122_roam_free.png"
-dest_files=[ "res://.import/281122_roam_free.png-d960818e3985333c96e9c3bb0cc243aa.stex" ]
+source_file="res://environment/tilemaps/281122_roam_free.png"
+dest_files=[ "res://.import/281122_roam_free.png-797ee1c24c9e29024f3f1908a6e9ecc0.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

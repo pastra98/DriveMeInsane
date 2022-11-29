@@ -2,24 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-<<<<<<< HEAD:GUI/energy_bar_bg.png.import
-path="res://.import/energy_bar_bg.png-ec65569036f065d1f163c35b80ad3a2e.stex"
-=======
 path="res://.import/locked.png-fb9025ea4fa0385e058e00ac0ff42d91.stex"
->>>>>>> 1841f8f893e93cf920ea9ac39c412f73203460ea:src/gui/main_menu/level_picker/locked.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<< HEAD:GUI/energy_bar_bg.png.import
-source_file="res://GUI/energy_bar_bg.png"
-dest_files=[ "res://.import/energy_bar_bg.png-ec65569036f065d1f163c35b80ad3a2e.stex" ]
-=======
 source_file="res://gui/main_menu/level_picker/locked.png"
 dest_files=[ "res://.import/locked.png-fb9025ea4fa0385e058e00ac0ff42d91.stex" ]
->>>>>>> 1841f8f893e93cf920ea9ac39c412f73203460ea:src/gui/main_menu/level_picker/locked.png.import
 
 [params]
 
@@ -29,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
