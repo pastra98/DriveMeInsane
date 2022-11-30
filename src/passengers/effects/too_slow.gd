@@ -20,7 +20,6 @@ func _physics_process(delta):
         var vel = player.get_current_kph()
         # prevent exploitation by just standing still
         if vel > 1 and vel < too_slow:
-            print("toofast")
             emit_signal("change_insanity", insanity_effect, "Too Slow!!", false)
         t = 0
 

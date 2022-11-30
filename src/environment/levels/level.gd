@@ -36,7 +36,6 @@ func _ready():
     level_sound = AudioStreamPlayer.new()
     level_sound.name = "LevelSound"
     level_sound.volume_db = -50
-    level_sound.stream = load("res://audio/sounds/countdown.wav") # load countdown so it will play instantly
     add_child(level_sound)
 
 # ---------- BEFORE GAME STARTS ----------
@@ -89,6 +88,7 @@ func start_level(): # probably is going to be triggered by button in picker
     GuiManager.show_game_hud(player, selected_passenger_refs)
     # delay a bit and then start timer
     timer.start(3)
+    level_sound.stream = load("res://audio/sounds/countdown.wav")
     level_sound.play()
 
 # ---------- GAME OVER ----------
