@@ -42,7 +42,7 @@ func seat_passenger(passenger_ref: Passenger):
             seats.get_node(seat_name).update_seat(passenger_ref)
             break
     # TODO: this whole thing can surely be done much better
-    if n_seated == 4:
+    if n_seated == seats.get_child_count():
         emit_signal("all_passengers_seated")
 
 
@@ -55,3 +55,7 @@ func unseat_passenger(passenger_ref: Passenger, seat_name: String):
 func _on_StartLevel_button_down():
     # TODO: can do some checks on how many people need to be seated for lvl, grey out button before
     emit_signal("level_started")
+
+
+func _on_BackToMain_button_down():
+    GuiManager.show_main_menu()
