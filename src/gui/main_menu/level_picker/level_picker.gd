@@ -24,5 +24,6 @@ func _ready():
 
 
 func level_button_pressed(lvl_nr):
+    MusicPlayer.button_sound()
     emit_signal("new_level_picked", lvl_nr)
     queue_free()
