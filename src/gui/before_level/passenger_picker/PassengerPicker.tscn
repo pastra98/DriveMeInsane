@@ -120,6 +120,7 @@ margin_left = 329.0
 margin_right = 469.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 140, 24 )
+disabled = true
 shortcut_in_tooltip = false
 shortcut = SubResource( 2 )
 text = "Start Level!"
