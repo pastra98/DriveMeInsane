@@ -34,7 +34,6 @@ func _init(pass_name: String):
     # set up audio player
     sound_player = AudioStreamPlayer.new()
     sound_player.name = "SoundPlayer"
-    sound_player.volume_db = -10
     add_child(sound_player)
 
 
@@ -160,6 +159,7 @@ func rage():
 
 
 func scream(rage_lvl: int):
+    sound_player.volume_db = -10
     sound_player.stream = load(soundpath % [rage_lvl])
     sound_player.play()
 

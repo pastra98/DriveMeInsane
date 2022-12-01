@@ -89,8 +89,8 @@ func start_level(): # probably is going to be triggered by button in picker
     # delay a bit and then start timer
     MusicPlayer.playback(false)
     timer.start(3)
-    level_sound.volume_db = -50
-    level_sound.stream = load("res://audio/sounds/countdown.wav")
+    level_sound.volume_db = -20
+    level_sound.stream = load("res://audio/sounds/FX_LevelStart.wav")
     level_sound.play()
 
 # ---------- GAME OVER ----------
