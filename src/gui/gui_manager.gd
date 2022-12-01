@@ -24,6 +24,9 @@ func show_passenger_picker(passenger_refs_arr: Array, lvl_info: Dictionary):
     before_level.get_node("PassengerPicker").connect("level_started", $"/root/Main/Level", "start_level")
     # pass level info to info scene
     before_level.get_node("LevelInfo").setup(lvl_info)
+    # show picker tutorial
+    if not main.is_tutorial_completed:
+        before_level.get_node("PickerTutorial").popup_centered()
 
 # ---------- UI WHILE DRIVING IN LEVEL ----------
 
@@ -42,6 +45,12 @@ func show_game_hud(player: Node2D, passenger_refs_arr: Array):
         passenger_ref.connect("new_picture", new_passenger_window, "update_picture")
         $"GameHUD/PassengerContainer".add_child(new_passenger_window)
         new_passenger_window.update_picture(passenger_ref.imgpath % "happy")
+    # show tutorial if not completed
+    if not main.is_tutorial_completed:
+        hud.get_node("BeforeStartTutorial").popup_centered()
+        get_tree().paused = true
+        yield(hud.get_node("BeforeStartTutorial"), "popup_hide")
+        get_tree().paused = false
 
 # ---------- LEVEL OVER GUI  ----------
 

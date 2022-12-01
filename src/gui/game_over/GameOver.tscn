@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gui/game_over/game_over.gd" type="Script" id=1]
 [ext_resource path="res://gui/fonts/pixellari_24.tres" type="DynamicFont" id=2]
 [ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=3]
 [ext_resource path="res://gui/game_over/star_gray.png" type="Texture" id=4]
 [ext_resource path="res://audio/sounds/star.wav" type="AudioStream" id=5]
+[ext_resource path="res://gui/fonts/pixellari_16.tres" type="DynamicFont" id=6]
 
-[node name="GameOver" type="MarginContainer"]
+[node name="GameOver" type="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -98,6 +99,56 @@ text = "main menu"
 
 [node name="StarSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="EndGamePopup" type="AcceptDialog" parent="."]
+margin_right = 8.0
+margin_bottom = 8.0
+theme = ExtResource( 3 )
+window_title = ""
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndGamePopup"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 808.0
+margin_bottom = 356.0
+rect_min_size = Vector2( 800, 0 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[b][center]Congratulations on finishing all levels![/center][/b]
+
+We hope you enjoyed driving your passengers insane! As with most game jam games, this project is far from finished... Besides getting more familiar with godot, I learned some valuable lessons about project management. I want to thank all my friends that contributed to this project:
+
+Raphael Dombrowski: Made awesome music and soundeffects! Also lent his voice to various characters.
+
+Matthias Lehner: Chief artist & writer: drew the tiles, characters, car and breathed live into the characters by writing their backstory! Passionate voice acting!
+
+Josef Hinterleitner: Initial tilemap designs. Moving voice acting performance!
+
+Raphael Pruckner: Ultra realistic vehicle exhaust particle system!
+
+Florian Artner: Artist #2, thanks for the speedometer!
+
+Raphael Sperlich: Initial GUI work. 
+
+[center]- Paul Straberger"
+text = "Congratulations on finishing all levels!
+
+We hope you enjoyed driving your passengers insane! As with most game jam games, this project is far from finished... Besides getting more familiar with godot, I learned some valuable lessons about project management. I want to thank all my friends that contributed to this project:
+
+Raphael Dombrowski: Made awesome music and soundeffects! Also lent his voice to various characters.
+
+Matthias Lehner: Chief artist & writer: drew the tiles, characters, car and breathed live into the characters by writing their backstory! Passionate voice acting!
+
+Josef Hinterleitner: Initial tilemap designs. Moving voice acting performance!
+
+Raphael Pruckner: Ultra realistic vehicle exhaust particle system!
+
+Florian Artner: Artist #2, thanks for the speedometer!
+
+Raphael Sperlich: Initial GUI work. 
+
+- Paul Straberger"
+fit_content_height = true
 
 [connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/NextLevel" to="." method="_on_NextLevel_button_down"]
 [connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/Restart" to="." method="_on_Restart_button_down"]

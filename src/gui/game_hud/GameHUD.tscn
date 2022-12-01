@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gui/game_hud/player_status/PlayerStatus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://audio/sounds/beep.wav" type="AudioStream" id=5]
 [ext_resource path="res://gui/game_hud/speedometer/speedo.png" type="Texture" id=6]
 [ext_resource path="res://gui/game_hud/speedometer/needle.png" type="Texture" id=7]
+[ext_resource path="res://gui/fonts/pixellari_24.tres" type="DynamicFont" id=8]
+[ext_resource path="res://gui/fonts/pixellari_48.tres" type="DynamicFont" id=9]
 
 [node name="GameHUD" type="Control"]
 anchor_right = 1.0
@@ -52,3 +54,75 @@ margin_bottom = 40.0
 rect_rotation = -85.0
 rect_pivot_offset = Vector2( 64, 117 )
 texture = ExtResource( 7 )
+
+[node name="BeforeStartTutorial" type="AcceptDialog" parent="."]
+pause_mode = 2
+margin_right = 816.0
+margin_bottom = 278.0
+theme = ExtResource( 2 )
+window_title = ""
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BeforeStartTutorial"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 808.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 800, 0 )
+mouse_filter = 1
+size_flags_horizontal = 0
+custom_fonts/bold_font = ExtResource( 9 )
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[b][center]Let’s start! [/center][/b]
+
+Top left: Healthbar and your current score.
+
+Top right: Your current passengers and their Rage-O-Meter. Fill it up to get points!
+
+Use the arrow keys or WASD to drive the car, [Space] engages the handbrake (useful for drifting).
+
+[center] Drive Bob insane by \"speeding\" up to 55kph![/center]"
+text = "Let’s start! 
+
+Top left: Healthbar and your current score.
+
+Top right: Your current passengers and their Rage-O-Meter. Fill it up to get points!
+
+Use the arrow keys or WASD to drive the car, [Space] engages the handbrake (useful for drifting).
+
+ Drive Bob insane by \"speeding\" up to 55kph!"
+fit_content_height = true
+
+[node name="FullRageTutorial" type="AcceptDialog" parent="."]
+pause_mode = 2
+margin_right = 816.0
+margin_bottom = 278.0
+theme = ExtResource( 2 )
+window_title = ""
+
+[node name="RichTextLabel" type="RichTextLabel" parent="FullRageTutorial"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 808.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 800, 0 )
+mouse_filter = 1
+size_flags_horizontal = 0
+custom_fonts/bold_font = ExtResource( 9 )
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[b][center]Poor Bob... [/center][/b]
+Congrats, Bob has screamed his Lungs out and you gain a rage point!
+
+He will take a couple of seconds to cool down, then you can start driving him insane again ;)
+
+The score in the top left also turned yellow, indicating you have enough points to complete the level.
+"
+text = "Poor Bob... 
+Congrats, Bob has screamed his Lungs out and you gain a rage point!
+
+He will take a couple of seconds to cool down, then you can start driving him insane again ;)
+
+The score in the top left also turned yellow, indicating you have enough points to complete the level.
+"
+fit_content_height = true

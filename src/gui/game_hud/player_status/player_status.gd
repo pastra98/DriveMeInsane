@@ -1,5 +1,6 @@
 extends MarginContainer
 
+# TODO: hindsight 2020, this stuff should all happen in a script attached to the game hud scene
 
 onready var bar = $"HBoxContainer/Health"
 onready var score = $"HBoxContainer/Score"
@@ -13,7 +14,6 @@ func update_health(new_health):
     bar.value = new_health
     
 
-
 func update_score(new_score):
     cur_score = new_score
     col = "[color=yellow]" if new_score >= min_pts else ""
@@ -25,3 +25,10 @@ func _on_Timer_timeout():
     # TODO: this whole thing can be done in a better way
     score.bbcode_text = col + str(cur_score)
     $Timer.stop()
+    # check with main if the last tutorial thing should still be shown
+    if not get_node("/root/Main").is_tutorial_completed:
+        $"../FullRageTutorial".popup_centered()
+        get_tree().paused = true
+        yield($"../FullRageTutorial", "popup_hide")
+        get_tree().paused = false
+        get_node("/root/Main").is_tutorial_completed = true
