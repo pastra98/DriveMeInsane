@@ -41,6 +41,8 @@ func _ready():
 # ---------- BEFORE GAME STARTS ----------
 
 func prepare_level(unlocked_passengers: Array):
+    var stopsigns = load("res://environment/destructibles/Stopsigns.tscn").instance()
+    add_child(stopsigns)
     # make player instance - but don't add it to tree yet
     is_level_started = false
     player = load("res://player/Player.tscn").instance()
@@ -142,7 +144,7 @@ func level_over(points: int):
 
 func restart_level():
     # prepare level again
-    get_tree().reload_current_scene()
+    $"Stopsigns".queue_free()
     prepare_level(main.unlocked_passengers)
     # add previous selected passengers again
     for passenger_name in selected_passenger_names:

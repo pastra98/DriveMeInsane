@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://environment/tilemaps/Map1.tscn" type="PackedScene" id=1]
-[ext_resource path="res://environment/destructibles/stopsign/StopSign.tscn" type="PackedScene" id=2]
+[ext_resource path="res://environment/tilemaps/Map.tscn" type="PackedScene" id=1]
 
 [node name="Level" instance=ExtResource( 1 )]
 level_nr = 1
@@ -9,7 +8,7 @@ points_1_star = 1
 points_2_stars = 2
 points_3_stars = 3
 time_to_complete = 60
-unlocks_passengers = [ "martha" ]
+unlocks_passengers = [ "martha", "juan" ]
 
 [node name="PlayerPos" type="Position2D" parent="." index="2"]
-position = Vector2( 0, 133 )
+position = Vector2( -3110, 773 )

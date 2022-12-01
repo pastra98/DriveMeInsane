@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 signal damage_taken(amt)
+signal crashed_stopsign() # this should normally work for all destr., fuck it no time
 
 # Driving Properties
 const MAX_ACCELERATION = 5
@@ -52,6 +53,7 @@ func _integrate_forces(state):
             if col_obj.is_in_group("destructible"):
                 var destr_obj = state.get_contact_collider_object(0)
                 destr_obj.destroy()
+                emit_signal("crashed_stopsign")
             else:
                 var col_force = (state.linear_velocity - prev_lv).length() / 100
                 state.apply_impulse(state.get_contact_local_position(0), state.get_contact_local_normal(0)*col_force)

@@ -135,6 +135,11 @@ func set_passenger_sensibilities(conf: ConfigFile):
                     conf.get_value(section, "insanity_effect")
                     )
                 connect("passenger_raging", new_sensibility, "_on_passenger_raging") # connect signal to sensibility
+            "HatesRed":
+                new_sensibility = HatesRed.new(
+                    conf.get_value(section, "insanity_effect"),
+                    conf.get_value(section, "cooldown")
+                    )
         if new_sensibility: # make sure the section that was read was a sensibility, not e.g. basics
             # add cooldown timer as child to every sensibility
             var cooldown_timer = Timer.new()

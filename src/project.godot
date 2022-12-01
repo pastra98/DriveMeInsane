@@ -25,6 +25,11 @@ _global_script_classes=[ {
 "path": "res://passengers/effects/drift_hater.gd"
 }, {
 "base": "Node2D",
+"class": "HatesRed",
+"language": "GDScript",
+"path": "res://passengers/effects/HatesRed.gd"
+}, {
+"base": "Node2D",
 "class": "InsanityScream",
 "language": "GDScript",
 "path": "res://passengers/effects/insanity_scream.gd"
@@ -58,6 +63,7 @@ _global_script_class_icons={
 "AllGasNoBrakes": "",
 "AutomaticEffect": "",
 "DriftHater": "",
+"HatesRed": "",
 "InsanityScream": "",
 "Passenger": "",
 "RelaxationFart": "",
