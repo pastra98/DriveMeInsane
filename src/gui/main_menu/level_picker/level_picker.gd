@@ -19,7 +19,7 @@ func _ready():
                 new_button.icon = load("res://gui/main_menu/level_picker/locked.png")
                 new_button.disabled = true
             new_button.connect("pressed", self, "level_button_pressed", [lvl_nr])
-            $"Panel/VBoxContainer/GridContainer".add_child(new_button)
+            $"Panel/VBoxContainer/VBoxContainer".add_child(new_button)
         file_name = dir.get_next()
 
 
