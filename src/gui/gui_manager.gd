@@ -1,9 +1,5 @@
 extends CanvasLayer
 
-# since this is the only autoload singleton we have, just put stuff here for now
-const MAX_PASSENGERS = 4 # TODO: maybe later find better solution
-
-var player_status
 onready var main = get_node("/root/Main")
 onready var n_unlock_pass = main.unlocked_passengers.size()
 
@@ -11,7 +7,7 @@ onready var n_unlock_pass = main.unlocked_passengers.size()
 
 func show_main_menu():
     clear_control_children()
-    var bg_scene = load("res://environment/menu_background/BackgroundLevel.tscn").instance()
+    var bg_scene = load("res://environment/menu_background/MenuBackground.tscn").instance()
     main.add_child(bg_scene)
     var mm = load("res://gui/main_menu/MainMenu.tscn").instance()
     mm.get_node("LevelPicker").connect("new_level_picked", main, "load_level")
