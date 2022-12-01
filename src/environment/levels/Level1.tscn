@@ -9,28 +9,7 @@ points_1_star = 1
 points_2_stars = 2
 points_3_stars = 3
 time_to_complete = 60
-unlocks_passengers = [ "karen" ]
+unlocks_passengers = [ "martha" ]
 
-[node name="PlayerPos" type="Position2D" parent="." index="1"]
-position = Vector2( 920, 207 )
-
-[node name="StopSign" parent="." index="2" instance=ExtResource( 2 )]
-position = Vector2( 568, 94 )
-
-[node name="StopSign2" parent="." index="3" instance=ExtResource( 2 )]
-position = Vector2( 562, -160 )
-
-[node name="StopSign3" parent="." index="4" instance=ExtResource( 2 )]
-position = Vector2( 493, 332 )
-
-[node name="StopSign4" parent="." index="5" instance=ExtResource( 2 )]
-position = Vector2( -378, 329 )
-
-[node name="StopSign5" parent="." index="6" instance=ExtResource( 2 )]
-position = Vector2( -343, 128 )
-
-[node name="StopSign6" parent="." index="7" instance=ExtResource( 2 )]
-position = Vector2( -159, 120 )
-
-[node name="StopSign7" parent="." index="8" instance=ExtResource( 2 )]
-position = Vector2( -670, 343 )
+[node name="PlayerPos" type="Position2D" parent="." index="2"]
+position = Vector2( 0, 133 )

@@ -34,17 +34,17 @@ func _init(pass_name: String):
     # set up audio player
     sound_player = AudioStreamPlayer.new()
     sound_player.name = "SoundPlayer"
-    sound_player.volume_db = -10
     add_child(sound_player)
 
 
 func insanity_change(change_by, reason, is_broadcast):
-    if raging:
-        return # do not register any insanity changes while raging
     # if it is a broadcast, it should only affect other passengers
     if is_broadcast:
         get_parent().change_everyones_insanity(self, change_by, reason)
         return
+    # do not register any insanity changes while raging
+    if raging:
+        return 
     insanity = clamp(insanity + change_by, 0.0, 100.0)
     emit_signal("new_insanity", insanity, reason)
     #  figure out insanity lvl
@@ -84,8 +84,8 @@ func set_passenger_basics(conf: ConfigFile):
     rage_points = conf.get_value("Basics", "rage_points")
     rage_cooldown_sec = conf.get_value("Basics", "rage_cooldown_sec")
     var ressource_path = conf.get_value("Basics", "ressource_path")
-    imgpath = ressource_path + name + "_%s.png"
-    soundpath = ressource_path + name + "_scream_%s.wav"
+    imgpath = ressource_path + name.to_lower() + "_%s.png"
+    soundpath = ressource_path + name.to_lower() + "_scream_%s.wav"
 
 
 func set_passenger_sensibilities(conf: ConfigFile):
@@ -160,6 +160,7 @@ func rage():
 
 
 func scream(rage_lvl: int):
+    sound_player.volume_db = -10
     sound_player.stream = load(soundpath % [rage_lvl])
     sound_player.play()
 

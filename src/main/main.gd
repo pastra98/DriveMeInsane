@@ -1,9 +1,17 @@
 extends Node2D
 
 var curr_lvl
-# ["ahote", "bjorn", "bob", "hiroshi", "karl", "juan", "karen", "lucy", "martha", "mike", "xiu", "marvin", "dave", "merlin"]
-var unlocked_passengers = ["ahote", "bjorn", "bob", "hiroshi", "karl", "juan", "karen", "lucy", "martha", "mike", "xiu", "marvin", "hugh", "merlin"]
-var completed_lvls = {}
+# ["ahote", "bjorn", "bob", "hiroshi", "karl", "juan", "karen", "lucy", "martha", "mike", "xiu", "marvin", "karli", "merlin"]
+# var unlocked_passengers = ["bob", "karen", "lucy", "marvin", "bjorn", "martha", "merlin", "karli"]
+
+# var unlocked_passengers = ["bob"]
+var unlocked_passengers = ["bob", "martha", "karen", "lucy", "marvin", "bjorn", "merlin", "karli"]
+# var completed_lvls = {}
+var completed_lvls = {1:1, 2:1, 3:1, 4:1}
+
+var n_lvls = 5 # TODO: this should also be set dynamically, game_over.gd depends on this to show next level
+# var is_tutorial_completed = false
+var is_tutorial_completed = true
 
 func _ready():
     GuiManager.show_main_menu()

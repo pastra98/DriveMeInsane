@@ -4,7 +4,6 @@
 [ext_resource path="res://gui/main_menu/level_picker/level_picker.gd" type="Script" id=2]
 [ext_resource path="res://gui/fonts/pixellari_48.tres" type="DynamicFont" id=3]
 
-
 [node name="LevelPicker" type="MarginContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -46,9 +45,8 @@ margin_right = 380.0
 margin_bottom = 92.0
 rect_min_size = Vector2( 0, 40 )
 
-[node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
 margin_top = 96.0
 margin_right = 380.0
 margin_bottom = 96.0
-custom_constants/vseparation = 15
-custom_constants/hseparation = 15
+custom_constants/separation = 10
