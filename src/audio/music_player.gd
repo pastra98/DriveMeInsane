@@ -36,3 +36,8 @@ func playback(resume: bool):
         $"Tween".start()
         yield($"Tween", "tween_completed")
         stop()
+
+
+func button_sound():
+    # for now just put it here, this is all last-day hacks
+    $"ButtonSound".play()
