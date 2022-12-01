@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/karli_angry.png-30e4fc791b712237d73226a2840d3e2d.stex"
+path="res://.import/karli_angry.png-b827346ec306e8d3d61c5f1170fa36fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://passengers/ressources/hugh/karli_angry.png"
-dest_files=[ "res://.import/karli_angry.png-30e4fc791b712237d73226a2840d3e2d.stex" ]
+source_file="res://passengers/ressources/karli/karli_angry.png"
+dest_files=[ "res://.import/karli_angry.png-b827346ec306e8d3d61c5f1170fa36fb.stex" ]
 
 [params]
 

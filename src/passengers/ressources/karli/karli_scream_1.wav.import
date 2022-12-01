@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/karli_scream_1.wav-b8cbfe5a87a79950d4b3f8a3be958017.sample"
+path="res://.import/karli_scream_1.wav-a07c5c452ee4b515505a0beb2530fc9c.sample"
 
 [deps]
 
-source_file="res://passengers/ressources/hugh/karli_scream_1.wav"
-dest_files=[ "res://.import/karli_scream_1.wav-b8cbfe5a87a79950d4b3f8a3be958017.sample" ]
+source_file="res://passengers/ressources/karli/karli_scream_1.wav"
+dest_files=[ "res://.import/karli_scream_1.wav-a07c5c452ee4b515505a0beb2530fc9c.sample" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/karli_happy.png-0ed8ba424969a7349bca5ceb7f5db34a.stex"
+path="res://.import/karli_happy.png-87a5357b42f869505b7ef70ebbd5a7a5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://passengers/ressources/hugh/karli_happy.png"
-dest_files=[ "res://.import/karli_happy.png-0ed8ba424969a7349bca5ceb7f5db34a.stex" ]
+source_file="res://passengers/ressources/karli/karli_happy.png"
+dest_files=[ "res://.import/karli_happy.png-87a5357b42f869505b7ef70ebbd5a7a5.stex" ]
 
 [params]
 
