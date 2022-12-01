@@ -3,12 +3,12 @@
 [ext_resource path="res://environment/tilemaps/Map.tscn" type="PackedScene" id=1]
 
 [node name="Level" instance=ExtResource( 1 )]
-level_nr = 1
-points_1_star = 1
-points_2_stars = 2
-points_3_stars = 3
-time_to_complete = 60
-unlocks_passengers = [ "martha" ]
+level_nr = 2
+points_1_star = 3
+points_2_stars = 4
+points_3_stars = 5
+time_to_complete = 50
+unlocks_passengers = [ "karen", "lucy" ]
 
 [node name="PlayerPos" type="Position2D" parent="." index="2"]
-position = Vector2( 0, 133 )
+position = Vector2( -3110, 773 )
