@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hugh_happy.png-065de01a2c95ffb1ecf1ec1184d8b05b.stex"
+path="res://.import/karli_angry.png-30e4fc791b712237d73226a2840d3e2d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://passengers/ressources/hugh/hugh_happy.png"
-dest_files=[ "res://.import/hugh_happy.png-065de01a2c95ffb1ecf1ec1184d8b05b.stex" ]
+source_file="res://passengers/ressources/hugh/karli_angry.png"
+dest_files=[ "res://.import/karli_angry.png-30e4fc791b712237d73226a2840d3e2d.stex" ]
 
 [params]
 

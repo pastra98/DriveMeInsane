@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/hugh_scream_2.wav-6b6604bbd5f9f61a8f538ec2060e1c36.sample"
+path="res://.import/hugh_scream_1.wav-62d7ced0e85c8ea2ef5167856fe1334e.sample"
 
 [deps]
 
-source_file="res://passengers/ressources/hugh/hugh_scream_2.wav"
-dest_files=[ "res://.import/hugh_scream_2.wav-6b6604bbd5f9f61a8f538ec2060e1c36.sample" ]
+source_file="res://passengers/ressources/hiroshi/hugh_scream_1.wav"
+dest_files=[ "res://.import/hugh_scream_1.wav-62d7ced0e85c8ea2ef5167856fe1334e.sample" ]
 
 [params]
 
