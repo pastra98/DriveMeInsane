@@ -10,8 +10,10 @@ TODO:
     sound fades out and the new one fades in
 """
 
-onready var main_theme = preload("res://audio/music/main_theme.wav")
-onready var music2 = preload("res://audio/testing/Ensoniq-ZR-76-African-LP.wav")
+const BASE_VOLUME = -50
+
+var main_theme = preload("res://audio/music/main_theme.wav")
+var game_theme = preload("res://audio/music/game_theme.wav")
 
 var trans_dur = 1.00 # will
 var trans_type = 1 # TRANS_SINE
@@ -22,29 +24,31 @@ func _ready():
     pass
 
 
-func _unhandled_input(event): # not sure if this stuff should be handled here, for now it is just testing
-    if event is InputEventKey and event.pressed:
-        # track
-        if event.scancode == KEY_1:
-            switch_music(main_theme)
-        elif event.scancode == KEY_2:
-            switch_music(music2)
-        # 
-        if event.scancode == KEY_F:
-            stop()
-        elif event.scancode == KEY_A:
-            play()
-
-
-func switch_music(title):
-    next_track = title
+func switch_music(title: String):
+    if title == "main":
+        next_track = main_theme
+    elif title == "game":
+        next_track = game_theme
+    else:
+        print("Sound not found"); breakpoint
     # fade out
-    $TweenOut.interpolate_property(self, "volume_db", 0, -80, trans_dur/2, trans_type, Tween.EASE_IN, 0)
+    $TweenOut.interpolate_property(self, "volume_db", BASE_VOLUME, -80, trans_dur/2, trans_type, Tween.EASE_IN, 0)
     $TweenOut.start()
 
 
 func _on_TweenOut_tween_completed(object:Object, key:NodePath):
     stream = next_track
     playing = true
-    $TweenIn.interpolate_property(self, "volume_db", -80, 0, trans_dur/2, trans_type, Tween.EASE_IN, 0)
+    $TweenIn.interpolate_property(self, "volume_db", -80, BASE_VOLUME, trans_dur/2, trans_type, Tween.EASE_IN, 0)
     $TweenIn.start()
+
+
+func playback(resume: bool):
+    # use tween in in both case cause it triggers no signals unlike tween out
+    if resume:
+        play()
+        $TweenIn.interpolate_property(self, "volume_db", -80, BASE_VOLUME, trans_dur, trans_type, Tween.EASE_IN, 0)
+    else:
+        $TweenIn.interpolate_property(self, "volume_db", BASE_VOLUME, -80, trans_dur, trans_type, Tween.EASE_IN, 0)
+        yield(get_tree().create_timer(trans_dur), "timeout") # somehow couldnt get tweenIn signal working here?? not enough time to fix proper
+        stop()
