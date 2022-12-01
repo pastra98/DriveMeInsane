@@ -38,12 +38,13 @@ func _init(pass_name: String):
 
 
 func insanity_change(change_by, reason, is_broadcast):
-    if raging:
-        return # do not register any insanity changes while raging
     # if it is a broadcast, it should only affect other passengers
     if is_broadcast:
         get_parent().change_everyones_insanity(self, change_by, reason)
         return
+    # do not register any insanity changes while raging
+    if raging:
+        return 
     insanity = clamp(insanity + change_by, 0.0, 100.0)
     emit_signal("new_insanity", insanity, reason)
     #  figure out insanity lvl
