@@ -11,6 +11,7 @@ export(Array, String) var unlocks_passengers = []
 
 var level_sound: AudioStreamPlayer
 var player: Node2D
+var is_level_started: bool
 
 var timer: Timer
 var available_passengers = []
@@ -35,13 +36,15 @@ func _ready():
     level_sound = AudioStreamPlayer.new()
     level_sound.name = "LevelSound"
     level_sound.volume_db = -50
-    level_sound.stream = load("res://audio/sounds/countdown.wav") # load countdown so it will play instantly
     add_child(level_sound)
 
 # ---------- BEFORE GAME STARTS ----------
 
 func prepare_level(unlocked_passengers: Array):
+    var stopsigns = load("res://environment/destructibles/Stopsigns.tscn").instance()
+    add_child(stopsigns)
     # make player instance - but don't add it to tree yet
+    is_level_started = false
     player = load("res://player/Player.tscn").instance()
     player.connect("player_dead", self, "_on_player_dead")
     # make passenger instances and add to container node (AvailablePassengers)
@@ -86,12 +89,11 @@ func start_level(): # probably is going to be triggered by button in picker
     # set up the gui
     GuiManager.show_game_hud(player, selected_passenger_refs)
     # delay a bit and then start timer
-    # TODO: show some countdown and ticking noise here
+    MusicPlayer.playback(false)
+    timer.start(3)
+    level_sound.volume_db = -20
+    level_sound.stream = load("res://audio/sounds/FX_LevelStart.wav")
     level_sound.play()
-    yield(get_tree().create_timer(3), "timeout") 
-    timer.start(time_to_complete)
-    GuiManager.get_node("GameHUD").start_countdown = true
-    player.get_node("Car").enable()
 
 # ---------- GAME OVER ----------
 
@@ -102,10 +104,21 @@ func _on_player_dead():
 
 func _on_time_up():
     timer.stop()
-    level_over(player.score)
+    if is_level_started:
+        # end the level
+        level_over(player.score)
+    else:
+        # start the level
+        timer.start(time_to_complete)
+        GuiManager.get_node("GameHUD").countdown_finished = true
+        player.get_node("Car").enable()
+        is_level_started = true
+        MusicPlayer.switch_music("game")
+        MusicPlayer.playback(true)
 
 
 func level_over(points: int):
+    MusicPlayer.playback(false)
     player.queue_free() # needs to be done cause a new player instance is created every time a new level is made
     # TODO: check if enough points to pass or fail
     # figure out stars here
@@ -115,17 +128,23 @@ func level_over(points: int):
             stars += 1
     if stars > 0:
         emit_signal("level_completed", level_nr, points, unlocks_passengers)
+        level_sound.volume_db = 0
         level_sound.stream = load("res://audio/sounds/success.wav")
         level_sound.play()
     else:
+        level_sound.volume_db = -30
         level_sound.stream = load("res://audio/sounds/fail_trombone.wav")
         level_sound.play()
-    # this stuff afterwards
     GuiManager.show_level_over_gui(level_nr, stars, points)
+    # wait for lvl sound to finish, them play music
+    yield(level_sound, "finished")
+    MusicPlayer.switch_music("main")
+    MusicPlayer.playback(true)
 
 
 func restart_level():
     # prepare level again
+    $"Stopsigns".queue_free()
     prepare_level(main.unlocked_passengers)
     # add previous selected passengers again
     for passenger_name in selected_passenger_names:

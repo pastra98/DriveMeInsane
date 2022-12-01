@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://environment/destructibles/stopsign/StopSign.tscn" type="PackedScene" id=1]
+
+[node name="Stopsigns" type="Node2D"]
+position = Vector2( 3, -3 )
+
+[node name="StopSign" parent="." instance=ExtResource( 1 )]
+position = Vector2( 112, -13 )
+
+[node name="StopSign2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -330, 217 )
+
+[node name="StopSign3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3274, 221 )
+
+[node name="StopSign4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3534, -6 )
+
+[node name="StopSign5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3997, 1092 )
+
+[node name="StopSign6" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3053, -972 )
+
+[node name="StopSign7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 444, -1399 )
+
+[node name="StopSign8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 388, -739 )
+
+[node name="StopSign9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 692, 270 )
+
+[node name="StopSign10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 226, 1251 )
+
+[node name="StopSign11" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3676, -985 )
+
+[node name="StopSign12" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1836, 1538 )
+
+[node name="StopSign15" parent="." instance=ExtResource( 1 )]
+position = Vector2( -380, 1521 )
+
+[node name="StopSign16" parent="." instance=ExtResource( 1 )]
+position = Vector2( -494, 689 )
+
+[node name="StopSign13" parent="." instance=ExtResource( 1 )]
+position = Vector2( -733, -1005 )
+
+[node name="StopSign14" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1435, -1550 )

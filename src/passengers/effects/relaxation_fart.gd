@@ -2,6 +2,9 @@ class_name RelaxationFart
 extends Node2D
 
 signal change_insanity(amt, reason, is_broadcast)
+
+var rng = RandomNumberGenerator.new()
+
 onready var passenger = get_parent()
 onready var car = $"../../.."
 
@@ -22,10 +25,10 @@ func _physics_process(delta):
         get_node(name + "Timer").start(cooldown)
         is_on_cooldown = true
         # play fart and wait 1 sec b4 emitting broadcast
-        get_node("../SoundPlayer").stream = load("res://audio/sounds/fart.wav")
+        get_node("../SoundPlayer").stream = load("res://audio/sounds/FX_DryFart%s.wav" % rng.randi_range(1,2))
         # TODO: make this better, maybe a play sound method in the passenger
         var prev_vol = get_node("../SoundPlayer").volume_db
-        get_node("../SoundPlayer").volume_db = -40
+        get_node("../SoundPlayer").volume_db = -20
         get_node("../SoundPlayer").play()
         yield(get_tree().create_timer(1), "timeout")
         get_node("../SoundPlayer").volume_db = prev_vol

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://environment/tilemaps/Map.tscn" type="PackedScene" id=1]
+
+[node name="Level" instance=ExtResource( 1 )]
+level_nr = 5
+points_1_star = 10
+points_2_stars = 12
+points_3_stars = 14
+time_to_complete = 40
+
+[node name="PlayerPos" type="Position2D" parent="." index="2"]
+position = Vector2( -249, 1131 )

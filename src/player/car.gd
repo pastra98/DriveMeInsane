@@ -1,10 +1,11 @@
 extends RigidBody2D
 
 signal damage_taken(amt)
+signal crashed_stopsign() # this should normally work for all destr., fuck it no time
 
 # Driving Properties
 const MAX_ACCELERATION = 5
-const MAX_FORWARD_VELOCITY = 900
+const MAX_FORWARD_VELOCITY = 800
 const DRAG_COEFFICIENT = 0.999 # Recommended: 0.99 - Affects how fast you slow down
 const BRAKE_POWER = 0.95 # Recommended: 0.99 - Affects how fast you slow down
 const STEERING_TORQUE = 5 # Affects turning speed
@@ -47,12 +48,20 @@ func _integrate_forces(state):
         t_vel_update = 0
     # if there are collsions, the coll force is dv magnitude / 100
     if state.get_contact_count() > 0:
-        var col_force = (state.linear_velocity - prev_lv).length() / 100
-        state.apply_impulse(state.get_contact_local_position(0), state.get_contact_local_normal(0)*col_force)
-        state.angular_velocity = clamp(state.angular_velocity, -TAU, TAU)
-        _lv_override = state.linear_velocity
-        play_crash_sound(col_force)
-        emit_signal("damage_taken", col_force)
+        var col_obj = state.get_contact_collider_object(0) 
+        if col_obj != null:
+            if col_obj.is_in_group("destructible"):
+                var destr_obj = state.get_contact_collider_object(0)
+                destr_obj.destroy()
+                emit_signal("crashed_stopsign")
+            else:
+                var col_force = (state.linear_velocity - prev_lv).length() / 100
+                state.apply_impulse(state.get_contact_local_position(0), state.get_contact_local_normal(0)*col_force)
+                state.angular_velocity = clamp(state.angular_velocity, -TAU, TAU)
+                _lv_override = state.linear_velocity
+                play_crash_sound(col_force)
+                if col_obj.is_in_group("static_env"):
+                    emit_signal("damage_taken", col_force)
     # handbrake velocity override
     _is_braking = Input.is_action_pressed("ui_select") and not all_gas_no_brakes
     if _is_braking:
@@ -112,7 +121,7 @@ func get_right_velocity() -> Vector2:
 func play_crash_sound(col_force: float):
     for as_player in $"Sounds/Crashes".get_children():
         if sound_rng.randf() < 0.3 and not as_player.playing:
-            as_player.volume_db = range_lerp(col_force, 0, 7, -80, -40)
+            as_player.volume_db = range_lerp(col_force, 0, 7, -80, -20)
             as_player.play()
             break
 

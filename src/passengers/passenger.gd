@@ -34,17 +34,17 @@ func _init(pass_name: String):
     # set up audio player
     sound_player = AudioStreamPlayer.new()
     sound_player.name = "SoundPlayer"
-    sound_player.volume_db = -10
     add_child(sound_player)
 
 
 func insanity_change(change_by, reason, is_broadcast):
-    if raging:
-        return # do not register any insanity changes while raging
     # if it is a broadcast, it should only affect other passengers
     if is_broadcast:
         get_parent().change_everyones_insanity(self, change_by, reason)
         return
+    # do not register any insanity changes while raging
+    if raging:
+        return 
     insanity = clamp(insanity + change_by, 0.0, 100.0)
     emit_signal("new_insanity", insanity, reason)
     #  figure out insanity lvl
@@ -56,12 +56,14 @@ func insanity_change(change_by, reason, is_broadcast):
     # check if new insanity lvl is higher than prev one
     if i > insanity_lvl:
         insanity_lvl = i
-        scream(insanity_lvl)
+        if change_by > 0: # only scream when insanity increases
+            scream(insanity_lvl)
         if insanity_lvl == 4:
             rage()
+            insanity_lvl = -1
             return
         # don't change image after max inanity
-        emit_signal("new_picture", imgpath % [["happy", "unhappy", "angry"][insanity_lvl-1]])
+        emit_signal("new_picture", imgpath % [["happy", "happy", "unhappy", "angry"][insanity_lvl]])
 
 
 func load_passenger_config(pass_name: String):
@@ -82,8 +84,8 @@ func set_passenger_basics(conf: ConfigFile):
     rage_points = conf.get_value("Basics", "rage_points")
     rage_cooldown_sec = conf.get_value("Basics", "rage_cooldown_sec")
     var ressource_path = conf.get_value("Basics", "ressource_path")
-    imgpath = ressource_path + name + "_%s.png"
-    soundpath = ressource_path + name + "_scream_%s.wav"
+    imgpath = ressource_path + name.to_lower() + "_%s.png"
+    soundpath = ressource_path + name.to_lower() + "_scream_%s.wav"
 
 
 func set_passenger_sensibilities(conf: ConfigFile):
@@ -133,6 +135,11 @@ func set_passenger_sensibilities(conf: ConfigFile):
                     conf.get_value(section, "insanity_effect")
                     )
                 connect("passenger_raging", new_sensibility, "_on_passenger_raging") # connect signal to sensibility
+            "HatesRed":
+                new_sensibility = HatesRed.new(
+                    conf.get_value(section, "insanity_effect"),
+                    conf.get_value(section, "cooldown")
+                    )
         if new_sensibility: # make sure the section that was read was a sensibility, not e.g. basics
             # add cooldown timer as child to every sensibility
             var cooldown_timer = Timer.new()
@@ -145,7 +152,7 @@ func set_passenger_sensibilities(conf: ConfigFile):
 
 
 func get_sensibilities_txt():
-    var txt = ""
+    var txt = "+%s rage points\n\n" % rage_points
     for sensibility in sensibilities:
         txt = txt + "- " + sensibility.get_txt_description() + "\n"
     return txt
@@ -158,6 +165,7 @@ func rage():
 
 
 func scream(rage_lvl: int):
+    sound_player.volume_db = -10
     sound_player.stream = load(soundpath % [rage_lvl])
     sound_player.play()
 

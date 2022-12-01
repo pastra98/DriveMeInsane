@@ -1,9 +1,5 @@
 extends CanvasLayer
 
-# since this is the only autoload singleton we have, just put stuff here for now
-const MAX_PASSENGERS = 4 # TODO: maybe later find better solution
-
-var player_status
 onready var main = get_node("/root/Main")
 onready var n_unlock_pass = main.unlocked_passengers.size()
 
@@ -11,7 +7,7 @@ onready var n_unlock_pass = main.unlocked_passengers.size()
 
 func show_main_menu():
     clear_control_children()
-    var bg_scene = load("res://environment/menu_background/BackgroundLevel.tscn").instance()
+    var bg_scene = load("res://environment/menu_background/MenuBackground.tscn").instance()
     main.add_child(bg_scene)
     var mm = load("res://gui/main_menu/MainMenu.tscn").instance()
     mm.get_node("LevelPicker").connect("new_level_picked", main, "load_level")
@@ -28,6 +24,9 @@ func show_passenger_picker(passenger_refs_arr: Array, lvl_info: Dictionary):
     before_level.get_node("PassengerPicker").connect("level_started", $"/root/Main/Level", "start_level")
     # pass level info to info scene
     before_level.get_node("LevelInfo").setup(lvl_info)
+    # show picker tutorial
+    if not main.is_tutorial_completed:
+        before_level.get_node("PickerTutorial").popup_centered()
 
 # ---------- UI WHILE DRIVING IN LEVEL ----------
 
@@ -46,6 +45,12 @@ func show_game_hud(player: Node2D, passenger_refs_arr: Array):
         passenger_ref.connect("new_picture", new_passenger_window, "update_picture")
         $"GameHUD/PassengerContainer".add_child(new_passenger_window)
         new_passenger_window.update_picture(passenger_ref.imgpath % "happy")
+    # show tutorial if not completed
+    if not main.is_tutorial_completed:
+        hud.get_node("BeforeStartTutorial").popup_centered()
+        get_tree().paused = true
+        yield(hud.get_node("BeforeStartTutorial"), "popup_hide")
+        get_tree().paused = false
 
 # ---------- LEVEL OVER GUI  ----------
 

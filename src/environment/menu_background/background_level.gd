@@ -1,6 +1,6 @@
 extends Node
 
-const TIME_TO_TRAVERSE = 60
+const TIME_TO_TRAVERSE = 120
 
 func _ready():
     run_tween()
