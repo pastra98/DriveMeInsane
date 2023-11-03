@@ -4,17 +4,16 @@ var level_nr: int
 var achieved_stars: int
 var success: String
 
-onready var main = get_node("/root/Main")
-onready var level = get_node("/root/Main/Level")
+@onready var main = get_node("/root/Main")
+@onready var level = get_node("/root/Main/Level")
 
 func _ready():
     # check if setup has been called
     if not level_nr:
         print("Level must be setup before adding game over screen to tree")
         breakpoint
-    # show stars, TODO: if really bored, can use tween and transform to make scale effect
     for _s in achieved_stars:
-        yield(get_tree().create_timer(0.5), "timeout")
+        await get_tree().create_timer(0.5).timeout
         var star_tex = $"Panel/MarginContainer/VBoxContainer/Stars".get_child(_s)
         star_tex.texture = load("res://gui/game_over/star.png")
         $StarSound.play()
@@ -22,7 +21,7 @@ func _ready():
     if level_nr == main.n_lvls:
         $"Panel/MarginContainer/VBoxContainer/NextLevel".hide()
         if success == "completed": # normally this should be a boolean but I can't give a crap anymore
-            yield(get_tree().create_timer(2), "timeout")
+            await get_tree().create_timer(2).timeout
             $"EndGamePopup".popup_centered()
 
 
@@ -33,7 +32,6 @@ func setup(lvl_nr: int, stars: int, next_lvl_unlock: bool, points: int):
     var buttons = $"Panel/MarginContainer/VBoxContainer"
     if not next_lvl_unlock:
         buttons.get_node("NextLevel").hide()
-    # TODO: show text info etc based on lvl_passed
     success = "completed" if stars > 0 else "failed"
     buttons.get_node("Text").text = "Lvl %s!" % success
     buttons.get_node("Points").text = str(points)

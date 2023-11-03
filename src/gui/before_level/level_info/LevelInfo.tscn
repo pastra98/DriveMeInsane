@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://gui/fonts/pixellari_24.tres" type="DynamicFont" id=1]
+[ext_resource path="res://gui/fonts/pixellari_24.tres" type="FontFile" id=1]
 [ext_resource path="res://gui/theme/pixel_theme.tres" type="Theme" id=2]
-[ext_resource path="res://gui/fonts/pixellari_48.tres" type="DynamicFont" id=3]
-[ext_resource path="res://gui/game_over/star.png" type="Texture" id=4]
-[ext_resource path="res://gui/game_over/star_gray.png" type="Texture" id=5]
-[ext_resource path="res://gui/fonts/pixellari_56.tres" type="DynamicFont" id=6]
+[ext_resource path="res://gui/fonts/pixellari_48.tres" type="FontFile" id=3]
+[ext_resource path="res://gui/game_over/star.png" type="Texture2D" id=4]
+[ext_resource path="res://gui/game_over/star_gray.png" type="Texture2D" id=5]
+[ext_resource path="res://gui/fonts/pixellari_56.tres" type="FontFile" id=6]
 [ext_resource path="res://gui/before_level/level_info/level_info.gd" type="Script" id=7]
 
 [node name="LevelInfo" type="MarginContainer"]
@@ -13,189 +13,189 @@ anchor_left = 0.727
 anchor_top = 0.04
 anchor_right = 0.977
 anchor_bottom = 0.96
-margin_left = -0.448059
-margin_right = -0.448059
+offset_left = -0.448059
+offset_right = -0.448059
 theme = ExtResource( 2 )
 script = ExtResource( 7 )
 
 [node name="Panel" type="Panel" parent="."]
-margin_right = 256.0
-margin_bottom = 552.0
+offset_right = 256.0
+offset_bottom = 552.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 anchor_right = 0.969
 anchor_bottom = 0.986
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -0.0640106
-margin_bottom = -0.272034
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -0.0640106
+offset_bottom = -0.272034
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="LvlName" type="Label" parent="Panel/VBoxContainer"]
-margin_right = 240.0
-margin_bottom = 56.0
-custom_fonts/font = ExtResource( 6 )
+offset_right = 240.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource( 6 )
 text = "Lvl %s"
 align = 1
 
 [node name="Sep1" type="Control" parent="Panel/VBoxContainer"]
-margin_top = 60.0
-margin_right = 240.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 0, 20 )
+offset_top = 60.0
+offset_right = 240.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 0, 20 )
 
 [node name="Time" type="Label" parent="Panel/VBoxContainer"]
-margin_top = 84.0
-margin_right = 240.0
-margin_bottom = 132.0
-custom_fonts/font = ExtResource( 3 )
+offset_top = 84.0
+offset_right = 240.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource( 3 )
 text = "Time"
 align = 1
 
 [node name="TimeSec" type="Label" parent="Panel/VBoxContainer"]
-margin_top = 136.0
-margin_right = 240.0
-margin_bottom = 160.0
-rect_pivot_offset = Vector2( -1066, -32 )
-custom_fonts/font = ExtResource( 1 )
+offset_top = 136.0
+offset_right = 240.0
+offset_bottom = 160.0
+pivot_offset = Vector2( -1066, -32 )
+theme_override_fonts/font = ExtResource( 1 )
 text = "%s sec"
 align = 1
 
 [node name="Sep2" type="Control" parent="Panel/VBoxContainer"]
-margin_top = 164.0
-margin_right = 240.0
-margin_bottom = 184.0
-rect_min_size = Vector2( 0, 20 )
+offset_top = 164.0
+offset_right = 240.0
+offset_bottom = 184.0
+custom_minimum_size = Vector2( 0, 20 )
 
 [node name="PointsRequired" type="Label" parent="Panel/VBoxContainer"]
-margin_top = 188.0
-margin_right = 240.0
-margin_bottom = 236.0
-custom_fonts/font = ExtResource( 3 )
+offset_top = 188.0
+offset_right = 240.0
+offset_bottom = 236.0
+theme_override_fonts/font = ExtResource( 3 )
 text = "Points"
 align = 1
 
 [node name="For1Star" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 240.0
-margin_right = 240.0
-margin_bottom = 272.0
+offset_top = 240.0
+offset_right = 240.0
+offset_bottom = 272.0
 alignment = 1
 
 [node name="Star1" type="TextureRect" parent="Panel/VBoxContainer/For1Star"]
-margin_right = 32.0
-margin_bottom = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
 texture = ExtResource( 4 )
 
 [node name="Star2" type="TextureRect" parent="Panel/VBoxContainer/For1Star"]
-margin_left = 36.0
-margin_right = 68.0
-margin_bottom = 32.0
+offset_left = 36.0
+offset_right = 68.0
+offset_bottom = 32.0
 texture = ExtResource( 5 )
 
 [node name="Star3" type="TextureRect" parent="Panel/VBoxContainer/For1Star"]
-margin_left = 72.0
-margin_right = 104.0
-margin_bottom = 32.0
+offset_left = 72.0
+offset_right = 104.0
+offset_bottom = 32.0
 texture = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/For1Star"]
-margin_left = 108.0
-margin_top = 4.0
-margin_right = 240.0
-margin_bottom = 28.0
+offset_left = 108.0
+offset_top = 4.0
+offset_right = 240.0
+offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "%s pts"
 align = 2
 valign = 1
 
 [node name="For2Star" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 276.0
-margin_right = 240.0
-margin_bottom = 308.0
+offset_top = 276.0
+offset_right = 240.0
+offset_bottom = 308.0
 alignment = 1
 
 [node name="Star1" type="TextureRect" parent="Panel/VBoxContainer/For2Star"]
-margin_right = 32.0
-margin_bottom = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
 texture = ExtResource( 4 )
 
 [node name="Star2" type="TextureRect" parent="Panel/VBoxContainer/For2Star"]
-margin_left = 36.0
-margin_right = 68.0
-margin_bottom = 32.0
+offset_left = 36.0
+offset_right = 68.0
+offset_bottom = 32.0
 texture = ExtResource( 4 )
 
 [node name="Star3" type="TextureRect" parent="Panel/VBoxContainer/For2Star"]
-margin_left = 72.0
-margin_right = 104.0
-margin_bottom = 32.0
+offset_left = 72.0
+offset_right = 104.0
+offset_bottom = 32.0
 texture = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/For2Star"]
-margin_left = 108.0
-margin_top = 4.0
-margin_right = 240.0
-margin_bottom = 28.0
+offset_left = 108.0
+offset_top = 4.0
+offset_right = 240.0
+offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "%s pts"
 align = 2
 valign = 1
 
 [node name="For3Star" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 312.0
-margin_right = 240.0
-margin_bottom = 344.0
+offset_top = 312.0
+offset_right = 240.0
+offset_bottom = 344.0
 alignment = 1
 
 [node name="Star1" type="TextureRect" parent="Panel/VBoxContainer/For3Star"]
-margin_right = 32.0
-margin_bottom = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
 texture = ExtResource( 4 )
 
 [node name="Star2" type="TextureRect" parent="Panel/VBoxContainer/For3Star"]
-margin_left = 36.0
-margin_right = 68.0
-margin_bottom = 32.0
+offset_left = 36.0
+offset_right = 68.0
+offset_bottom = 32.0
 texture = ExtResource( 4 )
 
 [node name="Star3" type="TextureRect" parent="Panel/VBoxContainer/For3Star"]
-margin_left = 72.0
-margin_right = 104.0
-margin_bottom = 32.0
+offset_left = 72.0
+offset_right = 104.0
+offset_bottom = 32.0
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/For3Star"]
-margin_left = 108.0
-margin_top = 4.0
-margin_right = 240.0
-margin_bottom = 28.0
+offset_left = 108.0
+offset_top = 4.0
+offset_right = 240.0
+offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "%s pts"
 align = 2
 valign = 1
 
 [node name="Sep3" type="Control" parent="Panel/VBoxContainer"]
-margin_top = 348.0
-margin_right = 240.0
-margin_bottom = 368.0
-rect_min_size = Vector2( 0, 20 )
+offset_top = 348.0
+offset_right = 240.0
+offset_bottom = 368.0
+custom_minimum_size = Vector2( 0, 20 )
 
 [node name="Highscore" type="Label" parent="Panel/VBoxContainer"]
-margin_top = 372.0
-margin_right = 240.0
-margin_bottom = 420.0
-custom_fonts/font = ExtResource( 3 )
+offset_top = 372.0
+offset_right = 240.0
+offset_bottom = 420.0
+theme_override_fonts/font = ExtResource( 3 )
 text = "Highscore"
 align = 1
 
 [node name="PrevPoints" type="Label" parent="Panel/VBoxContainer"]
-margin_top = 424.0
-margin_right = 240.0
-margin_bottom = 448.0
-rect_pivot_offset = Vector2( -1066, -32 )
-custom_fonts/font = ExtResource( 1 )
+offset_top = 424.0
+offset_right = 240.0
+offset_bottom = 448.0
+pivot_offset = Vector2( -1066, -32 )
+theme_override_fonts/font = ExtResource( 1 )
 text = "%s pts"
 align = 1

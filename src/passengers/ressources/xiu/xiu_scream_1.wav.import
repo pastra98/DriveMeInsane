@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/xiu_scream_1.wav-5378f823ece94f306d91869593e99297.sample"
+type="AudioStreamWAV"
+uid="uid://dcre3p72jfu2u"
+path="res://.godot/imported/xiu_scream_1.wav-5378f823ece94f306d91869593e99297.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/xiu/xiu_scream_1.wav"
-dest_files=[ "res://.import/xiu_scream_1.wav-5378f823ece94f306d91869593e99297.sample" ]
+dest_files=["res://.godot/imported/xiu_scream_1.wav-5378f823ece94f306d91869593e99297.sample"]
 
 [params]
 

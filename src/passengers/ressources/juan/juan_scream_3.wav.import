@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/juan_scream_3.wav-2c120a5e06d73659f86e3cbdea784c02.sample"
+type="AudioStreamWAV"
+uid="uid://7emuoudfcupv"
+path="res://.godot/imported/juan_scream_3.wav-2c120a5e06d73659f86e3cbdea784c02.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/juan/juan_scream_3.wav"
-dest_files=[ "res://.import/juan_scream_3.wav-2c120a5e06d73659f86e3cbdea784c02.sample" ]
+dest_files=["res://.godot/imported/juan_scream_3.wav-2c120a5e06d73659f86e3cbdea784c02.sample"]
 
 [params]
 

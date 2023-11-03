@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/lucy_scream_4.wav-7d503f879131a4143da0124e4df40abc.sample"
+type="AudioStreamWAV"
+uid="uid://detbax6kg7po8"
+path="res://.godot/imported/lucy_scream_4.wav-7d503f879131a4143da0124e4df40abc.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/lucy/lucy_scream_4.wav"
-dest_files=[ "res://.import/lucy_scream_4.wav-7d503f879131a4143da0124e4df40abc.sample" ]
+dest_files=["res://.godot/imported/lucy_scream_4.wav-7d503f879131a4143da0124e4df40abc.sample"]
 
 [params]
 

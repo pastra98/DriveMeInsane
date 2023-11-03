@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/car_honk_1.wav-d6b634fa5d63acc80c59bc0bc0364ed7.sample"
+type="AudioStreamWAV"
+uid="uid://blcip8dpcoa4t"
+path="res://.godot/imported/car_honk_1.wav-d6b634fa5d63acc80c59bc0bc0364ed7.sample"
 
 [deps]
 
 source_file="res://audio/sounds/car_honk_1.wav"
-dest_files=[ "res://.import/car_honk_1.wav-d6b634fa5d63acc80c59bc0bc0364ed7.sample" ]
+dest_files=["res://.godot/imported/car_honk_1.wav-d6b634fa5d63acc80c59bc0bc0364ed7.sample"]
 
 [params]
 

@@ -14,8 +14,8 @@ func set_passenger(passenger_instance: Passenger):
     passenger_ref = passenger_instance
     name = passenger_ref.name + "Card"
     $"Panel/TopVBox/HBoxContainer/VBoxContainer/Name".text = passenger_ref.name
-    $"Panel/TopVBox/HBoxContainer/Lore".bbcode_text = passenger_ref.lore
-    $"Panel/TopVBox/HBoxContainer/VBoxContainer/Effects".bbcode_text = passenger_ref.get_sensibilities_txt()
+    $"Panel/TopVBox/HBoxContainer/Lore".text = passenger_ref.lore
+    $"Panel/TopVBox/HBoxContainer/VBoxContainer/Effects".text = passenger_ref.get_sensibilities_txt()
     $"Panel/TopVBox/HBoxContainer/VBoxContainer/CenterContainer/PassengerPic".texture = load(passenger_ref.imgpath % "happy")
 
 

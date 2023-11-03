@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/tire_squeal_trimmed.wav-ba1dbab7d8fe4f3d3e39130c46b47227.sample"
+type="AudioStreamWAV"
+uid="uid://dpr0ps052gq10"
+path="res://.godot/imported/tire_squeal_trimmed.wav-ba1dbab7d8fe4f3d3e39130c46b47227.sample"
 
 [deps]
 
 source_file="res://audio/sounds/tire_squeal_trimmed.wav"
-dest_files=[ "res://.import/tire_squeal_trimmed.wav-ba1dbab7d8fe4f3d3e39130c46b47227.sample" ]
+dest_files=["res://.godot/imported/tire_squeal_trimmed.wav-ba1dbab7d8fe4f3d3e39130c46b47227.sample"]
 
 [params]
 

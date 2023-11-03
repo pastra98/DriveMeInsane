@@ -2,7 +2,7 @@ class_name TooCloseSensibility
 extends Area2D
 
 signal change_insanity(amt, reason, is_broadcast)
-onready var player = $"/root/Main/Level".player
+@onready var player = $"/root/Main/Level".player
 
 var too_fast: int
 var coll_size_mult: float
@@ -17,7 +17,7 @@ func _init(speed_tol: int, coll_s_mult: float, insanity_eff: float, cooldown_tim
     too_fast = speed_tol
     coll_size_mult = coll_s_mult
     insanity_effect = insanity_eff
-    connect("body_entered", self, "_on_body_entered")
+    connect("body_entered", Callable(self, "_on_body_entered"))
     cooldown = cooldown_time
     name = "TooClose"
 
@@ -40,7 +40,6 @@ func _on_body_entered(body:Node):
 
 func get_txt_description() -> String:
     return "%s:\n+%s insanity when close to other objects and going faster than %s kph" % [name, insanity_effect, too_fast]
-    # TODO: need better descriptions
 
 
 func cooldown_over():

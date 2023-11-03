@@ -2,12 +2,12 @@ extends Node
 
 signal level_completed(lvl_nr, pts, unlocked_passengers)
 
-export(int) var level_nr = null # very important for this to be identical with match statement in main
-export(int) var points_1_star = null
-export(int) var points_2_stars = null
-export(int) var points_3_stars = null
-export(int) var time_to_complete = null
-export(Array, String) var unlocks_passengers = []
+@export var level_nr: int # very important for this to be identical with match statement in main
+@export var points_1_star: int
+@export var points_2_stars: int
+@export var points_3_stars: int
+@export var time_to_complete: int
+@export var unlocks_passengers = [] # (Array, String)
 
 var level_sound: AudioStreamPlayer
 var player: Node2D
@@ -17,12 +17,11 @@ var timer: Timer
 var available_passengers = []
 var selected_passenger_names = []
 
-onready var main = get_parent()
-onready var point_levels = [points_1_star, points_2_stars, points_3_stars]
+@onready var main = get_parent()
+@onready var point_levels = [points_1_star, points_2_stars, points_3_stars]
 
 func _ready():
-    # TODO: connect all other signals that trigger responsibilities of main
-    connect("level_completed", main, "_on_level_completed")
+    connect("level_completed", Callable(main, "_on_level_completed"))
     # do some checks here if the exports have been set by the scene
     for property in get_property_list():
         if property.usage == 8199 and get(property.name) == null:
@@ -30,7 +29,7 @@ func _ready():
     # add timer node
     timer = Timer.new() # TODO: maybe later ticking sound when timer is low
     timer.name = "Timer"
-    timer.connect("timeout", self, "_on_time_up")
+    timer.connect("timeout", Callable(self, "_on_time_up"))
     add_child(timer)
     # add sound player
     level_sound = AudioStreamPlayer.new()
@@ -41,12 +40,12 @@ func _ready():
 # ---------- BEFORE GAME STARTS ----------
 
 func prepare_level(unlocked_passengers: Array):
-    var stopsigns = load("res://environment/destructibles/Stopsigns.tscn").instance()
+    var stopsigns = load("res://environment/destructibles/Stopsigns.tscn").instantiate()
     add_child(stopsigns)
     # make player instance - but don't add it to tree yet
     is_level_started = false
-    player = load("res://player/Player.tscn").instance()
-    player.connect("player_dead", self, "_on_player_dead")
+    player = load("res://player/Player.tscn").instantiate()
+    player.connect("player_dead", Callable(self, "_on_player_dead"))
     # make passenger instances and add to container node (AvailablePassengers)
     for passenger in unlocked_passengers:
         var new_passenger = Passenger.new(passenger)
@@ -83,7 +82,7 @@ func start_level(): # probably is going to be triggered by button in picker
     var selected_passenger_refs = []
     selected_passenger_names.clear() # needs to be cleared otherwise it grows every time level is restarted
     for passenger in player.get_node("Car/PassengerManager").get_children():
-        passenger.connect("passenger_raging", player, "_on_raging_passenger")
+        passenger.connect("passenger_raging", Callable(player, "_on_raging_passenger"))
         selected_passenger_names.append(passenger.name)
         selected_passenger_refs.append(passenger)
     # set up the gui
@@ -120,7 +119,6 @@ func _on_time_up():
 func level_over(points: int):
     MusicPlayer.playback(false)
     player.queue_free() # needs to be done cause a new player instance is created every time a new level is made
-    # TODO: check if enough points to pass or fail
     # figure out stars here
     var stars = 0
     for n_pts in point_levels:
@@ -137,7 +135,7 @@ func level_over(points: int):
         level_sound.play()
     GuiManager.show_level_over_gui(level_nr, stars, points)
     # wait for lvl sound to finish, them play music
-    yield(level_sound, "finished")
+    await level_sound.finished
     MusicPlayer.switch_music("main")
     MusicPlayer.playback(true)
 

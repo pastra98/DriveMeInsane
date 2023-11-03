@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/merlin_scream_4.wav-414272b983f6fa2b16ee313c15aa2b57.sample"
+type="AudioStreamWAV"
+uid="uid://d30ueusujegb7"
+path="res://.godot/imported/merlin_scream_4.wav-414272b983f6fa2b16ee313c15aa2b57.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/merlin/merlin_scream_4.wav"
-dest_files=[ "res://.import/merlin_scream_4.wav-414272b983f6fa2b16ee313c15aa2b57.sample" ]
+dest_files=["res://.godot/imported/merlin_scream_4.wav-414272b983f6fa2b16ee313c15aa2b57.sample"]
 
 [params]
 

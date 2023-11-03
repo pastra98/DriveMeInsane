@@ -3,7 +3,7 @@ extends Node2D
 
 signal change_insanity(amt, reason, is_broadcast)
 
-onready var car = $"../../.."
+@onready var car = $"../../.."
 var t = 0
 
 var insanity_effect: float

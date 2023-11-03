@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Ensoniq-ZR-76-African-LP.wav-dc8d8082b1d0fcc507c487779c6bc100.sample"
+type="AudioStreamWAV"
+uid="uid://b2qmqvs11m12p"
+path="res://.godot/imported/Ensoniq-ZR-76-African-LP.wav-dc8d8082b1d0fcc507c487779c6bc100.sample"
 
 [deps]
 
 source_file="res://audio/testing/Ensoniq-ZR-76-African-LP.wav"
-dest_files=[ "res://.import/Ensoniq-ZR-76-African-LP.wav-dc8d8082b1d0fcc507c487779c6bc100.sample" ]
+dest_files=["res://.godot/imported/Ensoniq-ZR-76-African-LP.wav-dc8d8082b1d0fcc507c487779c6bc100.sample"]
 
 [params]
 

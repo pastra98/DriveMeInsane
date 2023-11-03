@@ -52,11 +52,11 @@ func _integrate_forces(state):
         if col_obj != null:
             if col_obj.is_in_group("destructible"):
                 var destr_obj = state.get_contact_collider_object(0)
-                destr_obj.destroy()
+                destr_obj.destroy_destructible()
                 emit_signal("crashed_stopsign")
             else:
                 var col_force = (state.linear_velocity - prev_lv).length() / 100
-                state.apply_impulse(state.get_contact_local_position(0), state.get_contact_local_normal(0)*col_force)
+                state.apply_impulse(state.get_contact_local_normal(0)*col_force, state.get_contact_local_position(0))
                 state.angular_velocity = clamp(state.angular_velocity, -TAU, TAU)
                 _lv_override = state.linear_velocity
                 play_crash_sound(col_force)
@@ -69,7 +69,6 @@ func _integrate_forces(state):
     else:
         _lv_override *= DRAG_COEFFICIENT
     # If we are sticking to the road and our right velocity is high enough
-    # TODO: play some drifting sounds
     var r_vel = get_right_velocity()
     if (_drift_factor == WHEEL_GRIP_STICKY and r_vel.length() > DRIFT_EXTREMUM) or _is_braking:
         _drift_factor = WHEEL_GRIP_SLIPPERY
@@ -103,8 +102,7 @@ func _integrate_forces(state):
     # Apply the force
     state.linear_velocity = _lv_override
     # engine sounds
-    # TODO: shifting, ignition maybe...
-    $"Sounds/Engine".pitch_scale = range_lerp(_lv_override.length(), 0, MAX_FORWARD_VELOCITY, 0.5, 3)
+    $"Sounds/Engine".pitch_scale = remap(_lv_override.length(), 0, MAX_FORWARD_VELOCITY, 0.5, 3)
     $"Sounds/Engine".volume_db = min(-80 + _lv_override.length()/2, -50)
     
 
@@ -121,7 +119,7 @@ func get_right_velocity() -> Vector2:
 func play_crash_sound(col_force: float):
     for as_player in $"Sounds/Crashes".get_children():
         if sound_rng.randf() < 0.3 and not as_player.playing:
-            as_player.volume_db = range_lerp(col_force, 0, 7, -80, -20)
+            as_player.volume_db = remap(col_force, 0, 7, -80, -20)
             as_player.play()
             break
 

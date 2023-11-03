@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/martha_scream_1.wav-e98cda1ff3a397b4851641889ae8ba50.sample"
+type="AudioStreamWAV"
+uid="uid://cjam4ukyxeubu"
+path="res://.godot/imported/martha_scream_1.wav-e98cda1ff3a397b4851641889ae8ba50.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/martha/martha_scream_1.wav"
-dest_files=[ "res://.import/martha_scream_1.wav-e98cda1ff3a397b4851641889ae8ba50.sample" ]
+dest_files=["res://.godot/imported/martha_scream_1.wav-e98cda1ff3a397b4851641889ae8ba50.sample"]
 
 [params]
 

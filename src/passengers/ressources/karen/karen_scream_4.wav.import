@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/karen_scream_4.wav-0730002243fdc355260f2964aea995f2.sample"
+type="AudioStreamWAV"
+uid="uid://d0cxobsllwdw4"
+path="res://.godot/imported/karen_scream_4.wav-0730002243fdc355260f2964aea995f2.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/karen/karen_scream_4.wav"
-dest_files=[ "res://.import/karen_scream_4.wav-0730002243fdc355260f2964aea995f2.sample" ]
+dest_files=["res://.godot/imported/karen_scream_4.wav-0730002243fdc355260f2964aea995f2.sample"]
 
 [params]
 

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/fail_trombone.wav-458ac096a4e494a47e4824dcb77c43c8.sample"
+type="AudioStreamWAV"
+uid="uid://vnrgbcrg1xrk"
+path="res://.godot/imported/fail_trombone.wav-458ac096a4e494a47e4824dcb77c43c8.sample"
 
 [deps]
 
 source_file="res://audio/sounds/fail_trombone.wav"
-dest_files=[ "res://.import/fail_trombone.wav-458ac096a4e494a47e4824dcb77c43c8.sample" ]
+dest_files=["res://.godot/imported/fail_trombone.wav-458ac096a4e494a47e4824dcb77c43c8.sample"]
 
 [params]
 

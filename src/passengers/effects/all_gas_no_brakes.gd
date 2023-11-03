@@ -1,7 +1,7 @@
 class_name AllGasNoBrakes
 extends Node2D
 
-onready var car = $"../../.."
+@onready var car = $"../../.."
 
 var required_insanity: int
 

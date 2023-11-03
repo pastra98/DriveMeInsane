@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/collision_light_2.wav-d8b68b5d3166f5638a3cc405a862cfd2.sample"
+type="AudioStreamWAV"
+uid="uid://bqpwhc14twkd2"
+path="res://.godot/imported/collision_light_2.wav-d8b68b5d3166f5638a3cc405a862cfd2.sample"
 
 [deps]
 
 source_file="res://audio/crashes/collision_light_2.wav"
-dest_files=[ "res://.import/collision_light_2.wav-d8b68b5d3166f5638a3cc405a862cfd2.sample" ]
+dest_files=["res://.godot/imported/collision_light_2.wav-d8b68b5d3166f5638a3cc405a862cfd2.sample"]
 
 [params]
 

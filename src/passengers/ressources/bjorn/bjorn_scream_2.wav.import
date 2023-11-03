@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/bjorn_scream_2.wav-bfeb1386fbb47ca9fa881e05172a5408.sample"
+type="AudioStreamWAV"
+uid="uid://bb4b28rtur0sw"
+path="res://.godot/imported/bjorn_scream_2.wav-bfeb1386fbb47ca9fa881e05172a5408.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/bjorn/bjorn_scream_2.wav"
-dest_files=[ "res://.import/bjorn_scream_2.wav-bfeb1386fbb47ca9fa881e05172a5408.sample" ]
+dest_files=["res://.godot/imported/bjorn_scream_2.wav-bfeb1386fbb47ca9fa881e05172a5408.sample"]
 
 [params]
 

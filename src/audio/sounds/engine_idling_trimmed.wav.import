@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/engine_idling_trimmed.wav-39a6db269cf2d7350e3b7844c345efbb.sample"
+type="AudioStreamWAV"
+uid="uid://dbw7h7hhsrdpf"
+path="res://.godot/imported/engine_idling_trimmed.wav-39a6db269cf2d7350e3b7844c345efbb.sample"
 
 [deps]
 
 source_file="res://audio/sounds/engine_idling_trimmed.wav"
-dest_files=[ "res://.import/engine_idling_trimmed.wav-39a6db269cf2d7350e3b7844c345efbb.sample" ]
+dest_files=["res://.godot/imported/engine_idling_trimmed.wav-39a6db269cf2d7350e3b7844c345efbb.sample"]
 
 [params]
 

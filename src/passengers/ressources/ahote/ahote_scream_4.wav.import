@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/ahote_scream_4.wav-74163e4d93c826a7de127c8214bf8aed.sample"
+type="AudioStreamWAV"
+uid="uid://bs58kltjwtsin"
+path="res://.godot/imported/ahote_scream_4.wav-74163e4d93c826a7de127c8214bf8aed.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/ahote/ahote_scream_4.wav"
-dest_files=[ "res://.import/ahote_scream_4.wav-74163e4d93c826a7de127c8214bf8aed.sample" ]
+dest_files=["res://.godot/imported/ahote_scream_4.wav-74163e4d93c826a7de127c8214bf8aed.sample"]
 
 [params]
 

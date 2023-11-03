@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample"
+type="AudioStreamWAV"
+uid="uid://b4n66ft3u2d7k"
+path="res://.godot/imported/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample"
 
 [deps]
 
 source_file="res://audio/sounds/radio_analog_button.wav"
-dest_files=[ "res://.import/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample" ]
+dest_files=["res://.godot/imported/radio_analog_button.wav-396bdbf35233f70190ea54ca58ee10ce.sample"]
 
 [params]
 

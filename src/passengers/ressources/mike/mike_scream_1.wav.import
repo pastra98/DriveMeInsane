@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/mike_scream_1.wav-f72593e43e39d738b5c6c5bc53272abf.sample"
+type="AudioStreamWAV"
+uid="uid://dl8aknj2731yc"
+path="res://.godot/imported/mike_scream_1.wav-f72593e43e39d738b5c6c5bc53272abf.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/mike/mike_scream_1.wav"
-dest_files=[ "res://.import/mike_scream_1.wav-f72593e43e39d738b5c6c5bc53272abf.sample" ]
+dest_files=["res://.godot/imported/mike_scream_1.wav-f72593e43e39d738b5c6c5bc53272abf.sample"]
 
 [params]
 

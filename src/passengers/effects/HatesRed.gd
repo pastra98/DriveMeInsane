@@ -9,7 +9,7 @@ var is_on_cooldown = false
 
 func _ready():
     var car = $"../../.."
-    car.connect("crashed_stopsign", self, "crash_stopsign") # TODO: this is all so shitty
+    car.connect("crashed_stopsign", Callable(self, "crash_stopsign")) # TODO: this is all so shitty
 
 func _init(insanity_eff: float, cooldown: int):
     insanity_effect = insanity_eff

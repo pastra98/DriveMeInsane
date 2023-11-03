@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/radio_static.wav-737e2491463223cc723aa565fb73b956.sample"
+type="AudioStreamWAV"
+uid="uid://shmnpeaqhycw"
+path="res://.godot/imported/radio_static.wav-737e2491463223cc723aa565fb73b956.sample"
 
 [deps]
 
 source_file="res://audio/sounds/radio_static.wav"
-dest_files=[ "res://.import/radio_static.wav-737e2491463223cc723aa565fb73b956.sample" ]
+dest_files=["res://.godot/imported/radio_static.wav-737e2491463223cc723aa565fb73b956.sample"]
 
 [params]
 

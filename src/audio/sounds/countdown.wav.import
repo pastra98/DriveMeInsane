@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/countdown.wav-ddea22308254d3a883d8ee04f8171443.sample"
+type="AudioStreamWAV"
+uid="uid://cxpyxpuiy8yce"
+path="res://.godot/imported/countdown.wav-ddea22308254d3a883d8ee04f8171443.sample"
 
 [deps]
 
 source_file="res://audio/sounds/countdown.wav"
-dest_files=[ "res://.import/countdown.wav-ddea22308254d3a883d8ee04f8171443.sample" ]
+dest_files=["res://.godot/imported/countdown.wav-ddea22308254d3a883d8ee04f8171443.sample"]
 
 [params]
 

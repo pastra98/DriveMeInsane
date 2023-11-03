@@ -8,10 +8,10 @@ const LV_TO_KPH = 0.1 # see google drive doc for how this value was derived
 
 var health = 100
 var score = 0
-onready var passengers = $Car/PassengerManager
+@onready var passengers = $Car/PassengerManager
 
 func _ready():
-    $"Car".connect("damage_taken", self, "take_damage")
+    $"Car".connect("damage_taken", Callable(self, "take_damage"))
 
 
 func get_current_kph() -> int:
@@ -25,7 +25,7 @@ func take_damage(damage):
     if health == 0:
         score = 0
         explode()
-        yield(get_tree().create_timer(2), "timeout") # wait
+        await get_tree().create_timer(2).timeout # wait
         emit_signal("player_dead")
     
 
@@ -39,7 +39,7 @@ func explode():
     $"Car".disable()
     $"Car/Explosion".show() 
     $"Car/Explosion".play()
-    $"Car/Sprite".hide()
+    $"Car/Sprite2D".hide()
 
 
 func _on_Explosion_animation_finished():

@@ -10,5 +10,5 @@ points_3_stars = 12
 time_to_complete = 45
 unlocks_passengers = [ "merlin", "karli" ]
 
-[node name="PlayerPos" type="Position2D" parent="." index="2"]
+[node name="PlayerPos" type="Marker2D" parent="." index="2"]
 position = Vector2( -1735, -1185 )

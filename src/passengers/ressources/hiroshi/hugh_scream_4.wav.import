@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/hugh_scream_4.wav-6e4f841653d1e8c1fd21dae4be355052.sample"
+type="AudioStreamWAV"
+uid="uid://dm2sft1p0om1k"
+path="res://.godot/imported/hugh_scream_4.wav-6e4f841653d1e8c1fd21dae4be355052.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/hiroshi/hugh_scream_4.wav"
-dest_files=[ "res://.import/hugh_scream_4.wav-6e4f841653d1e8c1fd21dae4be355052.sample" ]
+dest_files=["res://.godot/imported/hugh_scream_4.wav-6e4f841653d1e8c1fd21dae4be355052.sample"]
 
 [params]
 

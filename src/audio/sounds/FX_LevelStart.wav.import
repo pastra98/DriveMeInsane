@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/FX_LevelStart.wav-ee112e6ffa696e5db2de9766081379d3.sample"
+type="AudioStreamWAV"
+uid="uid://dgk4twqcsvohy"
+path="res://.godot/imported/FX_LevelStart.wav-ee112e6ffa696e5db2de9766081379d3.sample"
 
 [deps]
 
 source_file="res://audio/sounds/FX_LevelStart.wav"
-dest_files=[ "res://.import/FX_LevelStart.wav-ee112e6ffa696e5db2de9766081379d3.sample" ]
+dest_files=["res://.godot/imported/FX_LevelStart.wav-ee112e6ffa696e5db2de9766081379d3.sample"]
 
 [params]
 

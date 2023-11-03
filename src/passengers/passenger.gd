@@ -29,7 +29,7 @@ func _init(pass_name: String):
     # set up rage timer
     rage_timer = Timer.new()
     rage_timer.name = "RageTimer"
-    rage_timer.connect("timeout", self, "_on_rage_cooldown_finished")
+    rage_timer.connect("timeout", Callable(self, "_on_rage_cooldown_finished"))
     add_child(rage_timer)
     # set up audio player
     sound_player = AudioStreamPlayer.new()
@@ -129,12 +129,12 @@ func set_passenger_sensibilities(conf: ConfigFile):
                 new_sensibility = AllGasNoBrakes.new(
                     conf.get_value(section, "insanity_required")
                     )
-                connect("new_insanity", new_sensibility, "_on_new_insanity")
+                connect("new_insanity", Callable(new_sensibility, "_on_new_insanity"))
             "InsanityScream":
                 new_sensibility = InsanityScream.new(
                     conf.get_value(section, "insanity_effect")
                     )
-                connect("passenger_raging", new_sensibility, "_on_passenger_raging") # connect signal to sensibility
+                connect("passenger_raging", Callable(new_sensibility, "_on_passenger_raging")) # connect signal to sensibility
             "HatesRed":
                 new_sensibility = HatesRed.new(
                     conf.get_value(section, "insanity_effect"),
@@ -144,9 +144,9 @@ func set_passenger_sensibilities(conf: ConfigFile):
             # add cooldown timer as child to every sensibility
             var cooldown_timer = Timer.new()
             cooldown_timer.name = new_sensibility.name + "Timer"
-            cooldown_timer.connect("timeout", new_sensibility, "cooldown_over")
+            cooldown_timer.connect("timeout", Callable(new_sensibility, "cooldown_over"))
             new_sensibility.add_child(cooldown_timer)
-            new_sensibility.connect("change_insanity", self, "insanity_change")
+            new_sensibility.connect("change_insanity", Callable(self, "insanity_change"))
             add_child(new_sensibility)
             sensibilities.append(new_sensibility)
 

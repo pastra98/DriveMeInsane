@@ -2,8 +2,8 @@ class_name AutomaticEffect
 extends Node2D
 
 signal change_insanity(amt, reason, is_broadcast)
-onready var player = $"/root/Main/Level".player
-onready var car = $"../../.."
+@onready var player = $"/root/Main/Level".player
+@onready var car = $"../../.."
 
 var insanity_effect: float
 var message: String

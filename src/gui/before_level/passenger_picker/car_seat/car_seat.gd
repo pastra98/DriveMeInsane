@@ -2,7 +2,7 @@ extends VBoxContainer
 
 signal passenger_removed_from_player(pass_ref, seat_name)
 
-onready var button_container = $VBoxContainer
+@onready var button_container = $VBoxContainer
 
 var passenger_ref: Passenger
 

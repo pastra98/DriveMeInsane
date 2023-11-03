@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Ensoniq-ZR-76-01-Dope-77.wav-ac0ae6bfae40cd559d08ce7538475d86.sample"
+type="AudioStreamWAV"
+uid="uid://4gmrirk2sfrt"
+path="res://.godot/imported/Ensoniq-ZR-76-01-Dope-77.wav-ac0ae6bfae40cd559d08ce7538475d86.sample"
 
 [deps]
 
 source_file="res://audio/testing/Ensoniq-ZR-76-01-Dope-77.wav"
-dest_files=[ "res://.import/Ensoniq-ZR-76-01-Dope-77.wav-ac0ae6bfae40cd559d08ce7538475d86.sample" ]
+dest_files=["res://.godot/imported/Ensoniq-ZR-76-01-Dope-77.wav-ac0ae6bfae40cd559d08ce7538475d86.sample"]
 
 [params]
 

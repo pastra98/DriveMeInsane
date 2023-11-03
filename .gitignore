@@ -1,1 +1,8 @@
-src/.import
+# Godot 4+ specific ignores
+src/.godot/
+
+# Godot-specific ignores
+src/.import/
+src/export.cfg
+src/export_presets.cfg
+.vscode

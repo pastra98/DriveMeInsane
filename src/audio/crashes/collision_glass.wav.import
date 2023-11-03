@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/collision_glass.wav-e9e8aac15cd8b61fbcc6facf7745d26e.sample"
+type="AudioStreamWAV"
+uid="uid://cxndtxwq1yidg"
+path="res://.godot/imported/collision_glass.wav-e9e8aac15cd8b61fbcc6facf7745d26e.sample"
 
 [deps]
 
 source_file="res://audio/crashes/collision_glass.wav"
-dest_files=[ "res://.import/collision_glass.wav-e9e8aac15cd8b61fbcc6facf7745d26e.sample" ]
+dest_files=["res://.godot/imported/collision_glass.wav-e9e8aac15cd8b61fbcc6facf7745d26e.sample"]
 
 [params]
 

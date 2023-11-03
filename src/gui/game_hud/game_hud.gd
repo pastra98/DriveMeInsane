@@ -1,16 +1,16 @@
 extends Control
 
-onready var level_timer = $"/root/Main/Level/Timer"
-onready var player = $"/root/Main/Level".player
-onready var needle = $"Speedometer/Needle"
+@onready var level_timer = $"/root/Main/Level/Timer"
+@onready var player = $"/root/Main/Level".player
+@onready var needle = $"Speedometer/Needle"
 
 var beepsound = load("res://audio/sounds/beep.wav")
 var time_fmt = "[center]%d:%02d"
 var prev_t: int = 100000 # don't question it
 var countdown_finished = false
 
-const MIN_ANGLE = deg2rad(-85)
-const MAX_ANGLE = deg2rad(85)
+const MIN_ANGLE = deg_to_rad(-85)
+const MAX_ANGLE = deg_to_rad(85)
 
 func _process(delta):
     var cur_t: int = ceil(level_timer.time_left)
@@ -21,8 +21,8 @@ func _process(delta):
             if cur_t <= 10:
                 time = "[color=red]" + time
                 $"Beep".play()
-            $"TimeLabel".bbcode_text = time
+            $"TimeLabel".text = time
     else:
-        $"TimeLabel".bbcode_text = "[center][color=green]" + str(cur_t)
+        $"TimeLabel".text = "[center][color=green]" + str(cur_t)
     # update needle
     needle.set_rotation(lerp_angle(MIN_ANGLE, MAX_ANGLE, player.get_current_kph()/80.0))

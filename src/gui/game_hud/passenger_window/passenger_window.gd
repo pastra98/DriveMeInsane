@@ -3,9 +3,9 @@ extends MarginContainer
 var timer: Timer
 # var text_timeout
 
-onready var bar = $VBoxContainer/InsanityBar
-onready var label = $VBoxContainer/CurrentEffect
-onready var img = $VBoxContainer/PassengerPic
+@onready var bar = $VBoxContainer/InsanityBar
+@onready var label = $VBoxContainer/CurrentEffect
+@onready var img = $VBoxContainer/PassengerPic
 
 func _ready():
     timer = Timer.new()
@@ -13,7 +13,7 @@ func _ready():
 func update_insanity(new_value, reason):
     bar.value = new_value
     var col = "red" if new_value > 0 else "red"
-    label.bbcode_text = "[wave amp=51 freq=10][color=%s]%s" % [col, reason]
+    label.text = "[wave amp=51 freq=10][color=%s]%s" % [col, reason]
     if new_value > 0:
         $"AnimationPlayer".play("go_red_anim")
     else:
@@ -21,7 +21,7 @@ func update_insanity(new_value, reason):
 
 
 func clear_text():
-    label.bbcode_text = ""
+    label.text = ""
 
 
 func update_picture(imgpath):

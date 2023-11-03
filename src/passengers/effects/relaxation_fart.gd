@@ -5,8 +5,8 @@ signal change_insanity(amt, reason, is_broadcast)
 
 var rng = RandomNumberGenerator.new()
 
-onready var passenger = get_parent()
-onready var car = $"../../.."
+@onready var passenger = get_parent()
+@onready var car = $"../../.."
 
 
 var insanity_effect: float
@@ -30,7 +30,7 @@ func _physics_process(delta):
         var prev_vol = get_node("../SoundPlayer").volume_db
         get_node("../SoundPlayer").volume_db = -20
         get_node("../SoundPlayer").play()
-        yield(get_tree().create_timer(1), "timeout")
+        await get_tree().create_timer(1).timeout
         get_node("../SoundPlayer").volume_db = prev_vol
         # emit broadcast
         emit_signal("change_insanity", insanity_effect, "Fart!", true)

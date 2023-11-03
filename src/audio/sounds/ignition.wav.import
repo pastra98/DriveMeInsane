@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/ignition.wav-9f16013bff432425e714e8f3385d88ca.sample"
+type="AudioStreamWAV"
+uid="uid://cvk1btuk4pjqd"
+path="res://.godot/imported/ignition.wav-9f16013bff432425e714e8f3385d88ca.sample"
 
 [deps]
 
 source_file="res://audio/sounds/ignition.wav"
-dest_files=[ "res://.import/ignition.wav-9f16013bff432425e714e8f3385d88ca.sample" ]
+dest_files=["res://.godot/imported/ignition.wav-9f16013bff432425e714e8f3385d88ca.sample"]
 
 [params]
 

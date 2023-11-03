@@ -1,17 +1,17 @@
-[gd_resource type="Theme" load_steps=12 format=2]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://cc42ptcpy3e35"]
 
-[ext_resource path="res://gui/fonts/pixellari_24.tres" type="DynamicFont" id=1]
-[ext_resource path="res://gui/theme/styleboxes/blue_button.tres" type="StyleBox" id=2]
-[ext_resource path="res://gui/theme/styleboxes/black_white_border.tres" type="StyleBox" id=3]
-[ext_resource path="res://gui/theme/styleboxes/grabber_highlight.tres" type="StyleBox" id=4]
-[ext_resource path="res://gui/theme/styleboxes/scroll.tres" type="StyleBox" id=5]
-[ext_resource path="res://gui/theme/styleboxes/stylebox_disabled_button.tres" type="StyleBox" id=6]
-[ext_resource path="res://gui/theme/styleboxes/grey_white_border.tres" type="StyleBox" id=7]
-[ext_resource path="res://gui/theme/styleboxes/popup.tres" type="StyleBox" id=8]
-[ext_resource path="res://gui/theme/nothing.png" type="Texture" id=9]
+[ext_resource type="FontFile" path="res://gui/fonts/pixellari_24.tres" id="1"]
+[ext_resource type="StyleBox" path="res://gui/theme/styleboxes/blue_button.tres" id="2"]
+[ext_resource type="StyleBox" path="res://gui/theme/styleboxes/black_white_border.tres" id="3"]
+[ext_resource type="StyleBox" path="res://gui/theme/styleboxes/grabber_highlight.tres" id="4"]
+[ext_resource type="StyleBox" path="res://gui/theme/styleboxes/scroll.tres" id="5"]
+[ext_resource type="StyleBox" path="res://gui/theme/styleboxes/stylebox_disabled_button.tres" id="6"]
+[ext_resource type="StyleBox" path="res://gui/theme/styleboxes/grey_white_border.tres" id="7"]
+[ext_resource type="StyleBox" path="res://gui/theme/styleboxes/popup.tres" id="8"]
+[ext_resource type="Texture2D" uid="uid://mj2bomc6rym1" path="res://gui/theme/nothing.png" id="9"]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.164706, 0.305882, 0.27451, 1 )
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.164706, 0.305882, 0.27451, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -23,39 +23,39 @@ corner_radius_bottom_left = 6
 expand_margin_top = 3.0
 expand_margin_bottom = 4.0
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
 border_width_left = 5
 border_width_right = 5
-border_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+border_color = Color(0.12549, 0.12549, 0.12549, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [resource]
-default_font = ExtResource( 1 )
-Button/styles/disabled = ExtResource( 6 )
-Button/styles/hover = SubResource( 1 )
-Button/styles/normal = ExtResource( 2 )
-Button/styles/pressed = ExtResource( 2 )
+default_font = ExtResource("1")
+Button/styles/disabled = ExtResource("6")
+Button/styles/hover = SubResource("1")
+Button/styles/normal = ExtResource("2")
+Button/styles/pressed = ExtResource("2")
 HScrollBar/icons/decrement = null
 HScrollBar/icons/decrement_highlight = null
 HScrollBar/icons/decrement_pressed = null
 HScrollBar/icons/increment = null
 HScrollBar/icons/increment_highlight = null
 HScrollBar/icons/increment_pressed = null
-HScrollBar/styles/grabber = ExtResource( 3 )
-HScrollBar/styles/grabber_highlight = ExtResource( 4 )
-HScrollBar/styles/grabber_pressed = ExtResource( 4 )
-HScrollBar/styles/scroll = ExtResource( 5 )
-Panel/styles/panel = ExtResource( 7 )
-PopupDialog/styles/panel = ExtResource( 8 )
-PopupPanel/styles/panel = ExtResource( 8 )
-VScrollBar/styles/grabber = ExtResource( 3 )
-VScrollBar/styles/grabber_highlight = ExtResource( 4 )
-VScrollBar/styles/grabber_pressed = ExtResource( 4 )
-VScrollBar/styles/scroll = SubResource( 3 )
-WindowDialog/icons/close = ExtResource( 9 )
-WindowDialog/icons/close_highlight = ExtResource( 9 )
-WindowDialog/styles/panel = ExtResource( 8 )
+HScrollBar/styles/grabber = ExtResource("3")
+HScrollBar/styles/grabber_highlight = ExtResource("4")
+HScrollBar/styles/grabber_pressed = ExtResource("4")
+HScrollBar/styles/scroll = ExtResource("5")
+Panel/styles/panel = ExtResource("7")
+Popup/styles/panel = ExtResource("8")
+PopupPanel/styles/panel = ExtResource("8")
+VScrollBar/styles/grabber = ExtResource("3")
+VScrollBar/styles/grabber_highlight = ExtResource("4")
+VScrollBar/styles/grabber_pressed = ExtResource("4")
+VScrollBar/styles/scroll = SubResource("3")
+Window/icons/close = ExtResource("9")
+Window/icons/close_highlight = ExtResource("9")
+Window/styles/panel = ExtResource("8")

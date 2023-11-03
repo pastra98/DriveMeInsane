@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/marvin_scream_1.wav-e344269ed0accb82ce1ee3354ae1a889.sample"
+type="AudioStreamWAV"
+uid="uid://bfignjjc0mfdy"
+path="res://.godot/imported/marvin_scream_1.wav-e344269ed0accb82ce1ee3354ae1a889.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/marvin/marvin_scream_1.wav"
-dest_files=[ "res://.import/marvin_scream_1.wav-e344269ed0accb82ce1ee3354ae1a889.sample" ]
+dest_files=["res://.godot/imported/marvin_scream_1.wav-e344269ed0accb82ce1ee3354ae1a889.sample"]
 
 [params]
 

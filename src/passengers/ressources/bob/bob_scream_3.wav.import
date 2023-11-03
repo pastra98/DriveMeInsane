@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/bob_scream_3.wav-63d8f27d96c6f1e625ca9682e6941cfa.sample"
+type="AudioStreamWAV"
+uid="uid://fct2aj1ugxq5"
+path="res://.godot/imported/bob_scream_3.wav-63d8f27d96c6f1e625ca9682e6941cfa.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/bob/bob_scream_3.wav"
-dest_files=[ "res://.import/bob_scream_3.wav-63d8f27d96c6f1e625ca9682e6941cfa.sample" ]
+dest_files=["res://.godot/imported/bob_scream_3.wav-63d8f27d96c6f1e625ca9682e6941cfa.sample"]
 
 [params]
 

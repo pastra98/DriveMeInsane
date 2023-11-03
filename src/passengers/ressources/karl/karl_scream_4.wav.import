@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/karl_scream_4.wav-27382d024078e4ad17c508d6c0eb0015.sample"
+type="AudioStreamWAV"
+uid="uid://ch0le5wdq6q6n"
+path="res://.godot/imported/karl_scream_4.wav-27382d024078e4ad17c508d6c0eb0015.sample"
 
 [deps]
 
 source_file="res://passengers/ressources/karl/karl_scream_4.wav"
-dest_files=[ "res://.import/karl_scream_4.wav-27382d024078e4ad17c508d6c0eb0015.sample" ]
+dest_files=["res://.godot/imported/karl_scream_4.wav-27382d024078e4ad17c508d6c0eb0015.sample"]
 
 [params]
 
