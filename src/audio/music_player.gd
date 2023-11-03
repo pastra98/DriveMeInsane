@@ -2,13 +2,18 @@ extends AudioStreamPlayer
 
 const TRANS_DUR = 0.5
 
-var base_volume = -50
+var base_volume = -50 # TODO: fix this shit
 var is_muted = false
 
 var main_theme = preload("res://audio/music/main_theme.wav")
 var game_theme = preload("res://audio/music/game_theme.wav")
 
-var trans_type = 1 # TRANS_SINE
+@onready var music_tween = get_tree().create_tween()
+
+
+func _ready():
+    music_tween.set_ease(Tween.EASE_IN)
+    music_tween.set_trans(Tween.TRANS_SINE)
 
 
 func switch_music(title: String):
@@ -29,12 +34,10 @@ func playback(resume: bool):
         return
     if resume:
         play()
-        $"Tween".interpolate_property(self, "volume_db", -80, base_volume, TRANS_DUR, trans_type, Tween.EASE_IN, 0)
-        $"Tween".start()
+        music_tween.tween_property($Path2D/PathFollow2D, "progress_ratio", base_volume, TRANS_DUR)
     else:
-        $"Tween".interpolate_property(self, "volume_db", base_volume, -80, TRANS_DUR, trans_type, Tween.EASE_IN, 0)
-        $"Tween".start()
-        yield($"Tween", "tween_completed")
+        music_tween.tween_property($Path2D/PathFollow2D, "progress_ratio", -80, TRANS_DUR)
+        await music_tween.finished
         stop()
 
 

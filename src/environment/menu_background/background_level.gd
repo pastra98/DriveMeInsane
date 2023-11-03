@@ -3,14 +3,8 @@ extends Node
 const TIME_TO_TRAVERSE = 120
 
 func _ready():
-    run_tween()
-
-
-func run_tween():
-    $"Path2D/PathFollow2D/Camera2D/Tween".interpolate_property(
-        $Path2D/PathFollow2D, "unit_offset",
-        0, 1, TIME_TO_TRAVERSE, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
-    )
-    $"Path2D/PathFollow2D/Camera2D/Tween".start()
-    yield($Path2D/PathFollow2D/Camera2D/Tween, "tween_all_completed")
-    run_tween()
+    var camera_tween = get_tree().create_tween()
+    camera_tween.set_ease(Tween.EASE_IN_OUT)
+    camera_tween.set_trans(Tween.TRANS_LINEAR)
+    camera_tween.set_loops() # run infinite
+    camera_tween.tween_property($Path2D/PathFollow2D, "progress_ratio", 1, TIME_TO_TRAVERSE)

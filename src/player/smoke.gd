@@ -1,6 +1,6 @@
 extends CPUParticles2D
 
-onready var player = $"../../.."
+@onready var player = $"../../.."
 
 # yes, this is very verbose and could have been done using a single array,
 # but for readability purposes it's like this
@@ -22,8 +22,9 @@ var t = 0
 func _process(delta):
     t += delta
     if t > 0.1:
-        var speed_scale = player.get_current_kph() / TOP_SPEED
-        lifetime = lerp(MIN_LIFETIME, MAX_LIFETIME, speed_scale)
-        scale_amount = lerp(MIN_SCALE, MAX_SCALE, speed_scale)
-        spread = lerp(MIN_SPREAD, MAX_SPREAD, speed_scale)
+        var speed_normalized = player.get_current_kph() / TOP_SPEED
+        lifetime = lerp(MIN_LIFETIME, MAX_LIFETIME, speed_normalized)
+        scale_amount_max = lerp(MIN_SCALE, MAX_SCALE, speed_normalized)
+        scale_amount_min = lerp(MIN_SCALE, MAX_SCALE, speed_normalized)
+        spread = lerp(MIN_SPREAD, MAX_SPREAD, speed_normalized)
         t = 0
